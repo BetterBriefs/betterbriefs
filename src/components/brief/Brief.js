@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ref, getDownloadURL } from "firebase/storage";
-import { BrowserRouter as getParams } from "react-router-dom";
+import { useParams  } from "react-router-dom";
 import { storage } from "../../firebase-config";
 
 // i want to read color,font,idea,.... from URL params
@@ -9,9 +9,9 @@ import { storage } from "../../firebase-config";
 // but link is not shareable with this solution
 export const Brief = ({ color, font, idea, persona, layout }) => {
   //const [layoutUrl, setLayoutUrl] = useState([]);
-
-  let { id } = getParams();
+  let { id } = useParams();
   console.log(id);
+  //navigate("/"+color.id+"/"+font.id+"/"+idea.id+"/"+persona.id+"/"+layout.id);
 
   // const path = ref(storage, layout.link);
 
