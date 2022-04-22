@@ -1,23 +1,31 @@
 import React, { useState, useEffect } from "react";
 import { ref, getDownloadURL } from "firebase/storage";
+import { BrowserRouter as getParams } from "react-router-dom";
 import { storage } from "../../firebase-config";
 
+// i want to read color,font,idea,.... from URL params
+// so i can share the link with others and they get same result
+// current soloution is, that brief is stored in states and passed via props in this component.
+// but link is not shareable with this solution
 export const Brief = ({ color, font, idea, persona, layout }) => {
-  const [layoutUrl, setLayoutUrl] = useState([]);
+  //const [layoutUrl, setLayoutUrl] = useState([]);
 
-  const path = ref(storage, layout.link);
+  let { id } = getParams();
+  console.log(id);
+
+  // const path = ref(storage, layout.link);
 
   //get layout image to show in brief
-  useEffect(() => {
-    getDownloadURL(path).then((url) => {
-      // Insert url into an <img> tag
-      setLayoutUrl(url);
-    });
-  }, [path]);
+  // useEffect(() => {
+  //   getDownloadURL(path).then((url) => {
+  //     // Insert url into an <img> tag
+  //     setLayoutUrl(url);
+  //   });
+  // }, [path]);
 
   return (
     <>
-      <div>
+      {/* <div>
         <b>Persona:</b>
       </div>
       <div>Name: {persona.name}</div>
@@ -55,7 +63,7 @@ export const Brief = ({ color, font, idea, persona, layout }) => {
         <b>Layout:</b>
       </div>
       <div>Link: {layout.link}</div>
-      <img src={layoutUrl} alt="layout"></img>
+      <img src={layoutUrl} alt="layout"></img> */}
     </>
   );
 };

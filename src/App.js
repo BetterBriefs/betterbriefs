@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SignInForm } from "./components/login/SignInForm";
 import { SignUpForm } from "./components/signup/SignUpForm";
 import { Button } from "./components/button/Button";
@@ -121,13 +121,14 @@ function App() {
             persona={persona}
           ></Brief>
         )}
+        <BrowserRouter>
+            <Routes>
+              <Route path="/sign-in" element={<SignInForm user={user} />} />
+              <Route path="/sign-up" element={<SignUpForm user={user} />} />
+              <Route path="/:id" element={<Brief />} />
+            </Routes>
+        </BrowserRouter>
 
-        <Router>
-          <Routes>
-            <Route path="/sign-in" element={<SignInForm user={user} />} />
-            <Route path="/sign-up" element={<SignUpForm user={user} />} />
-          </Routes>
-        </Router>
       </header>
     </div>
   );
