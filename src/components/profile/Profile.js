@@ -5,10 +5,14 @@ import { useParams } from "react-router-dom";
 import { ref, getDownloadURL } from "firebase/storage";
 
 export const Profile = () => {
+  // userId from URL
   let { uid } = useParams();
+  // profile data
   const [userProfile, setUserProfile] = useState(undefined);
+  //projects from user
   const [projects, setProjects] = useState(undefined);
 
+  // database
   const projectsCollectionRef = collection(db, "projects");
 
   useEffect(() => {
@@ -23,7 +27,6 @@ export const Profile = () => {
     const path = ref(storage, thumbnail);
 
     getDownloadURL(path).then((url) => {
-      // Insert url into an <img> tag
       console.log("the url");
       console.log(url);
       return url;
@@ -42,7 +45,7 @@ export const Profile = () => {
     const parsedData = data.docs
       .map((doc) => ({ ...doc.data(), id: doc.id }))
       .filter((project) => project.userId === uid);
-    //todo: add imageurls with method getimageurl
+    //todo: add imageurls to display thumbnail images with method getimageurl
 
     setProjects(parsedData);
   }
