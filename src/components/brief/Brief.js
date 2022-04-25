@@ -172,6 +172,8 @@ export const Brief = ({ user }) => {
       idea: doc(db, "ideas", idea.id),
       layout: doc(db, "layouts", layout.id),
       persona: doc(db, "personas", persona.id),
+      thumbnail:
+        "gs://betterbriefs-8b032.appspot.com/assets/default_project.png",
       published: false,
       title: "Project Title",
       repo_link: "",
