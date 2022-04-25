@@ -22,10 +22,10 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<Brief />} />
+          <Route path="/" element={<Brief user={user}/>} />
           <Route
             path="/:colorid/:fontid/:ideaid/:layoutid/:personaid"
-            element={<Brief />}
+            element={<Brief user={user}/>}
           />
           <Route path="/sign-in" element={<SignInForm user={user} />} />
           <Route path="/sign-up" element={<SignUpForm user={user} />} />
