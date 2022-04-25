@@ -18,7 +18,9 @@ async function logoutUser() {
 
 export const Header = ({ user }) => (
   <div className="header">
-    <img src={logoUrl} alt="Tesla" />
+    <Link to="/">
+      <img src={logoUrl} alt="logo" />
+    </Link>
     <div>
       {user && <Button onClick={logoutUser}>Logout</Button>}
       {!user && <Link to="/sign-in">Login</Link>}

@@ -23,14 +23,14 @@ function App() {
       <BrowserRouter>
         <Header user={user} />
         <Routes>
-          <Route path="/" element={<Brief />} />
+          <Route path="/" element={<Brief user={user} />} />
           <Route
             path="/:colorid/:fontid/:ideaid/:layoutid/:personaid"
-            element={<Brief />}
+            element={<Brief user={user} />}
           />
           <Route path="/sign-in" element={<SignInForm user={user} />} />
           <Route path="/sign-up" element={<SignUpForm user={user} />} />
-          <Route path="/profile/:uid" element={<Profile user={user} />} />
+          <Route path="/profile/:uid" element={<Profile />} />
         </Routes>
         <Footer />
       </BrowserRouter>

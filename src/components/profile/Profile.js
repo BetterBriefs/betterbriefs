@@ -21,6 +21,7 @@ export const Profile = () => {
 
   // database
   const projectsCollectionRef = collection(db, "projects");
+  const userDocRef = doc(db, "users", uid);
 
   useEffect(() => {
     if (uid) {
@@ -41,8 +42,7 @@ export const Profile = () => {
   }
 
   async function getProfile() {
-    const docRef = doc(db, "users", uid);
-    const data = await getDoc(docRef);
+    const data = await getDoc(userDocRef);
     let parsedData = { ...data.data(), id: data.id };
     setUserProfile(parsedData);
   }
@@ -63,6 +63,11 @@ export const Profile = () => {
     getProjects();
   }
 
+  function editProfile(project) {
+    updateProfile();
+    getProfile();
+  }
+
   // Update project / dummy data for test purpose
   // Todo: create form which user submits to update project
   async function updateProject(projectDocRef) {
@@ -75,11 +80,23 @@ export const Profile = () => {
     });
   }
 
+  // Update profile / dummy data for test purpose
+  // Todo: create form which user submits to update profile
+  async function updateProfile() {
+    await updateDoc(userDocRef, {
+      description: "A description about me",
+      picture: "the link to profile picture",
+    });
+  }
+
   return (
     <>
       {userProfile && projects && (
         <>
           <div>Profile from {userProfile.name}</div>
+          <div>Description: {userProfile.description}</div>
+          <div>Picture: {userProfile.picture}</div>
+          <Button onClick={editProfile}>Edit Profile</Button>
           <div>Projects</div>
           {projects.map((project) => (
             <>
