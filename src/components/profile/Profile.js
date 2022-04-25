@@ -99,13 +99,13 @@ export const Profile = () => {
           <Button onClick={editProfile}>Edit Profile</Button>
           <div>Projects</div>
           {projects.map((project) => (
-            <>
+            <div key={project.id}>
               <div>Title: {project.title}</div>
               <div>State: {project.published.toString()}</div>
               {/* TODO imageurl is undefined at this point, but after method it is correct */}
               <img src={getImageUrl(project.thumbnail)} alt="project"></img>
               <Button onClick={() => publishProject(project)}>Publish</Button>
-            </>
+            </div>
           ))}
         </>
       )}

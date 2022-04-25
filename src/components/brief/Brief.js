@@ -13,6 +13,7 @@ export const Brief = ({ user }) => {
   const [layoutUrl, setLayoutUrl] = useState([]);
 
   // all data for brief creation
+  // TODO: maybe not load full db, just pick random entries (length of dbs is needed, also project types need to be checked)
   const [colors, setColors] = useState([]);
   const [fonts, setFonts] = useState([]);
   const [ideas, setIdeas] = useState([]);
@@ -110,6 +111,7 @@ export const Brief = ({ user }) => {
     }
   }, [color, font, idea, layout, persona]);
 
+  // TODO: check that layout and project type matches
   function generateBrief() {
     // get length of each dataset to choose a random index that will be used
     let lengthColors = colors.length;
