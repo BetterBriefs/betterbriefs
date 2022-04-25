@@ -5,6 +5,7 @@ import { SignUpForm } from "./components/signup/SignUpForm";
 import { Brief } from "./components/brief/Brief";
 import { Header } from "./components/header/Header";
 import { Footer } from "./components/footer/Footer";
+import { Profile } from "./components/profile/Profile";
 import { auth } from "./firebase-config";
 
 import "./App.css";
@@ -20,7 +21,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header />
+        <Header user={user} />
         <Routes>
           <Route path="/" element={<Brief />} />
           <Route
@@ -29,6 +30,7 @@ function App() {
           />
           <Route path="/sign-in" element={<SignInForm user={user} />} />
           <Route path="/sign-up" element={<SignUpForm user={user} />} />
+          <Route path="/profile/:uid" element={<Profile user={user} />} />
         </Routes>
         <Footer />
       </BrowserRouter>
