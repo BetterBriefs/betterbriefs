@@ -19,6 +19,8 @@ export const Profile = () => {
   //projects from user
   const [projects, setProjects] = useState(undefined);
 
+  const [projectThumbnails, setProjectThumbnails] = useState([{}]);
+
   // database
   const projectsCollectionRef = collection(db, "projects");
   const userDocRef = doc(db, "users", uid);
@@ -29,13 +31,6 @@ export const Profile = () => {
       getProjects();
     }
   }, [uid]);
-
-  //load project images from firebase
-  // getDownloadURL(path).then((url) => {
-  //   //console.log("the url");
-  //   console.log(url);
-  //   return url;
-  // });
 
   async function getProfile() {
     const data = await getDoc(userDocRef);
@@ -48,17 +43,18 @@ export const Profile = () => {
     const parsedData = data.docs
       .map((doc) => ({ ...doc.data(), id: doc.id }))
       .filter((project) => project.userId === uid);
-    //todo: add imageurls to display thumbnail images with method getimageurl
 
-    const parsedDataWithImage = parsedData.map((project) => ({
-      ...project,
-      //imageUrl: getImageUrl(project.thumbnail),
-      imageurl: getDownloadURL(ref(storage, project.thumbnail)).then((url) => {
-        return url;
-        //console.log(url);
-      }),
-    }));
-    setProjects(parsedDataWithImage);
+    //iterate over projects and set thumbnails
+    parsedData.forEach((project) => {
+      getDownloadURL(ref(storage, project.thumbnail)).then((url) => {
+        let result = url;
+        let data = { id: project.id, url: result };
+        console.log(result);
+        setProjectThumbnails([...projectThumbnails, data]);
+      });
+    });
+    setProjects(parsedData);
+    console.log(projectThumbnails);
   }
 
   function publishProject(project) {
@@ -70,6 +66,12 @@ export const Profile = () => {
   function editProfile() {
     updateProfile();
     getProfile();
+  }
+
+  function getImage(project) {
+    let data = projectThumbnails.find((item) => item.id === project.id);
+    if (data) return data.url;
+    else return "";
   }
 
   // Update project / dummy data for test purpose
@@ -107,7 +109,7 @@ export const Profile = () => {
               <div>Title: {project.title}</div>
               <div>State: {project.published.toString()}</div>
               {/* TODO imageurl is undefined at this point, but after method it is correct */}
-              <img src={project.imageurl} alt="project"></img>
+              <img width="500" src={getImage(project)} alt="project"></img>
               <Button onClick={() => publishProject(project)}>Publish</Button>
             </div>
           ))}
