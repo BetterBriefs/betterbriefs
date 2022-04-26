@@ -54,8 +54,8 @@ export const Profile = () => {
       ...project,
       //imageUrl: getImageUrl(project.thumbnail),
       imageurl: getDownloadURL(ref(storage, project.thumbnail)).then((url) => {
-        //return url;
-        console.log(url);
+        return url;
+        //console.log(url);
       }),
     }));
     setProjects(parsedDataWithImage);
