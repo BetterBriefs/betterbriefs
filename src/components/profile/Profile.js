@@ -19,7 +19,7 @@ export const Profile = () => {
   //projects from user
   const [projects, setProjects] = useState(undefined);
 
-  const [projectThumbnails, setProjectThumbnails] = useState([{}]);
+  const [projectThumbnails, setProjectThumbnails] = useState([]);
 
   // database
   const projectsCollectionRef = collection(db, "projects");
@@ -49,8 +49,12 @@ export const Profile = () => {
       getDownloadURL(ref(storage, project.thumbnail)).then((url) => {
         let result = url;
         let data = { id: project.id, url: result };
-        console.log(result);
-        setProjectThumbnails([...projectThumbnails, data]);
+        console.log(data);
+
+        setProjectThumbnails((projectThumbnails) => [
+          ...projectThumbnails,
+          data,
+        ]);
       });
     });
     setProjects(parsedData);
