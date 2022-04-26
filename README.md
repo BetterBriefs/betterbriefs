@@ -10,6 +10,12 @@ Reichinger Kerstin: kerstin.reichinger@gmx.at
 Araz Al Hamdani: alhamdani.araz@gmail.com
 Tanja Santner: santner_tanja@gmx.at
 
+# Deployment Firebase
+
+- you must be logged in to firebase, run `firebase login`
+- then run `npm run build`
+- then run `firebase deploy`
+
 ## Available Scripts
 
 In the project directory, you can run:
