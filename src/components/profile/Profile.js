@@ -31,15 +31,11 @@ export const Profile = () => {
   }, [uid]);
 
   //load project images from firebase
-  function getImageUrl(thumbnail) {
-    const path = ref(storage, thumbnail);
-
-    getDownloadURL(path).then((url) => {
-      console.log("the url");
-      console.log(url);
-      return url;
-    });
-  }
+  // getDownloadURL(path).then((url) => {
+  //   //console.log("the url");
+  //   console.log(url);
+  //   return url;
+  // });
 
   async function getProfile() {
     const data = await getDoc(userDocRef);
@@ -54,7 +50,15 @@ export const Profile = () => {
       .filter((project) => project.userId === uid);
     //todo: add imageurls to display thumbnail images with method getimageurl
 
-    setProjects(parsedData);
+    const parsedDataWithImage = parsedData.map((project) => ({
+      ...project,
+      //imageUrl: getImageUrl(project.thumbnail),
+      imageurl: getDownloadURL(ref(storage, project.thumbnail)).then((url) => {
+        //return url;
+        console.log(url);
+      }),
+    }));
+    setProjects(parsedDataWithImage);
   }
 
   function publishProject(project) {
@@ -63,7 +67,7 @@ export const Profile = () => {
     getProjects();
   }
 
-  function editProfile(project) {
+  function editProfile() {
     updateProfile();
     getProfile();
   }
@@ -103,7 +107,7 @@ export const Profile = () => {
               <div>Title: {project.title}</div>
               <div>State: {project.published.toString()}</div>
               {/* TODO imageurl is undefined at this point, but after method it is correct */}
-              <img src={getImageUrl(project.thumbnail)} alt="project"></img>
+              <img src={project.imageurl} alt="project"></img>
               <Button onClick={() => publishProject(project)}>Publish</Button>
             </div>
           ))}
