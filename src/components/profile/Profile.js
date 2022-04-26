@@ -19,6 +19,12 @@ export const Profile = () => {
   //projects from user
   const [projects, setProjects] = useState(undefined);
 
+  //project thumbnails loaded from firebase storage
+  const [projectThumbnails, setProjectThumbnails] = useState([]);
+
+  //profile picture
+  const [profilePicture, setProfilePicture] = useState([]);
+
   // database
   const projectsCollectionRef = collection(db, "projects");
   const userDocRef = doc(db, "users", uid);
@@ -29,17 +35,6 @@ export const Profile = () => {
       getProjects();
     }
   }, [uid]);
-
-  //load project images from firebase
-  function getImageUrl(thumbnail) {
-    const path = ref(storage, thumbnail);
-
-    getDownloadURL(path).then((url) => {
-      console.log("the url");
-      console.log(url);
-      return url;
-    });
-  }
 
   async function getProfile() {
     const data = await getDoc(userDocRef);
@@ -52,10 +47,33 @@ export const Profile = () => {
     const parsedData = data.docs
       .map((doc) => ({ ...doc.data(), id: doc.id }))
       .filter((project) => project.userId === uid);
-    //todo: add imageurls to display thumbnail images with method getimageurl
 
+    //iterate over projects and get thumbnails url
+    parsedData.forEach((project) => {
+      getDownloadURL(ref(storage, project.thumbnail)).then((url) => {
+        let result = url;
+        let data = { id: project.id, url: result };
+
+        setProjectThumbnails((projectThumbnails) => [
+          ...projectThumbnails,
+          data,
+        ]);
+      });
+    });
     setProjects(parsedData);
   }
+
+  //load persona image from firebase storage and render
+  useEffect(() => {
+    if (userProfile) {
+      const path = ref(storage, userProfile.picture);
+
+      getDownloadURL(path).then((url) => {
+        // Insert url into an <img> tag
+        setProfilePicture(url);
+      });
+    }
+  }, [userProfile]);
 
   function publishProject(project) {
     const docRef = doc(db, "projects", project.id);
@@ -63,9 +81,15 @@ export const Profile = () => {
     getProjects();
   }
 
-  function editProfile(project) {
+  function editProfile() {
     updateProfile();
     getProfile();
+  }
+
+  function getImage(project) {
+    let data = projectThumbnails.find((item) => item.id === project.id);
+    if (data) return data.url;
+    else return "";
   }
 
   // Update project / dummy data for test purpose
@@ -93,17 +117,20 @@ export const Profile = () => {
     <>
       {userProfile && projects && (
         <>
-          <div>Profile from {userProfile.name}</div>
+          <div>
+            <b>Profile from {userProfile.name}</b>
+          </div>
           <div>Description: {userProfile.description}</div>
-          <div>Picture: {userProfile.picture}</div>
+          <img src={profilePicture} alt="profilepicture" width="50"></img>
           <Button onClick={editProfile}>Edit Profile</Button>
-          <div>Projects</div>
+          <div>
+            <b>Projects</b>
+          </div>
           {projects.map((project) => (
             <div key={project.id}>
               <div>Title: {project.title}</div>
               <div>State: {project.published.toString()}</div>
-              {/* TODO imageurl is undefined at this point, but after method it is correct */}
-              <img src={getImageUrl(project.thumbnail)} alt="project"></img>
+              <img width="500" src={getImage(project)} alt="project"></img>
               <Button onClick={() => publishProject(project)}>Publish</Button>
             </div>
           ))}
