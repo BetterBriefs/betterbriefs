@@ -1,33 +1,38 @@
-import React, { useCallback } from 'react'
-import { Button } from '../button/Button'
-import { TextInput } from '../textinput/TextInput'
-import { useFormik } from 'formik'
-import { object, string } from 'yup'
-import { Link, Navigate } from 'react-router-dom'
-import { auth } from '../../firebase-config'
-import { signInWithEmailAndPassword } from 'firebase/auth'
+import React, { useCallback } from "react";
+import { Button } from "../button/Button";
+import { TextInput } from "../textinput/TextInput";
+import { useFormik } from "formik";
+import { object, string } from "yup";
+import { Link, Navigate } from "react-router-dom";
+import { auth } from "../../firebase-config";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 export const SignInForm = ({ user }) => {
-  if (user) return <Navigate to="/"></Navigate>
-  async function handleSubmit (email, password) {
-    try {
-      await signInWithEmailAndPassword(auth, email, password)
-    } catch (error) {
-      alert(error.message)
-    }
-  }
   const userSchema = object({
     email: string().min(3),
-    password: string().min(6)
-  })
+    password: string().min(6),
+  });
 
   const formik = useFormik({
-    initialValues: { email: '', password: '' },
+    initialValues: { email: "", password: "" },
     validationSchema: userSchema,
     onSubmit: (values) => {
-      handleSubmit(values.email, values.password)
+      handleSubmit(values.email, values.password);
+    },
+  });
+
+  const onUserLogin = useCallback(() => {
+    console.log("user successfully logged in");
+  }, []);
+
+  if (user) return <Navigate to="/"></Navigate>;
+  async function handleSubmit(email, password) {
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+    } catch (error) {
+      alert(error.message);
     }
-  })
+  }
 
   return (
     <form onSubmit={formik.handleSubmit}>
@@ -49,14 +54,9 @@ export const SignInForm = ({ user }) => {
         value={formik.values.password}
         errorMessage={formik.errors.password}
       ></TextInput>
-      <Button onClick={
-        useCallback(
-          () => console.log('Sign in'),
-          []
-        )
-        }>Sign In</Button>
+      <Button onClick={onUserLogin}>Sign In</Button>
       <Link to="/sign-up">Sign Up</Link>
       <Link to="/reset-password">Forgot Password?</Link>
     </form>
-  )
-}
+  );
+};

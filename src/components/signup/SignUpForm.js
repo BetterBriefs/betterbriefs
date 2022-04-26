@@ -9,6 +9,33 @@ import { db, auth } from "../../firebase-config";
 import * as Yup from "yup";
 
 export const SignUpForm = ({ user }) => {
+  // TODO: add dsgvo
+  // https://codesandbox.io/s/l2r832l8x7?file=/src/index.js:94-121 code for password confirmation
+  const Schema = Yup.object().shape({
+    name: Yup.string().min(3).required("name is required"),
+    email: Yup.string().min(6).required("email is required"),
+    password: Yup.string().required("password is required"),
+    repeatpassword: Yup.string().when("password", {
+      is: (val) => !!(val && val.length > 0),
+      then: Yup.string().oneOf(
+        [Yup.ref("password")],
+        "Both password need to be the same"
+      ),
+    }),
+  });
+  const formik = useFormik({
+    initialValues: { name: "", password: "", repeatpassword: "", email: "" },
+    validationSchema: Schema,
+    onSubmit: (values) => {
+      // log the values of the form
+      handleSubmit(values.name, values.password, values.email);
+    },
+  });
+
+  const onUserSubmit = useCallback(() => {
+    console.log("user successfully signed up");
+  }, []);
+
   if (user) return <Navigate to="/"></Navigate>;
 
   async function handleSubmit(name, password, email) {
@@ -29,29 +56,6 @@ export const SignUpForm = ({ user }) => {
       alert(error.message);
     }
   }
-  // TODO: add dsgvo
-  //  https://codesandbox.io/s/l2r832l8x7?file=/src/index.js:94-121 code for password confirmation
-  const Schema = Yup.object().shape({
-    name: Yup.string().min(3).required("name is required"),
-    email: Yup.string().min(6).required("email is required"),
-    password: Yup.string().required("password is required"),
-    repeatpassword: Yup.string().when("password", {
-      is: (val) => !!(val && val.length > 0),
-      then: Yup.string().oneOf(
-        [Yup.ref("password")],
-        "Both password need to be the same"
-      ),
-    }),
-  });
-
-  const formik = useFormik({
-    initialValues: { name: "", password: "", repeatpassword: "", email: "" },
-    validationSchema: Schema,
-    onSubmit: (values) => {
-      // log the values of the form
-      handleSubmit(values.name, values.password, values.email);
-    },
-  });
 
   return (
     <form onSubmit={formik.handleSubmit}>
@@ -91,9 +95,7 @@ export const SignUpForm = ({ user }) => {
         value={formik.values.repeatpassword}
         errorMessage={formik.errors.repeatpassword}
       ></TextInput>
-      <Button onClick={useCallback(() => console.log("Sign up"), [])}>
-        Sign Up
-      </Button>
+      <Button onClick={onUserSubmit}>Sign Up</Button>
       <Link to="/sign-in">Sign In</Link>
     </form>
   );
