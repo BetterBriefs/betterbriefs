@@ -12,6 +12,8 @@ export const Brief = ({ user }) => {
 
   const [layoutUrl, setLayoutUrl] = useState([]);
 
+  const [personaUrl, setPersonaUrl] = useState([]);
+
   // all data for brief creation
   // TODO: maybe not load full db, just pick random entries (length of dbs is needed, also project types need to be checked)
   const [colors, setColors] = useState([]);
@@ -154,6 +156,18 @@ export const Brief = ({ user }) => {
     }
   }, [layout]);
 
+  //load persona image from firebase storage and render
+  useEffect(() => {
+    if (persona) {
+      const path = ref(storage, persona.avatar);
+
+      getDownloadURL(path).then((url) => {
+        // Insert url into an <img> tag
+        setPersonaUrl(url);
+      });
+    }
+  }, [persona]);
+
   // add generated brief as draft to user's projects when logged in
   function createProjectDraft() {
     //TODO: check if loggedIn
@@ -196,6 +210,7 @@ export const Brief = ({ user }) => {
           <div>Age: {persona.age}</div>
           <div>About: {persona.age}</div>
           <div>Sex: {persona.sex}</div>
+          <img src={personaUrl} alt="persona" width="50"></img>
 
           <br></br>
           <div>
@@ -227,7 +242,7 @@ export const Brief = ({ user }) => {
             <b>Layout:</b>
           </div>
           <div>Link: {layout.link}</div>
-          <img src={layoutUrl} alt="layout"></img>
+          <img src={layoutUrl} alt="layout" width="500"></img>
         </>
       )}
     </>
