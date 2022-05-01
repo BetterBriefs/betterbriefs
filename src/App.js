@@ -13,10 +13,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Brief />} />
-          <Route
-            path="/:colorid:fontid:ideaid:layoutid:personaid"
-            element={<Brief />}
-          />
+          <Route path="/:seed" element={<Brief />} />
         </Routes>
         <Footer />
       </BrowserRouter>

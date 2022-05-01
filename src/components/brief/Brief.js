@@ -1,18 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { ref, getDownloadURL } from "firebase/storage";
-import { useNavigate } from "react-router-dom";
-import { useParams } from "react-router-dom";
 import { storage, db } from "../../firebase-config";
 import { collection, getDocs } from "firebase/firestore";
 import { Button } from "../button/Button";
 
 export const Brief = () => {
   const navigate = useNavigate();
-  let { colorid, fontid, ideaid, layoutid, personaid } = useParams();
-  console.log(colorid, fontid, ideaid, layoutid, personaid);
+  let { seed } = useParams();
 
   const [layoutUrl, setLayoutUrl] = useState([]);
-
   const [personaUrl, setPersonaUrl] = useState([]);
 
   // all data for brief creation
@@ -81,7 +78,12 @@ export const Brief = () => {
   // check if params are in url
   // if yes set states to generated brief from url
   useEffect(() => {
-    if (colorid && fontid && ideaid && layoutid && personaid) {
+    if (seed) {
+      let colorid = getIdOfParam("c");
+      let fontid = getIdOfParam("f");
+      let ideaid = getIdOfParam("i");
+      let layoutid = getIdOfParam("l");
+      let personaid = getIdOfParam("p");
       setColor(colors.find((color) => color.id === colorid));
       setFont(fonts.find((font) => font.id === fontid.toString()));
       setIdea(ideas.find((idea) => idea.id === ideaid.toString()));
@@ -89,28 +91,20 @@ export const Brief = () => {
       setPersona(
         personas.find((persona) => persona.id === personaid.toString())
       );
+    } else {
+      setColor(undefined);
+      setFont(undefined);
+      setIdea(undefined);
+      setPersona(undefined);
+      setLayout(undefined);
+      setBriefGenerated(false);
     }
-  }, [
-    color,
-    colorid,
-    colors,
-    fontid,
-    fonts,
-    ideaid,
-    ideas,
-    layoutid,
-    layouts,
-    personaid,
-    personas,
-  ]);
+  }, [color, colors, fonts, ideas, layouts, personas, seed]);
 
   // if brief states are available, set BriefGenerated to true, so brief will be rendered
   useEffect(() => {
     if (color && font && idea && layout && persona) {
-      console.log("they are  set");
       setBriefGenerated(true);
-    } else {
-      console.log("not here yet");
     }
   }, [color, font, idea, layout, persona]);
 
@@ -141,8 +135,25 @@ export const Brief = () => {
       personas.find((persona) => persona.id === randomPersonaIndex.toString())
     );
     navigate(
-      `/${randomColorIndex}${randomFontIndex}${randomIdeaIndex}${randomLayoutIndex}${randomPersonaIndex}`
+      `/c${randomColorIndex}f${randomFontIndex}i${randomIdeaIndex}l${randomLayoutIndex}p${randomPersonaIndex}`
     );
+  }
+
+  function getIdOfParam(type) {
+    switch (type) {
+      case "c":
+        return seed.substring(seed.indexOf("c") + 1, seed.lastIndexOf("f"));
+      case "f":
+        return seed.substring(seed.indexOf("f") + 1, seed.lastIndexOf("i"));
+      case "i":
+        return seed.substring(seed.indexOf("i") + 1, seed.lastIndexOf("l"));
+      case "l":
+        return seed.substring(seed.indexOf("l") + 1, seed.lastIndexOf("p"));
+      case "p":
+        return seed.substring(seed.indexOf("p") + 1);
+      default:
+        return 0;
+    }
   }
 
   //load layout image from firebase storage and render
