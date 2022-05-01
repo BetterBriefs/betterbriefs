@@ -3,12 +3,13 @@ import { ref, getDownloadURL } from "firebase/storage";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { storage, db } from "../../firebase-config";
-import { collection, getDocs, addDoc, doc } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { Button } from "../button/Button";
 
-export const Brief = ({ user }) => {
+export const Brief = () => {
   const navigate = useNavigate();
   let { colorid, fontid, ideaid, layoutid, personaid } = useParams();
+  console.log(colorid, fontid, ideaid, layoutid, personaid);
 
   const [layoutUrl, setLayoutUrl] = useState([]);
 
@@ -140,7 +141,7 @@ export const Brief = ({ user }) => {
       personas.find((persona) => persona.id === randomPersonaIndex.toString())
     );
     navigate(
-      `/${randomColorIndex}/${randomFontIndex}/${randomIdeaIndex}/${randomLayoutIndex}/${randomPersonaIndex}`
+      `/${randomColorIndex}${randomFontIndex}${randomIdeaIndex}${randomLayoutIndex}${randomPersonaIndex}`
     );
   }
 
@@ -168,41 +169,11 @@ export const Brief = ({ user }) => {
     }
   }, [persona]);
 
-  // add generated brief as draft to user's projects when logged in
-  function createProjectDraft() {
-    //TODO: check if loggedIn
-    if (user) {
-      createProject();
-      alert("was successfully added to projects as draft");
-    } else {
-      alert("login first");
-    }
-    //TODO: Dialog which says that project draft was added to profile
-  }
-
-  async function createProject() {
-    await addDoc(collection(db, "projects"), {
-      userId: user.uid,
-      color: doc(db, "colors", color.id),
-      font: doc(db, "fonts", font.id),
-      idea: doc(db, "ideas", idea.id),
-      layout: doc(db, "layouts", layout.id),
-      persona: doc(db, "personas", persona.id),
-      thumbnail:
-        "gs://betterbriefs-8b032.appspot.com/assets/default_project.png",
-      published: false,
-      title: "Project Title",
-      repo_link: "",
-      description: "",
-    });
-  }
-
   return (
     <>
       <Button onClick={generateBrief}>Generate</Button>
       {briefGenerated === true && (
         <>
-          <Button onClick={createProjectDraft}>Add to profile</Button>
           <div>
             <b>Persona:</b>
           </div>
