@@ -1,0 +1,17 @@
+p{
+    width: 100%;
+    text-transform: center;
+}
+
+.flexbox {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.circle {
+    width: 3.5em;
+    height: 3.5em;
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 10px;
+}
