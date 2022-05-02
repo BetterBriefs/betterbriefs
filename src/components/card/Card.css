@@ -16,8 +16,11 @@ h2 {
   margin-bottom: 0.5em;
 }
 
-h3:not(:first-of-type) {
+h3 {
   margin-top: 1.5em;
+}
+.card .persona_description h3{
+  margin-top: 0px;
 }
 h4 {
   margin-top: 1em;
