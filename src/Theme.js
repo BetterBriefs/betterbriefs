@@ -1,17 +1,20 @@
-import { createTheme } from '@mui/material/styles';
-import OpenSans from './fonts/OpenSans-Regular.ttf';
+import { createTheme } from "@mui/material/styles";
+import OpenSans from "./fonts/OpenSans-Regular.ttf";
 
 export const theme = createTheme({
   palette: {
     primary: {
-      main: '#FABE00',
+      main: "#FABE00",
     },
     secondary: {
-      main: '#74C6BE',
+      main: "#74C6BE",
+    },
+    info: {
+      main: "#1F7A83",
     },
   },
   typography: {
-      fontFamily: 'Open Sans'
+    fontFamily: "Open Sans",
   },
   components: {
     MuiCssBaseline: {
