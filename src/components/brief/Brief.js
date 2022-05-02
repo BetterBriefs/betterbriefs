@@ -4,6 +4,7 @@ import { ref, getDownloadURL } from "firebase/storage";
 import { storage, db } from "../../firebase-config";
 import { collection, getDocs } from "firebase/firestore";
 import { Button } from "../button/Button";
+import { Idea } from "../idea/Idea";
 import "./Brief.css";
 
 export const Brief = () => {
@@ -201,9 +202,17 @@ export const Brief = () => {
   return (
     <div class="main-container">
       <section class="hero">
-        <h1 class="hero__header-text"><span>Project Brief</span><br/><span>Generator</span></h1>
+        <h1 class="hero__header-text">
+          <span>Project Brief</span>
+          <br />
+          <span>Generator</span>
+        </h1>
         {briefGenerated === false && (
-          <p>Choose your difficulty level and generate your briefing<br/>to start coding an awesome project immediately.</p>
+          <p>
+            Choose your difficulty level and generate your briefing
+            <br />
+            to start coding an awesome project immediately.
+          </p>
         )}
         <div class="hero__buttons-container">
           <Button onClick={generateBrief}>Generate</Button>
@@ -211,6 +220,7 @@ export const Brief = () => {
       </section>
       {briefGenerated === true && (
         <>
+          <Idea idea={brief.idea}></Idea>
           <div>
             <b>Persona:</b>
           </div>
@@ -221,13 +231,6 @@ export const Brief = () => {
           <img src={personaUrl} alt="persona" width="50"></img>
 
           <br></br>
-          <div>
-            <b>Idea:</b>
-          </div>
-          <div>Title: {brief.idea.title}</div>
-          <div>Type: {brief.idea.type}</div>
-          <div>Description: {brief.idea.description}</div>
-          <div>Difficulty: {brief.idea.difficulty}</div>
 
           <br></br>
           <b>Colors: </b>

@@ -9,3 +9,11 @@
 .card p{
     color: var(--black)
 }
+
+h2 {
+    margin-bottom: 0.5em
+}
+
+h3 {
+    margin-top: 1.5em;
+}
