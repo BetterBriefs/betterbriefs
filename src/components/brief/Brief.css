@@ -1,0 +1,23 @@
+.hero{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-direction: column;
+}
+.hero__header-text{
+    color: white;
+    font-size: 58px;
+    position: relative;
+}
+.hero__header-text::before{
+    content: '';
+    background-color: red;
+    height: 1rem;
+    width: 100%;
+    position: absolute;
+}
+.hero__buttons-container{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
