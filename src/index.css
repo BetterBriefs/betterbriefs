@@ -1,14 +1,18 @@
 :root {
-  --yellow: #FABE00;
-  --orange: #EA5504;
-  --cyan: #74C6BE;
-  --dark-cyan: #1F7A83;
-  --black: #1A1A1A;
-  --white: #ffffff; 
-  --background-gradient: linear-gradient(90deg, var(--dark-cyan) 0%, var(--cyan) 100%);
+  --yellow: #fabe00;
+  --orange: #ea5504;
+  --cyan: #74c6be;
+  --dark-cyan: #1f7a83;
+  --black: #1a1a1a;
+  --white: #ffffff;
+  --background-gradient: linear-gradient(
+    90deg,
+    var(--dark-cyan) 0%,
+    var(--cyan) 100%
+  );
 }
-*{
-  font-family: 'Open Sans', sans-serif;
+* {
+  font-family: "Open Sans", sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -30,26 +34,25 @@ h3 {
   color: var(--black);
   text-transform: uppercase;
 }
-h4{
+h4 {
   color: var(--black);
 }
-a{
+a {
   color: var(--white);
   text-decoration: none;
 }
-p{
+p {
   font-size: 1.2em;
   line-height: 1.8rem;
   color: var(--white);
-  font-family: 'Open Sans', sans-serif;
-
+  font-family: "Open Sans", sans-serif;
 }
-img{
+img {
   width: 100%;
 }
 body {
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--dark-cyan);
@@ -57,7 +60,5 @@ body {
 }
 
 code {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
-
-

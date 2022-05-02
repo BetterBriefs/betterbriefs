@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Brief } from "./components/brief/Brief";
 import { Header } from "./components/header/Header";
 import { Footer } from "./components/footer/Footer";
-import { ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "./Theme";
 
 import "./App.css";
@@ -21,7 +21,6 @@ function App() {
           <Footer />
         </BrowserRouter>
       </ThemeProvider>
-     
     </div>
   );
 }

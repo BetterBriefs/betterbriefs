@@ -1,10 +1,10 @@
 .header {
-    padding: 10px 0;
-    background: #74C6BE;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  padding: 10px 0;
+  background: #74c6be;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .header img {
-    height: 40px;
+  height: 40px;
 }
