@@ -7,7 +7,7 @@ export const Wireframe = ({ layoutUrl}) => {
     return (
         <Card>
             <h2>Layout</h2>
-            <img src={layoutUrl} alt="layout" width="500"></img>
+            <img src={layoutUrl} class="wireframe__img" alt="layout"></img>
         </Card>
     );
 };
