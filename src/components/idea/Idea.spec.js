@@ -22,7 +22,7 @@ afterEach(() => {
     container = null;
     cleanup();
 });
-describe('When a Brief Idea is Generated', () => {
+describe('Brief Idea', () => {
     it("When a Brief Idea is Generated and renderd, an Idea type should be renderd", () => {
         //Act
         ReactDOM.render(<Idea idea={idea}></Idea>, container);
