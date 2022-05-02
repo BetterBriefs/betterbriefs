@@ -1,7 +1,7 @@
-.flexbox{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    row-gap: 2em;
+.flexbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  row-gap: 2em;
 }

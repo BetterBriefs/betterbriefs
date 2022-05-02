@@ -1,18 +1,18 @@
-.button{
-    border: none;
-    padding: 0.8em 2rem;
-    border-radius: 50px;
-    font-weight: 700;
-    cursor: pointer;
-    font-size: 1rem;
+.button {
+  border: none;
+  padding: 0.8em 2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
-.primary{
-    color: var(--dark-cyan);
-    background-color: var(--yellow);
+.primary {
+  color: var(--dark-cyan);
+  background-color: var(--yellow);
 }
 
-.secondary{
-    background-color: var(--white);
-    color: var(--orange);
+.secondary {
+  background-color: var(--white);
+  color: var(--orange);
 }

@@ -11,14 +11,14 @@ export const Idea = ({ idea }) => {
         color="info"
         sx={{
           textTransform: "capitalize",
-          marginRight: "10px",
+          marginRight: "10px"
         }}
       />
       <Chip
         label={idea.difficulty}
         color="info"
         sx={{
-          textTransform: "capitalize",
+          textTransform: "capitalize"
         }}
       />
       <h3>Title</h3>
