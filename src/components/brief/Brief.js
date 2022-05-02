@@ -6,6 +6,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { Button } from "../button/Button";
 import { Wireframe } from "../wireframe/Wireframe";
 import { Idea } from "../idea/Idea";
+import { Fonts } from "../fonts/Fonts";
 import "./Brief.css";
 
 export const Brief = () => {
@@ -241,16 +242,9 @@ export const Brief = () => {
           </div>
 
           <br></br>
-          <div>
-            <b>Fonts:</b>
-          </div>
-          <div>
-            {brief.font.paragraph_font}: {brief.font.paragraph_link} <br></br>{" "}
-            {brief.font.title_font}: {brief.font.title_link}
-          </div>
-
+          <Fonts fonts={brief.font}></Fonts>
           <br></br>
-          <Wireframe layoutUrl={layoutUrl}>  </Wireframe>
+          <Wireframe layoutUrl={layoutUrl}> </Wireframe>
         </>
       )}
     </div>
