@@ -30,6 +30,9 @@ h3 {
   color: var(--black);
   text-transform: uppercase;
 }
+h4{
+  color: var(--black);
+}
 a{
   color: var(--white);
   text-decoration: none;
