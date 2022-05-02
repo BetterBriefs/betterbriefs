@@ -183,10 +183,9 @@ export const Brief = () => {
   return (
     <>
       <section class="hero">
-        <h1 class="hero__header-text">Project Brief<br/>Generator</h1>
+        <h1 class="hero__header-text"><span>Project Brief</span><br/><span>Generator</span></h1>
         <p>Choose your difficulty level and generate your briefing<br/>to start coding an awesome project immediately.</p>
         <div class="hero__buttons-container">
-          <Button onClick={generateBrief}>Generate</Button>
           <Button onClick={generateBrief}>Generate</Button>
         </div>
       </section>

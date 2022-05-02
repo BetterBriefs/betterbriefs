@@ -1,20 +1,19 @@
 .hero{
     display: flex;
+    padding: 2rem 0;
     justify-content: center;
-    gap: 1rem;
     flex-direction: column;
+    gap: 1rem;
 }
 .hero__header-text{
-    color: white;
-    font-size: 58px;
     position: relative;
+    width: fit-content;
+    margin: 0px auto;
 }
-.hero__header-text::before{
-    content: '';
-    background-color: red;
-    height: 1rem;
-    width: 100%;
-    position: absolute;
+.hero__header-text span{
+    display: inline;
+    background-image: repeating-linear-gradient(to top,transparent 0,transparent .19em,#74C6BE .19em,#74C6BE .6em,transparent .6em,transparent 2em);
+    padding: 0 0.5rem;
 }
 .hero__buttons-container{
     display: flex;
