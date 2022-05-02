@@ -34,8 +34,10 @@ export const Brief = () => {
     font: undefined,
     layout: undefined,
     idea: undefined,
-    persona: undefined
+    persona: undefined,
   });
+
+  const [difficulty, setDifficulty] = useState("simple");
 
   // database
   const colorsCollectionRef = collection(db, "colors");
@@ -46,31 +48,31 @@ export const Brief = () => {
 
   async function getColors() {
     const data = await getDocs(colorsCollectionRef);
-    const parsedData = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
     setColors(parsedData);
   }
 
   async function getFonts() {
     const data = await getDocs(fontsCollectionRef);
-    const parsedData = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
     setFonts(parsedData);
   }
 
   async function getIdeas() {
     const data = await getDocs(ideasCollectionRef);
-    const parsedData = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
     setIdeas(parsedData);
   }
 
   async function getLayouts() {
     const data = await getDocs(layoutsCollectionRef);
-    const parsedData = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
     setLayouts(parsedData);
   }
 
   async function getPersonas() {
     const data = await getDocs(personasCollectionRef);
-    const parsedData = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
     setPersonas(parsedData);
   }
 
@@ -93,11 +95,13 @@ export const Brief = () => {
       let layoutid = getIdOfParam("l");
       let personaid = getIdOfParam("p");
       setBrief({
-        color: colors.find(color => color.id === colorid),
-        font: fonts.find(font => font.id === fontid.toString()),
-        persona: personas.find(persona => persona.id === personaid.toString()),
-        idea: ideas.find(idea => idea.id === ideaid.toString()),
-        layout: layouts.find(layout => layout.id === layoutid.toString())
+        color: colors.find((color) => color.id === colorid),
+        font: fonts.find((font) => font.id === fontid.toString()),
+        persona: personas.find(
+          (persona) => persona.id === personaid.toString()
+        ),
+        idea: ideas.find((idea) => idea.id === ideaid.toString()),
+        layout: layouts.find((layout) => layout.id === layoutid.toString()),
       });
     } else {
       setBrief({
@@ -105,7 +109,7 @@ export const Brief = () => {
         font: undefined,
         layout: undefined,
         idea: undefined,
-        persona: undefined
+        persona: undefined,
       });
       setBriefGenerated(false);
     }
@@ -128,7 +132,7 @@ export const Brief = () => {
     // get length of each dataset to choose a random index that will be used
     let lengthColors = colors.length;
     let lengthFonts = fonts.length;
-    let lengthIdeas = ideas.length;
+    let lengthIdeas;
     let lengthPersonas = personas.length;
     let lengthLayouts;
 
@@ -136,27 +140,37 @@ export const Brief = () => {
     let randomColorIndex = Math.floor(Math.random() * lengthColors) + 1;
     let randomFontIndex = Math.floor(Math.random() * lengthFonts) + 1;
     let randomPersonaIndex = Math.floor(Math.random() * lengthPersonas) + 1;
-    let randomIdeaIndex = Math.floor(Math.random() * lengthIdeas) + 1;
+    let randomIdeaIndex;
+    let randomLayoutIndex;
+
+    // filter ideas based on selected difficulty
+    let filteredIdeas = ideas.filter((idea) => idea.difficulty === difficulty);
+    console.log(filteredIdeas);
+    lengthIdeas = filteredIdeas.length;
+    randomIdeaIndex = Math.floor(Math.random() * lengthIdeas) + 1;
 
     // type of idea and layout must match
-    let idea = ideas.find(idea => idea.id === randomIdeaIndex.toString());
+    // let idea = ideas.find((idea) => idea.id === randomIdeaIndex.toString());
+    let idea = filteredIdeas[randomIdeaIndex];
+    console.log(idea);
 
-    let filteredLayouts = layouts.filter(layout => layout.type === idea.type);
+    let filteredLayouts = layouts.filter((layout) => layout.type === idea.type);
+    console.log(filteredLayouts);
     lengthLayouts = filteredLayouts.length;
-    let randomLayoutIndex = Math.floor(Math.random() * lengthLayouts) + 1;
+    randomLayoutIndex = Math.floor(Math.random() * lengthLayouts) + 1;
 
     setBrief({
-      color: colors.find(color => color.id === randomColorIndex.toString()),
-      font: fonts.find(font => font.id === randomFontIndex.toString()),
+      color: colors.find((color) => color.id === randomColorIndex.toString()),
+      font: fonts.find((font) => font.id === randomFontIndex.toString()),
       persona: personas.find(
-        persona => persona.id === randomPersonaIndex.toString()
+        (persona) => persona.id === randomPersonaIndex.toString()
       ),
-      idea: ideas.find(idea => idea.id === randomIdeaIndex.toString()),
-      layout: layouts[randomLayoutIndex]
+      idea: idea,
+      layout: filteredLayouts[randomLayoutIndex],
     });
 
     navigate(
-      `/c${randomColorIndex}f${randomFontIndex}i${randomIdeaIndex}l${layouts[randomLayoutIndex].id}p${randomPersonaIndex}`
+      `/c${randomColorIndex}f${randomFontIndex}i${idea.id}l${filteredLayouts[randomLayoutIndex].id}p${randomPersonaIndex}`
     );
   }
 
@@ -182,7 +196,7 @@ export const Brief = () => {
     if (brief.layout) {
       const path = ref(storage, brief.layout.link);
 
-      getDownloadURL(path).then(url => {
+      getDownloadURL(path).then((url) => {
         // Insert url into an <img> tag
         setLayoutUrl(url);
       });
@@ -194,7 +208,7 @@ export const Brief = () => {
     if (brief.persona) {
       const path = ref(storage, brief.persona.avatar);
 
-      getDownloadURL(path).then(url => {
+      getDownloadURL(path).then((url) => {
         // Insert url into an <img> tag
         setPersonaUrl(url);
       });
@@ -217,6 +231,16 @@ export const Brief = () => {
           </p>
         )}
         <div class="hero__buttons-container">
+          <select
+            name="difficulty"
+            id="difficulty"
+            defaultValue="simple"
+            onChange={(e) => setDifficulty(e.target.value)}
+          >
+            <option value="simple">Easy</option>
+            <option value="medium">Normal</option>
+            <option value="hard">Advanced</option>
+          </select>
           <Button onClick={generateBrief}>Generate</Button>
         </div>
       </section>
