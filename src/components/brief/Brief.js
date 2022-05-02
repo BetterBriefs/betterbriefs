@@ -4,6 +4,7 @@ import { ref, getDownloadURL } from "firebase/storage";
 import { storage, db } from "../../firebase-config";
 import { collection, getDocs } from "firebase/firestore";
 import { Button } from "../button/Button";
+import { Wireframe } from "../wireframe/Wireframe";
 import "./Brief.css";
 
 export const Brief = () => {
@@ -246,11 +247,7 @@ export const Brief = () => {
           </div>
 
           <br></br>
-          <div>
-            <b>Layout:</b>
-          </div>
-          <div>Link: {brief.layout.link}</div>
-          <img src={layoutUrl} alt="layout" width="500"></img>
+          <Wireframe layoutUrl={layoutUrl}>  </Wireframe>
         </>
       )}
     </div>
