@@ -14,7 +14,6 @@ export const Brief = () => {
   const [personaUrl, setPersonaUrl] = useState([]);
 
   // all data for brief creation
-  // TODO: maybe not load full db, just pick random entries (length of dbs is needed, also project types need to be checked)
   const [colors, setColors] = useState([]);
   const [fonts, setFonts] = useState([]);
   const [ideas, setIdeas] = useState([]);
@@ -25,11 +24,13 @@ export const Brief = () => {
   const [briefGenerated, setBriefGenerated] = useState([false]);
 
   // stored generated brief
-  const [color, setColor] = useState(undefined);
-  const [font, setFont] = useState(undefined);
-  const [idea, setIdea] = useState(undefined);
-  const [persona, setPersona] = useState(undefined);
-  const [layout, setLayout] = useState(undefined);
+  const [brief, setBrief] = useState({
+    color: undefined,
+    font: undefined,
+    layout: undefined,
+    idea: undefined,
+    persona: undefined,
+  });
 
   // database
   const colorsCollectionRef = collection(db, "colors");
@@ -68,6 +69,14 @@ export const Brief = () => {
     setPersonas(parsedData);
   }
 
+  // load data initially
+  useEffect(() => {
+    getColors();
+    getFonts();
+    getIdeas();
+    getLayouts();
+    getPersonas();
+  }, []);
 
   // check if params are in url
   // if yes set states to generated brief from url
@@ -78,64 +87,73 @@ export const Brief = () => {
       let ideaid = getIdOfParam("i");
       let layoutid = getIdOfParam("l");
       let personaid = getIdOfParam("p");
-      setColor(colors.find((color) => color.id === colorid));
-      setFont(fonts.find((font) => font.id === fontid.toString()));
-      setIdea(ideas.find((idea) => idea.id === ideaid.toString()));
-      setLayout(layouts.find((layout) => layout.id === layoutid.toString()));
-      setPersona(
-        personas.find((persona) => persona.id === personaid.toString())
-      );
+      setBrief({
+        color: colors.find((color) => color.id === colorid),
+        font: fonts.find((font) => font.id === fontid.toString()),
+        persona: personas.find(
+          (persona) => persona.id === personaid.toString()
+        ),
+        idea: ideas.find((idea) => idea.id === ideaid.toString()),
+        layout: layouts.find((layout) => layout.id === layoutid.toString()),
+      });
     } else {
-      setColor(undefined);
-      setFont(undefined);
-      setIdea(undefined);
-      setPersona(undefined);
-      setLayout(undefined);
+      setBrief({
+        color: undefined,
+        font: undefined,
+        layout: undefined,
+        idea: undefined,
+        persona: undefined,
+      });
       setBriefGenerated(false);
     }
-  }, [color, colors, fonts, ideas, layouts, personas, seed]);
+  }, [colors, fonts, ideas, layouts, personas, seed, brief]);
 
   // if brief states are available, set BriefGenerated to true, so brief will be rendered
   useEffect(() => {
-    if (color && font && idea && layout && persona) {
+    if (
+      brief.color &&
+      brief.font &&
+      brief.idea &&
+      brief.layout &&
+      brief.persona
+    ) {
       setBriefGenerated(true);
     }
-  }, [color, font, idea, layout, persona]);
+  }, [brief]);
 
-  // TODO: check that layout and project type matches
-  async function generateBrief() {
-    await getColors();
-    await getFonts();
-    await getIdeas();
-    await getLayouts();
-    await getPersonas();
-
+  function generateBrief() {
     // get length of each dataset to choose a random index that will be used
     let lengthColors = colors.length;
     let lengthFonts = fonts.length;
     let lengthIdeas = ideas.length;
-    let lengthLayouts = layouts.length;
     let lengthPersonas = personas.length;
+    let lengthLayouts;
 
-    // get random indices for each dataset
+    // get random indices for each dataset and set data
     let randomColorIndex = Math.floor(Math.random() * lengthColors) + 1;
     let randomFontIndex = Math.floor(Math.random() * lengthFonts) + 1;
-    let randomIdeaIndex = Math.floor(Math.random() * lengthIdeas) + 1;
-    let randomLayoutIndex = Math.floor(Math.random() * lengthLayouts) + 1;
     let randomPersonaIndex = Math.floor(Math.random() * lengthPersonas) + 1;
+    let randomIdeaIndex = Math.floor(Math.random() * lengthIdeas) + 1;
 
-    // set random data
-    setColor(colors.find((color) => color.id === randomColorIndex.toString()));
-    setFont(fonts.find((font) => font.id === randomFontIndex.toString()));
-    setIdea(ideas.find((idea) => idea.id === randomIdeaIndex.toString()));
-    setLayout(
-      layouts.find((layout) => layout.id === randomLayoutIndex.toString())
-    );
-    setPersona(
-      personas.find((persona) => persona.id === randomPersonaIndex.toString())
-    );
+    // type of idea and layout must match
+    let idea = ideas.find((idea) => idea.id === randomIdeaIndex.toString());
+
+    let filteredLayouts = layouts.filter((layout) => layout.type === idea.type);
+    lengthLayouts = filteredLayouts.length;
+    let randomLayoutIndex = Math.floor(Math.random() * lengthLayouts) + 1;
+
+    setBrief({
+      color: colors.find((color) => color.id === randomColorIndex.toString()),
+      font: fonts.find((font) => font.id === randomFontIndex.toString()),
+      persona: personas.find(
+        (persona) => persona.id === randomPersonaIndex.toString()
+      ),
+      idea: ideas.find((idea) => idea.id === randomIdeaIndex.toString()),
+      layout: layouts[randomLayoutIndex],
+    });
+
     navigate(
-      `/c${randomColorIndex}f${randomFontIndex}i${randomIdeaIndex}l${randomLayoutIndex}p${randomPersonaIndex}`
+      `/c${randomColorIndex}f${randomFontIndex}i${randomIdeaIndex}l${layouts[randomLayoutIndex].id}p${randomPersonaIndex}`
     );
   }
 
@@ -158,27 +176,27 @@ export const Brief = () => {
 
   //load layout image from firebase storage and render
   useEffect(() => {
-    if (layout) {
-      const path = ref(storage, layout.link);
+    if (brief.layout) {
+      const path = ref(storage, brief.layout.link);
 
       getDownloadURL(path).then((url) => {
         // Insert url into an <img> tag
         setLayoutUrl(url);
       });
     }
-  }, [layout]);
+  }, [brief.layout]);
 
   //load persona image from firebase storage and render
   useEffect(() => {
-    if (persona) {
-      const path = ref(storage, persona.avatar);
+    if (brief.persona) {
+      const path = ref(storage, brief.persona.avatar);
 
       getDownloadURL(path).then((url) => {
         // Insert url into an <img> tag
         setPersonaUrl(url);
       });
     }
-  }, [persona]);
+  }, [brief.persona]);
 
   return (
     <div class="main-container">
@@ -196,26 +214,26 @@ export const Brief = () => {
           <div>
             <b>Persona:</b>
           </div>
-          <div>Name: {persona.name}</div>
-          <div>Age: {persona.age}</div>
-          <div>About: {persona.age}</div>
-          <div>Sex: {persona.sex}</div>
+          <div>Name: {brief.persona.name}</div>
+          <div>Age: {brief.persona.age}</div>
+          <div>About: {brief.persona.age}</div>
+          <div>Sex: {brief.persona.sex}</div>
           <img src={personaUrl} alt="persona" width="50"></img>
 
           <br></br>
           <div>
             <b>Idea:</b>
           </div>
-          <div>Title: {idea.title}</div>
-          <div>Type: {idea.type}</div>
-          <div>Description: {idea.description}</div>
-          <div>Difficulty: {idea.difficulty}</div>
+          <div>Title: {brief.idea.title}</div>
+          <div>Type: {brief.idea.type}</div>
+          <div>Description: {brief.idea.description}</div>
+          <div>Difficulty: {brief.idea.difficulty}</div>
 
           <br></br>
           <b>Colors: </b>
           <div>
-            {color.color1} {color.color2} {color.color3} {color.color4}{" "}
-            {color.color5}
+            {brief.color.color1} {brief.color.color2} {brief.color.color3}{" "}
+            {brief.color.color4} {brief.color.color5}
           </div>
 
           <br></br>
@@ -223,15 +241,15 @@ export const Brief = () => {
             <b>Fonts:</b>
           </div>
           <div>
-            {font.paragraph_font}: {font.paragraph_link} <br></br>{" "}
-            {font.title_font}: {font.title_link}
+            {brief.font.paragraph_font}: {brief.font.paragraph_link} <br></br>{" "}
+            {brief.font.title_font}: {brief.font.title_link}
           </div>
 
           <br></br>
           <div>
             <b>Layout:</b>
           </div>
-          <div>Link: {layout.link}</div>
+          <div>Link: {brief.layout.link}</div>
           <img src={layoutUrl} alt="layout" width="500"></img>
         </>
       )}
