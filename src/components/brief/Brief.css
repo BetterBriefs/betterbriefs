@@ -40,5 +40,7 @@
   gap: 1rem;
 }
 .brief__colors-and-fonts{
-  
+  width: 100%;
+  display: flex;
+  gap: 2rem;
 }
