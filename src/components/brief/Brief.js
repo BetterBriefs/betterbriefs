@@ -6,6 +6,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { Button } from "../button/Button";
 import { Wireframe } from "../wireframe/Wireframe";
 import { Idea } from "../idea/Idea";
+import { ColorPalette } from "../color_palette/ColorPalette";
 import "./Brief.css";
 
 export const Brief = () => {
@@ -234,6 +235,7 @@ export const Brief = () => {
           <br></br>
 
           <br></br>
+          <ColorPalette colors={brief.color}></ColorPalette>
           <b>Colors: </b>
           <div>
             {brief.color.color1} {brief.color.color2} {brief.color.color3}{" "}
