@@ -6,11 +6,11 @@
 }
 
 .primary{
-    color: #1F7A83;
-    background-color: #FABE00;
+    color: var(--dark-cyan);
+    background-color: var(--yellow);
 }
 
 .secondary{
-    background-color: #ffffff;
-    color: #EA5504;
+    background-color: var(--white);
+    color: var(--orange);
 }
