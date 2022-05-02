@@ -1,17 +1,22 @@
 p{
     width: 100%;
-    text-transform: center;
+    text-align: center;
+    font-size: 1em;
 }
 
-.flexbox {
+.flexbox-center {
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
 .circle {
-    width: 3.5em;
-    height: 3.5em;
-    border-radius: 50px;
+    width: 4.5em;
+    height: 4.5em;
+    border-radius: 10em;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 10px;
+}
+
+.width-30{
+    width: 30%;
 }
