@@ -11,11 +11,11 @@ export const Persona = ({ personaUrl, persona }) => {
   return (
     <Card>
       <h2>Persona</h2>
-      <div class="persona">
-        <img class="persona_avatar" src={personaUrl} alt="layout"></img>
-        <div class="persona_description">
+      <div className="persona">
+        <img className="persona_avatar" src={personaUrl} alt="layout"></img>
+        <div className="persona_description">
           <h3>{persona.name}</h3>
-          <div class="persona_tags">
+          <div className="persona_tags">
             <h4>Age</h4> {persona.age} | <h4>Sex</h4> {personaSex}
           </div>
           <h4>About</h4>
