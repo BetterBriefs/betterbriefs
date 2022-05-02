@@ -27,8 +27,8 @@
     to top,
     transparent 0,
     transparent 0.19em,
-    #74c6be 0.19em,
-    #74c6be 0.6em,
+    var(--cyan) 0.19em,
+    var(--cyan) 0.6em,
     transparent 0.6em,
     transparent 2em
   );

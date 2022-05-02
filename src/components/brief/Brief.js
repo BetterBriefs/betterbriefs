@@ -248,10 +248,10 @@ export const Brief = () => {
         <>
           <Idea idea={brief.idea}></Idea>
           <Persona personaUrl={personaUrl} persona={brief.persona}></Persona>
-          <dev class="brief__colors-and-fonts">
+          <div class="brief__colors-and-fonts">
             <ColorPalette colors={brief.color}></ColorPalette>
             <Fonts fonts={brief.font}></Fonts>
-          </dev>
+          </div>
           <Wireframe layoutUrl={layoutUrl}> </Wireframe>
         </>
       )}
