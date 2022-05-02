@@ -4,7 +4,7 @@ import "./ColorElement.css";
 export const ColorElement = ({ color }) => {
   return (
     <>
-      <div className="width-30">
+      <div className="element-box">
         <div className="flexbox-center">
           <div
             className="circle"
