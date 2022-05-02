@@ -5,6 +5,7 @@ import { storage, db } from "../../firebase-config";
 import { collection, getDocs } from "firebase/firestore";
 import { Button } from "../button/Button";
 import { Wireframe } from "../wireframe/Wireframe";
+import { Persona } from "../persona/Persona";
 import { Idea } from "../idea/Idea";
 import "./Brief.css";
 
@@ -222,15 +223,8 @@ export const Brief = () => {
       {briefGenerated === true && (
         <>
           <Idea idea={brief.idea}></Idea>
-          <div>
-            <b>Persona:</b>
-          </div>
-          <div>Name: {brief.persona.name}</div>
-          <div>Age: {brief.persona.age}</div>
-          <div>About: {brief.persona.age}</div>
-          <div>Sex: {brief.persona.sex}</div>
-          <img src={personaUrl} alt="persona" width="50"></img>
-
+          
+          <Persona personaUrl={personaUrl} persona={brief.persona}></Persona>
           <br></br>
 
           <br></br>
