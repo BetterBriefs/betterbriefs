@@ -1,7 +1,6 @@
 import React from "react";
 import { Card } from "../card/Card";
 import Chip from "@mui/material/Chip";
-import "./Idea.css";
 
 export const Idea = ({ idea }) => {
   return (
