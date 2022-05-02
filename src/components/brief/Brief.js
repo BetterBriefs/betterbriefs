@@ -223,21 +223,11 @@ export const Brief = () => {
       {briefGenerated === true && (
         <>
           <Idea idea={brief.idea}></Idea>
-
           <Persona personaUrl={personaUrl} persona={brief.persona}></Persona>
-          <br></br>
-
-          <br></br>
-          <ColorPalette colors={brief.color}></ColorPalette>
-          <b>Colors: </b>
-          <div>
-            {brief.color.color1} {brief.color.color2} {brief.color.color3}{" "}
-            {brief.color.color4} {brief.color.color5}
-          </div>
-
-          <br></br>
-          <Fonts fonts={brief.font}></Fonts>
-          <br></br>
+          <dev class="brief__colors-and-fonts">
+            <ColorPalette colors={brief.color}></ColorPalette>
+            <Fonts fonts={brief.font}></Fonts>
+          </dev>
           <Wireframe layoutUrl={layoutUrl}> </Wireframe>
         </>
       )}
