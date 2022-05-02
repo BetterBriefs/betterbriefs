@@ -1,3 +1,10 @@
+.main-container{
+    min-height: 48rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 .hero{
     display: flex;
     padding: 2rem 0;

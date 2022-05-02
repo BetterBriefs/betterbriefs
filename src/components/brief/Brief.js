@@ -181,7 +181,7 @@ export const Brief = () => {
   }, [persona]);
 
   return (
-    <>
+    <div class="main-container">
       <section class="hero">
         <h1 class="hero__header-text"><span>Project Brief</span><br/><span>Generator</span></h1>
         {briefGenerated === false && (
@@ -235,6 +235,6 @@ export const Brief = () => {
           <img src={layoutUrl} alt="layout" width="500"></img>
         </>
       )}
-    </>
+    </div>
   );
 };
