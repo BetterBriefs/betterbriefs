@@ -7,11 +7,8 @@ import { Button } from "../button/Button";
 import { Wireframe } from "../wireframe/Wireframe";
 import { Persona } from "../persona/Persona";
 import { Idea } from "../idea/Idea";
-<<<<<<< HEAD
 import { ColorPalette } from "../color_palette/ColorPalette";
-=======
 import { Fonts } from "../fonts/Fonts";
->>>>>>> 823a3785be902b56a8dfa10a157a23457a4686a2
 import "./Brief.css";
 
 export const Brief = () => {
