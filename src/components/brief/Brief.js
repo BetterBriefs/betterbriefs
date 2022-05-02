@@ -5,8 +5,13 @@ import { storage, db } from "../../firebase-config";
 import { collection, getDocs } from "firebase/firestore";
 import { Button } from "../button/Button";
 import { Wireframe } from "../wireframe/Wireframe";
+import { Persona } from "../persona/Persona";
 import { Idea } from "../idea/Idea";
+<<<<<<< HEAD
+import { ColorPalette } from "../color_palette/ColorPalette";
+=======
 import { Fonts } from "../fonts/Fonts";
+>>>>>>> 823a3785be902b56a8dfa10a157a23457a4686a2
 import "./Brief.css";
 
 export const Brief = () => {
@@ -223,18 +228,12 @@ export const Brief = () => {
       {briefGenerated === true && (
         <>
           <Idea idea={brief.idea}></Idea>
-          <div>
-            <b>Persona:</b>
-          </div>
-          <div>Name: {brief.persona.name}</div>
-          <div>Age: {brief.persona.age}</div>
-          <div>About: {brief.persona.age}</div>
-          <div>Sex: {brief.persona.sex}</div>
-          <img src={personaUrl} alt="persona" width="50"></img>
-
+          
+          <Persona personaUrl={personaUrl} persona={brief.persona}></Persona>
           <br></br>
 
           <br></br>
+          <ColorPalette colors={brief.color}></ColorPalette>
           <b>Colors: </b>
           <div>
             {brief.color.color1} {brief.color.color2} {brief.color.color3}{" "}
