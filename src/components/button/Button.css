@@ -1,8 +1,10 @@
 .button{
     border: none;
-    padding: 1em;
+    padding: 0.8em 2rem;
     border-radius: 50px;
-    font-weight: 600;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 1rem;
 }
 
 .primary{

@@ -4,6 +4,7 @@ import { ref, getDownloadURL } from "firebase/storage";
 import { storage, db } from "../../firebase-config";
 import { collection, getDocs } from "firebase/firestore";
 import { Button } from "../button/Button";
+import "./Brief.css";
 
 export const Brief = () => {
   const navigate = useNavigate();
@@ -199,7 +200,15 @@ export const Brief = () => {
 
   return (
     <>
-      <Button onClick={generateBrief}>Generate</Button>
+      <section class="hero">
+        <h1 class="hero__header-text"><span>Project Brief</span><br/><span>Generator</span></h1>
+        {briefGenerated === false && (
+          <p>Choose your difficulty level and generate your briefing<br/>to start coding an awesome project immediately.</p>
+        )}
+        <div class="hero__buttons-container">
+          <Button onClick={generateBrief}>Generate</Button>
+        </div>
+      </section>
       {briefGenerated === true && (
         <>
           <div>
