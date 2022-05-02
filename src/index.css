@@ -5,6 +5,7 @@
   --dark-cyan: #1F7A83;
   --black: #1A1A1A;
   --white: #ffffff; 
+  --background-gradient: linear-gradient(90deg, var(--dark-cyan) 0%, var(--cyan) 100%);
 }
 *{
   font-family: 'Open Sans', sans-serif;
@@ -43,7 +44,8 @@ body {
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #1F7A83;
+  background-color: var(--dark-cyan);
+  background: var(--background-gradient);
 }
 
 code {
