@@ -67,7 +67,6 @@ export const Brief = () => {
     setPersonas(parsedData);
   }
 
-
   // check if params are in url
   // if yes set states to generated brief from url
   useEffect(() => {
@@ -101,7 +100,6 @@ export const Brief = () => {
     }
   }, [color, font, idea, layout, persona]);
 
-  // TODO: check that layout and project type matches
   async function generateBrief() {
     await getColors();
     await getFonts();
@@ -113,28 +111,34 @@ export const Brief = () => {
     let lengthColors = colors.length;
     let lengthFonts = fonts.length;
     let lengthIdeas = ideas.length;
-    let lengthLayouts = layouts.length;
     let lengthPersonas = personas.length;
+    let lengthLayouts;
 
-    // get random indices for each dataset
+    // get random indices for each dataset and set data
     let randomColorIndex = Math.floor(Math.random() * lengthColors) + 1;
-    let randomFontIndex = Math.floor(Math.random() * lengthFonts) + 1;
-    let randomIdeaIndex = Math.floor(Math.random() * lengthIdeas) + 1;
-    let randomLayoutIndex = Math.floor(Math.random() * lengthLayouts) + 1;
-    let randomPersonaIndex = Math.floor(Math.random() * lengthPersonas) + 1;
-
-    // set random data
     setColor(colors.find((color) => color.id === randomColorIndex.toString()));
+
+    let randomFontIndex = Math.floor(Math.random() * lengthFonts) + 1;
     setFont(fonts.find((font) => font.id === randomFontIndex.toString()));
-    setIdea(ideas.find((idea) => idea.id === randomIdeaIndex.toString()));
-    setLayout(
-      layouts.find((layout) => layout.id === randomLayoutIndex.toString())
-    );
+
+    let randomPersonaIndex = Math.floor(Math.random() * lengthPersonas) + 1;
     setPersona(
       personas.find((persona) => persona.id === randomPersonaIndex.toString())
     );
+
+    let randomIdeaIndex = Math.floor(Math.random() * lengthIdeas) + 1;
+    setIdea(ideas.find((idea) => idea.id === randomIdeaIndex.toString()));
+
+    // type of idea and layout must match
+    let idea = ideas.find((idea) => idea.id === randomIdeaIndex.toString());
+
+    let filteredLayouts = layouts.filter((layout) => layout.type === idea.type);
+    lengthLayouts = filteredLayouts.length;
+    let randomLayoutIndex = Math.floor(Math.random() * lengthLayouts) + 1;
+    setLayout(layouts[randomLayoutIndex]);
+
     navigate(
-      `/c${randomColorIndex}f${randomFontIndex}i${randomIdeaIndex}l${randomLayoutIndex}p${randomPersonaIndex}`
+      `/c${randomColorIndex}f${randomFontIndex}i${randomIdeaIndex}l${layouts[randomLayoutIndex].id}p${randomPersonaIndex}`
     );
   }
 
