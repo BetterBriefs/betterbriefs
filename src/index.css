@@ -9,6 +9,8 @@
 }
 *{
   font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 h1 {
   font-size: 4em;
@@ -38,6 +40,9 @@ p{
   color: var(--white);
   font-family: 'Open Sans', sans-serif;
 
+}
+img{
+  width: 100%;
 }
 body {
   margin: 0;

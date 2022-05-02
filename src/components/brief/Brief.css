@@ -1,6 +1,9 @@
 .main-container{
-    min-height: 48rem;
     display: flex;
+    min-height: 48rem;
+    width: 80%;
+    max-width: 100rem;
+    margin: 0 auto;
     align-items: center;
     justify-content: center;
     flex-direction: column;
