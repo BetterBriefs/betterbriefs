@@ -67,13 +67,6 @@ export const Brief = () => {
     setPersonas(parsedData);
   }
 
-  useEffect(() => {
-    getColors();
-    getFonts();
-    getIdeas();
-    getLayouts();
-    getPersonas();
-  }, []);
 
   // check if params are in url
   // if yes set states to generated brief from url
@@ -109,7 +102,13 @@ export const Brief = () => {
   }, [color, font, idea, layout, persona]);
 
   // TODO: check that layout and project type matches
-  function generateBrief() {
+  async function generateBrief() {
+    await getColors();
+    await getFonts();
+    await getIdeas();
+    await getLayouts();
+    await getPersonas();
+
     // get length of each dataset to choose a random index that will be used
     let lengthColors = colors.length;
     let lengthFonts = fonts.length;
