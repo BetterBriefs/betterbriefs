@@ -6,7 +6,9 @@
   --black: #1A1A1A;
   --white: #ffffff; 
 }
-
+*{
+  font-family: 'Open Sans', sans-serif;
+}
 h1 {
   font-size: 4em;
   color: var(--white);
@@ -25,7 +27,17 @@ h3 {
   color: var(--black);
   text-transform: uppercase;
 }
+a{
+  color: var(--white);
+  text-decoration: none;
+}
+p{
+  font-size: 1.2em;
+  line-height: 1.8rem;
+  color: var(--white);
+  font-family: 'Open Sans', sans-serif;
 
+}
 body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
