@@ -8,8 +8,8 @@ export const ColorPalette = ({ colors }) => {
     <Card>
       <h2>Colors</h2>
       <div className="flexbox">
-        {colors.map((color) => {
-          return <ColorElement color={color}></ColorElement>;
+        {colors.map((color, index) => {
+          return <ColorElement key={index} color={color}></ColorElement>;
         })}
       </div>
     </Card>
