@@ -1,13 +1,16 @@
 .footer {
   display: flex;
   padding: 1rem 0;
-  background-color: white;
+  background-color: var(--white);
   width: 100%;
 }
 .footer__items-container{
   display: flex;
   width: 100%;
   justify-content: space-between;
+}
+.footer a{
+  color: var(--black);
 }
 .footer ul{
   display: flex;
