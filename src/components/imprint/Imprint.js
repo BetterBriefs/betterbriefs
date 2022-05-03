@@ -22,8 +22,8 @@ export const Imprint = () => {
                     <h3>Araz Alhamdani</h3>
                     <div className="imprint-container__Team__member__links">
                         <a href="mailto:email@araz.dev"><AlternateEmailIcon /></a>
-                        <a href="https://www.linkedin.com/in/araz0"><LinkedInIcon /></a>
-                        <a href="https://www.araz.dev"><LanguageIcon /></a>
+                        <a href="https://www.linkedin.com/in/araz0" target="_blank" rel="noreferrer"><LinkedInIcon /></a>
+                        <a href="https://www.araz.dev" target="_blank" rel="noreferrer"><LanguageIcon /></a>
                     </div>
                 </div>
 
@@ -32,8 +32,8 @@ export const Imprint = () => {
                     <h3>Kerstin Reichinger</h3>
                     <div className="imprint-container__Team__member__links">
                         <a href="mailto:kerstin.reichinger@gmx.at"><AlternateEmailIcon /></a>
-                        <a href="https://www.linkedin.com/in/kerstin-reichinger-b04130203"><LinkedInIcon /></a>
-                        <a href="https://www.kerstin.dev"><LanguageIcon /></a>
+                        <a href="https://www.linkedin.com/in/kerstin-reichinger-b04130203" target="_blank" rel="noreferrer"><LinkedInIcon /></a>
+                        <a href="https://www.kerstin.dev" target="_blank" rel="noreferrer"><LanguageIcon /></a>
                     </div>
                 </div>
 
@@ -42,8 +42,8 @@ export const Imprint = () => {
                     <h3>Tanja Santner</h3>
                     <div className="imprint-container__Team__member__links">
                         <a href="mailto:santner_tanja@gmx.at"><AlternateEmailIcon /></a>
-                        <a href="https://www.linkedin.com/in/tanja-santner-77a414226"><LinkedInIcon /></a>
-                        <a href="https://www.santnerin.com"><LanguageIcon /></a>
+                        <a href="https://www.linkedin.com/in/tanja-santner-77a414226" target="_blank" rel="noreferrer"><LinkedInIcon /></a>
+                        <a href="https://www.santnerin.com" target="_blank" rel="noreferrer"><LanguageIcon /></a>
                     </div>
                 </div>
             </div>
