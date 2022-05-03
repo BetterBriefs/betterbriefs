@@ -44,6 +44,14 @@
   display: flex;
   gap: 2rem;
 }
+.sidenav {
+  display: flex;
+  position: fixed;
+  bottom: 2em;
+  right: 2em;
+  flex-direction: column;
+  gap: 1em;
+}
 @media screen and (max-width: 920px) {
   .brief__colors-and-fonts {
     flex-direction: column;

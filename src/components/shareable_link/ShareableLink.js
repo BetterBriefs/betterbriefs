@@ -30,7 +30,7 @@ export const ShareableLink = () => {
         buttonText="Copy it!"
         buttonFunction={copyURL}
       >
-        <p>Are you sure that you want to delete your awesome Project?</p>
+        <p>Copy the following link: {window.location.href}</p>
       </Overlay>
     </>
   );

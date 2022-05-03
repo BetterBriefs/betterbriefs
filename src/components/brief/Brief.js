@@ -4,6 +4,7 @@ import { Wireframe } from "../wireframe/Wireframe";
 import { Persona } from "../persona/Persona";
 import { Idea } from "../idea/Idea";
 import { ColorPalette } from "../color_palette/ColorPalette";
+import { ShareableLink } from "../shareable_link/ShareableLink";
 import { Fonts } from "../fonts/Fonts";
 import "./Brief.css";
 
@@ -42,6 +43,9 @@ export const Brief = ({
             <Fonts fonts={brief.font}></Fonts>
           </div>
           <Wireframe layoutUrl={layoutUrl}> </Wireframe>
+          <div className="sidenav">
+            <ShareableLink />
+          </div>
         </>
       )}
     </div>
