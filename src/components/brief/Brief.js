@@ -34,7 +34,7 @@ export const Brief = () => {
     font: undefined,
     layout: undefined,
     idea: undefined,
-    persona: undefined
+    persona: undefined,
   });
 
   const [difficulty, setDifficulty] = useState("simple");
@@ -48,31 +48,31 @@ export const Brief = () => {
 
   async function getColors() {
     const data = await getDocs(colorsCollectionRef);
-    const parsedData = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
     setColors(parsedData);
   }
 
   async function getFonts() {
     const data = await getDocs(fontsCollectionRef);
-    const parsedData = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
     setFonts(parsedData);
   }
 
   async function getIdeas() {
     const data = await getDocs(ideasCollectionRef);
-    const parsedData = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
     setIdeas(parsedData);
   }
 
   async function getLayouts() {
     const data = await getDocs(layoutsCollectionRef);
-    const parsedData = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
     setLayouts(parsedData);
   }
 
   async function getPersonas() {
     const data = await getDocs(personasCollectionRef);
-    const parsedData = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
     setPersonas(parsedData);
   }
 
@@ -95,11 +95,13 @@ export const Brief = () => {
       let layoutid = getIdOfParam("l");
       let personaid = getIdOfParam("p");
       setBrief({
-        color: colors.find(color => color.id === colorid),
-        font: fonts.find(font => font.id === fontid.toString()),
-        persona: personas.find(persona => persona.id === personaid.toString()),
-        idea: ideas.find(idea => idea.id === ideaid.toString()),
-        layout: layouts.find(layout => layout.id === layoutid.toString())
+        color: colors.find((color) => color.id === colorid),
+        font: fonts.find((font) => font.id === fontid.toString()),
+        persona: personas.find(
+          (persona) => persona.id === personaid.toString()
+        ),
+        idea: ideas.find((idea) => idea.id === ideaid.toString()),
+        layout: layouts.find((layout) => layout.id === layoutid.toString()),
       });
     } else {
       setBrief({
@@ -107,7 +109,7 @@ export const Brief = () => {
         font: undefined,
         layout: undefined,
         idea: undefined,
-        persona: undefined
+        persona: undefined,
       });
       setBriefGenerated(false);
     }
@@ -142,7 +144,7 @@ export const Brief = () => {
     let randomLayoutIndex;
 
     // filter ideas based on selected difficulty
-    let filteredIdeas = ideas.filter(idea => idea.difficulty === difficulty);
+    let filteredIdeas = ideas.filter((idea) => idea.difficulty === difficulty);
     console.log(filteredIdeas);
     lengthIdeas = filteredIdeas.length;
     randomIdeaIndex = Math.floor(Math.random() * lengthIdeas) + 1;
@@ -152,19 +154,19 @@ export const Brief = () => {
     let idea = filteredIdeas[randomIdeaIndex];
     console.log(idea);
 
-    let filteredLayouts = layouts.filter(layout => layout.type === idea.type);
+    let filteredLayouts = layouts.filter((layout) => layout.type === idea.type);
     console.log(filteredLayouts);
     lengthLayouts = filteredLayouts.length;
     randomLayoutIndex = Math.floor(Math.random() * lengthLayouts) + 1;
 
     setBrief({
-      color: colors.find(color => color.id === randomColorIndex.toString()),
-      font: fonts.find(font => font.id === randomFontIndex.toString()),
+      color: colors.find((color) => color.id === randomColorIndex.toString()),
+      font: fonts.find((font) => font.id === randomFontIndex.toString()),
       persona: personas.find(
-        persona => persona.id === randomPersonaIndex.toString()
+        (persona) => persona.id === randomPersonaIndex.toString()
       ),
       idea: idea,
-      layout: filteredLayouts[randomLayoutIndex]
+      layout: filteredLayouts[randomLayoutIndex],
     });
 
     navigate(
@@ -194,7 +196,7 @@ export const Brief = () => {
     if (brief.layout) {
       const path = ref(storage, brief.layout.link);
 
-      getDownloadURL(path).then(url => {
+      getDownloadURL(path).then((url) => {
         // Insert url into an <img> tag
         setLayoutUrl(url);
       });
@@ -206,7 +208,7 @@ export const Brief = () => {
     if (brief.persona) {
       const path = ref(storage, brief.persona.avatar);
 
-      getDownloadURL(path).then(url => {
+      getDownloadURL(path).then((url) => {
         // Insert url into an <img> tag
         setPersonaUrl(url);
       });
@@ -214,9 +216,9 @@ export const Brief = () => {
   }, [brief.persona]);
 
   return (
-    <div class="main-container">
-      <section class="hero">
-        <h1 class="hero__header-text">
+    <div className="main-container">
+      <section className="hero">
+        <h1 className="hero__header-text">
           <span>Project Brief</span>
           <br />
           <span>Generator</span>
@@ -233,7 +235,7 @@ export const Brief = () => {
             name="difficulty"
             id="difficulty"
             defaultValue="simple"
-            onChange={e => setDifficulty(e.target.value)}
+            onChange={(e) => setDifficulty(e.target.value)}
           >
             <option value="easy">Easy</option>
             <option value="normal">Normal</option>
@@ -246,7 +248,7 @@ export const Brief = () => {
         <>
           <Idea idea={brief.idea}></Idea>
           <Persona personaUrl={personaUrl} persona={brief.persona}></Persona>
-          <div class="brief__colors-and-fonts">
+          <div className="brief__colors-and-fonts">
             <ColorPalette colors={brief.color}></ColorPalette>
             <Fonts fonts={brief.font}></Fonts>
           </div>
