@@ -1,8 +1,29 @@
 .footer {
-  padding: 10px 0;
-  background: #74c6be;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  padding: 1rem 0;
+  background-color: white;
+
+  position: fixed;
   width: 100%;
+  bottom: 0px;
+}
+.footer__items-container{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.footer ul{
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  padding: 0 3rem;
+}
+.footer li{
+  list-style-type: none;
+}
+.footer li:last-child{
+  margin-left: auto;
+}
+.footer .Fhs__logo{
+  height: 3rem;
 }
