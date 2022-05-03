@@ -17,7 +17,7 @@ afterEach(() => {
   cleanup();
 });
 describe("Brief Wireframe", () => {
-  it("When a user clicks the Generate Button, a random brief will be rendered", async () => {
+  it("When a user clicks the Generate Button, a random brief will be rendered", () => {
     //Act
     ReactDOM.render(
       <Brief
@@ -65,6 +65,7 @@ describe("Brief Wireframe", () => {
         briefGenerated={true}
         layoutUrl={""}
         personaUrl={""}
+        setDifficulty={() => console.log("test")}
       ></Brief>,
       container
     );
