@@ -8,19 +8,19 @@ import { cleanup } from "@testing-library/react";
 let container;
 
 beforeEach(() => {
-    container = document.createElement("div");
-    document.body.appendChild(container);
+  container = document.createElement("div");
+  document.body.appendChild(container);
 });
 
 afterEach(() => {
-    document.body.removeChild(container);
-    container = null;
-    cleanup();
+  document.body.removeChild(container);
+  container = null;
+  cleanup();
 });
-describe('Brief Wireframe', () => {
-    it("When a Brief Wireframe is Generated, a Wireframe element should be renderd", () => {
-        //Act
-        ReactDOM.render(<Wireframe layoutUrl={logoUrl}> </Wireframe>, container);
-        expect(container.querySelectorAll('img')).toHaveProperty("length", 1);
-    });
+describe("Brief Wireframe", () => {
+  it("When a Brief Wireframe is Generated, a Wireframe element should be renderd", () => {
+    //Act
+    ReactDOM.render(<Wireframe layoutUrl={logoUrl}> </Wireframe>, container);
+    expect(container.querySelectorAll("img")).toHaveProperty("length", 1);
+  });
 });

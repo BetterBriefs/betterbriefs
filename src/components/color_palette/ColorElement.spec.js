@@ -8,19 +8,19 @@ let container;
 let color = "ffffff";
 
 beforeEach(() => {
-    container = document.createElement("div");
-    document.body.appendChild(container);
+  container = document.createElement("div");
+  document.body.appendChild(container);
 });
 
 afterEach(() => {
-    document.body.removeChild(container);
-    container = null;
-    cleanup();
+  document.body.removeChild(container);
+  container = null;
+  cleanup();
 });
-describe('Brief ColorElement', () => {
-    it("When a Brief ColorElement is Generated, a the color in the ColorElement component matches the given color", () => {
-        //Act
-        ReactDOM.render(<ColorElement color={color}></ColorElement>, container);
-        expect(queryByText(container, "#"+color)).toBeTruthy();
-    });
+describe("Brief ColorElement", () => {
+  it("When a Brief ColorElement is Generated, the color in the ColorElement component matches the given color", () => {
+    //Act
+    ReactDOM.render(<ColorElement color={color}></ColorElement>, container);
+    expect(queryByText(container, "#" + color)).toBeTruthy();
+  });
 });
