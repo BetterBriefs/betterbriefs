@@ -16,7 +16,8 @@ export const Persona = ({ personaUrl, persona }) => {
         <div className="persona_description">
           <h3>{persona.name}</h3>
           <div className="persona_tags">
-            <h4>Age</h4> <span>{persona.age}</span> | <h4>Sex</h4> <span>{personaSex}</span>
+            <h4>Age</h4> <span>{persona.age}</span> | <h4>Sex</h4>{" "}
+            <span>{personaSex}</span>
           </div>
           <h4>About</h4>
           <p>{persona.about}</p>
