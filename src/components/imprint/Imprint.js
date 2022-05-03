@@ -8,6 +8,7 @@ import arazAvatarUrl from "../../media/Araz.png";
 import kerstinAvatarUrl from "../../media/Kerstin.png";
 import tanjaAvatarUrl from "../../media/Tanja.png";
 export const Imprint = () => {
+    document.title = "Imprint | BetterBriefs";
   return (
     <section className="imprint-container">
         <Card>
