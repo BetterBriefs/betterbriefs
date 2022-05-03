@@ -4,12 +4,11 @@ import { Link } from "react-router-dom";
 import logoUrl from "../../logo.svg";
 
 export const Header = () => (
-  <div className="header">
-    <Link to="/">
-      <img src={logoUrl} alt="logo" />
-    </Link>
-    <div>
-      <Link to="/">MyList</Link>
-    </div>
-  </div>
+  <section className="header">
+    <ul>
+      <li><Link to="/"><img src={logoUrl} alt="logo" /></Link></li>
+      <li><Link to="/about">About</Link></li>
+      <li><Link to="/imprint">Imprint</Link></li>
+    </ul>
+  </section>
 );

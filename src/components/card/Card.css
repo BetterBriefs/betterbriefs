@@ -7,21 +7,24 @@
   background-color: var(--white);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
 }
-
+.card h1{
+  color: var(--dark-cyan);
+}
 .card p {
   color: var(--black);
+  margin-bottom: 1rem;
 }
 
-h2 {
+.card h2 {
   margin-bottom: 0.5em;
 }
 
-h3 {
+.card h3 {
   margin-top: 1.5em;
 }
 .card .persona_description h3 {
   margin-top: 0px;
 }
-h4 {
+.card h4 {
   margin-top: 1em;
 }
