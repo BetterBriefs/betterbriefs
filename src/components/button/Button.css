@@ -1,16 +1,18 @@
-.button{
-    border: none;
-    padding: 1em;
-    border-radius: 50px;
-    font-weight: 600;
+.button {
+  border: none;
+  padding: 0.8em 2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
-.primary{
-    color: #1F7A83;
-    background-color: #FABE00;
+.primary {
+  color: var(--dark-cyan);
+  background-color: var(--yellow);
 }
 
-.secondary{
-    background-color: #ffffff;
-    color: #EA5504;
+.secondary {
+  background-color: var(--white);
+  color: var(--orange);
 }

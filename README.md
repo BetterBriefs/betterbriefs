@@ -10,6 +10,10 @@ Reichinger Kerstin: kerstin.reichinger@gmx.at
 Araz Al Hamdani: alhamdani.araz@gmail.com
 Tanja Santner: santner_tanja@gmx.at
 
+# Kanban
+
+https://github.com/orgs/BetterBriefs/projects/1/views/1
+
 # Deployment Firebase
 
 - you must be logged in to firebase, run `firebase login`
