@@ -1,6 +1,7 @@
 import React from "react";
 import { Card } from "../card/Card";
 import "./Persona.css";
+import LazyImage from "../image/Image";
 
 export const Persona = ({ personaUrl, persona }) => {
   let personaSex = "male";
@@ -12,7 +13,7 @@ export const Persona = ({ personaUrl, persona }) => {
     <Card>
       <h2>Persona</h2>
       <div className="persona">
-        <img className="persona_avatar" src={personaUrl} alt="layout"></img>
+      <LazyImage className="persona_avatar" src={personaUrl} alt="Persona" fallback="fallback_circle shimmer" />
         <div className="persona_description">
           <h3>{persona.name}</h3>
           <div className="persona_tags">
