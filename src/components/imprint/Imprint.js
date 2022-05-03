@@ -13,8 +13,8 @@ export const Imprint = () => {
     <section className="main-container">
         <Card>
             <h1>Imprint</h1>
-            <p>BetterBriefs is made as a <b>MultiMediaProject2b</b> in our 4th semester at the <a href="https://fh-salzburg.ac.at/">Salzburg University of Applied Sciences</a>.</p>
-            <p>The Technologies used in this project are mainly <b>ReactJs</b> and for icons and components, we used some help from <a href="https://mui.com/material-ui">Material UI</a></p>
+            <p>BetterBriefs is made as a <b>MultiMediaProject2b</b> in our 4th semester at the <a href="https://fh-salzburg.ac.at/" target="_blank" rel="noreferrer">Salzburg University of Applied Sciences</a>.</p>
+            <p>The Technologies used in this project are mainly <b>ReactJs</b> and for icons and components, we used some help from <a href="https://mui.com/material-ui" target="_blank" rel="noreferrer">Material UI</a></p>
             <h2 className="imprint-container__TeamHeader">Team</h2>
             <div className="imprint-container__Team">
                 <div className="imprint-container__Team__member">
