@@ -202,7 +202,7 @@ export const BriefData = ({ useDataHook = useData }) => {
       : true;
 
     if (isDuplicate) {
-      currentFavorites.push({ ...brief, seed: seed });
+      currentFavorites.push({ ...brief.idea, ...brief.color, seed: seed });
       localStorage.setItem("brief", JSON.stringify(currentFavorites));
     } else alert("Already in Favorites");
   }
