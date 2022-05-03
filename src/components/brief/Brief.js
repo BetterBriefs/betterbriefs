@@ -5,7 +5,7 @@ import { Persona } from "../persona/Persona";
 import { Idea } from "../idea/Idea";
 import { ColorPalette } from "../color_palette/ColorPalette";
 import { Fonts } from "../fonts/Fonts";
-import { Select } from "./Select";
+import { Select } from "../select/Select";
 import "./Brief.css";
 
 export const Brief = ({
@@ -14,6 +14,7 @@ export const Brief = ({
   briefGenerated,
   layoutUrl,
   personaUrl,
+  setDifficulty
 }) => {
   return (
     <div className="main-container brief-container">

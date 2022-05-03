@@ -104,7 +104,6 @@ export const BriefData = ({ useDataHook = useData }) => {
     getIdeas();
     getLayouts();
     getPersonas();
-    console.log("get data new");
   }, []);
 
   // check if params are in url
@@ -167,7 +166,6 @@ export const BriefData = ({ useDataHook = useData }) => {
 
     // filter ideas based on selected difficulty
     let filteredIdeas = ideas.filter((idea) => idea.difficulty === difficulty);
-    console.log(filteredIdeas);
     lengthIdeas = filteredIdeas.length;
     randomIdeaIndex = Math.floor(Math.random() * lengthIdeas);
 
