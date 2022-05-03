@@ -12,9 +12,9 @@ export const Persona = ({ personaUrl, persona }) => {
   return (
     <Card>
       <h2>Persona</h2>
-      <div class="persona">
+      <div className="persona">
       <LazyImage className="persona_avatar" src={personaUrl} alt="Persona" fallback="fallback_circle shimmer" />
-        <div class="persona_description">
+        <div className="persona_description">
           <h3>{persona.name}</h3>
           <div className="persona_tags">
             <h4>Age</h4> <span>{persona.age}</span> | <h4>Sex</h4>{" "}
