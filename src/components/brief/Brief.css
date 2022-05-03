@@ -1,12 +1,9 @@
-.main-container {
-  display: flex;
-  min-height: 48rem;
-  width: 80%;
-  max-width: 100rem;
-  margin: 0 auto;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+.brief-container {
+  margin-top: 5rem;
+  min-height: auto;
+}
+.generated-brief{
+  margin-top: 0px;
 }
 .hero {
   display: flex;
@@ -14,12 +11,12 @@
   justify-content: center;
   flex-direction: column;
   gap: 1rem;
+  text-align: center;
 }
 .hero__header-text {
   position: relative;
   width: fit-content;
   margin: 0px auto;
-  text-align: center;
 }
 .hero__header-text span {
   display: inline;
@@ -44,9 +41,11 @@
   display: flex;
   gap: 2rem;
 }
+
 @media screen and (max-width: 920px) {
   .brief__colors-and-fonts {
     flex-direction: column;
     gap: 0;
   }
 }
+
