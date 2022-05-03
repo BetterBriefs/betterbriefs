@@ -20,7 +20,7 @@ export const Brief = ({
   return (
     <div className="main-container">
       <section className="hero">
-        <h1 className="hero__header-text">
+        <h1 className="headline-text">
           <span>Project Brief</span>
           <br />
           <span>Generator</span>
