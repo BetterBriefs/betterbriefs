@@ -193,6 +193,20 @@ export const BriefData = ({ useDataHook = useData }) => {
     );
   }
 
+  function addToFavorites() {
+    let currentFavorites = JSON.parse(localStorage.getItem("brief")) || [];
+    let isDuplicate = currentFavorites.find(
+      (uniqueBrief) => uniqueBrief.seed === seed
+    )
+      ? false
+      : true;
+
+    if (isDuplicate) {
+      currentFavorites.push({ ...brief, seed: seed });
+      localStorage.setItem("brief", JSON.stringify(currentFavorites));
+    } else alert("Already in Favorites");
+  }
+
   function getIdOfParam(type) {
     switch (type) {
       case "c":
@@ -242,6 +256,7 @@ export const BriefData = ({ useDataHook = useData }) => {
       layoutUrl={layoutUrl}
       personaUrl={personaUrl}
       setDifficulty={setDifficulty}
+      addToFavorites={addToFavorites}
     ></Brief>
   );
 };

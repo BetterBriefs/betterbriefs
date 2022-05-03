@@ -15,6 +15,7 @@ export const Brief = ({
   layoutUrl,
   personaUrl,
   setDifficulty,
+  addToFavorites,
 }) => {
   return (
     <div className="main-container">
@@ -34,6 +35,7 @@ export const Brief = ({
         <div className="hero__buttons-container">
           <Select setDifficulty={setDifficulty}></Select>
           <Button onClick={onGenerateBrief}>Generate</Button>
+          <Button onClick={addToFavorites}>Add to Favorites</Button>
         </div>
       </section>
       {briefGenerated === true && (
