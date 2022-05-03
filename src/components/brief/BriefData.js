@@ -167,15 +167,16 @@ export const BriefData = ({ useDataHook = useData }) => {
 
     // filter ideas based on selected difficulty
     let filteredIdeas = ideas.filter((idea) => idea.difficulty === difficulty);
+    console.log(filteredIdeas);
     lengthIdeas = filteredIdeas.length;
-    randomIdeaIndex = Math.floor(Math.random() * lengthIdeas) + 1;
+    randomIdeaIndex = Math.floor(Math.random() * lengthIdeas);
 
     // type of idea and layout must match
     let idea = filteredIdeas[randomIdeaIndex];
 
     let filteredLayouts = layouts.filter((layout) => layout.type === idea.type);
     lengthLayouts = filteredLayouts.length;
-    randomLayoutIndex = Math.floor(Math.random() * lengthLayouts) + 1;
+    randomLayoutIndex = Math.floor(Math.random() * lengthLayouts);
 
     setBrief({
       color: colors.find((color) => color.id === randomColorIndex.toString()),
