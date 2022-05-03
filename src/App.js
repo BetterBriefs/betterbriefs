@@ -5,6 +5,7 @@ import { Header } from "./components/header/Header";
 import { Footer } from "./components/footer/Footer";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "./Theme";
+import { ShareableLink } from "./components/shareable_link/ShareableLink";
 
 import "./App.css";
 
@@ -21,6 +22,7 @@ function App() {
           <Footer />
         </BrowserRouter>
       </ThemeProvider>
+      <ShareableLink />
     </div>
   );
 }

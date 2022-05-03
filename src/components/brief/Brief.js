@@ -12,7 +12,7 @@ export const Brief = ({
   brief,
   briefGenerated,
   layoutUrl,
-  personaUrl,
+  personaUrl
 }) => {
   return (
     <div className="main-container">

@@ -21,31 +21,31 @@ const useData = () => {
 
   const getColors = async () => {
     const data = await getDocs(colorsCollectionRef);
-    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    const parsedData = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
     setColors(parsedData);
   };
 
   const getFonts = async () => {
     const data = await getDocs(fontsCollectionRef);
-    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    const parsedData = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
     setFonts(parsedData);
   };
 
   const getIdeas = async () => {
     const data = await getDocs(ideasCollectionRef);
-    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    const parsedData = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
     setIdeas(parsedData);
   };
 
   const getLayouts = async () => {
     const data = await getDocs(layoutsCollectionRef);
-    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    const parsedData = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
     setLayouts(parsedData);
   };
 
   const getPersonas = async () => {
     const data = await getDocs(personasCollectionRef);
-    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    const parsedData = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
     setPersonas(parsedData);
   };
 
@@ -59,7 +59,7 @@ const useData = () => {
     getLayouts,
     getIdeas,
     getColors,
-    getFonts,
+    getFonts
   };
 };
 
@@ -75,7 +75,7 @@ export const BriefData = ({ useDataHook = useData }) => {
     getLayouts,
     getIdeas,
     getColors,
-    getFonts,
+    getFonts
   } = useDataHook();
 
   // flag if a brief is generated or not
@@ -87,7 +87,7 @@ export const BriefData = ({ useDataHook = useData }) => {
     font: undefined,
     layout: undefined,
     idea: undefined,
-    persona: undefined,
+    persona: undefined
   });
 
   const [layoutUrl, setLayoutUrl] = useState([]);
@@ -115,13 +115,11 @@ export const BriefData = ({ useDataHook = useData }) => {
       let layoutid = getIdOfParam("l");
       let personaid = getIdOfParam("p");
       setBrief({
-        color: colors.find((color) => color.id === colorid),
-        font: fonts.find((font) => font.id === fontid.toString()),
-        persona: personas.find(
-          (persona) => persona.id === personaid.toString()
-        ),
-        idea: ideas.find((idea) => idea.id === ideaid.toString()),
-        layout: layouts.find((layout) => layout.id === layoutid.toString()),
+        color: colors.find(color => color.id === colorid),
+        font: fonts.find(font => font.id === fontid.toString()),
+        persona: personas.find(persona => persona.id === personaid.toString()),
+        idea: ideas.find(idea => idea.id === ideaid.toString()),
+        layout: layouts.find(layout => layout.id === layoutid.toString())
       });
     } else {
       setBrief({
@@ -129,7 +127,7 @@ export const BriefData = ({ useDataHook = useData }) => {
         font: undefined,
         layout: undefined,
         idea: undefined,
-        persona: undefined,
+        persona: undefined
       });
       setBriefGenerated(false);
     }
@@ -163,20 +161,20 @@ export const BriefData = ({ useDataHook = useData }) => {
     let randomIdeaIndex = Math.floor(Math.random() * lengthIdeas) + 1;
 
     // type of idea and layout must match
-    let idea = ideas.find((idea) => idea.id === randomIdeaIndex.toString());
+    let idea = ideas.find(idea => idea.id === randomIdeaIndex.toString());
 
-    let filteredLayouts = layouts.filter((layout) => layout.type === idea.type);
+    let filteredLayouts = layouts.filter(layout => layout.type === idea.type);
     lengthLayouts = filteredLayouts.length;
     let randomLayoutIndex = Math.floor(Math.random() * lengthLayouts) + 1;
 
     setBrief({
-      color: colors.find((color) => color.id === randomColorIndex.toString()),
-      font: fonts.find((font) => font.id === randomFontIndex.toString()),
+      color: colors.find(color => color.id === randomColorIndex.toString()),
+      font: fonts.find(font => font.id === randomFontIndex.toString()),
       persona: personas.find(
-        (persona) => persona.id === randomPersonaIndex.toString()
+        persona => persona.id === randomPersonaIndex.toString()
       ),
-      idea: ideas.find((idea) => idea.id === randomIdeaIndex.toString()),
-      layout: layouts[randomLayoutIndex],
+      idea: ideas.find(idea => idea.id === randomIdeaIndex.toString()),
+      layout: layouts[randomLayoutIndex]
     });
 
     navigate(
@@ -206,7 +204,7 @@ export const BriefData = ({ useDataHook = useData }) => {
     if (brief.layout) {
       const path = ref(storage, brief.layout.link);
 
-      getDownloadURL(path).then((url) => {
+      getDownloadURL(path).then(url => {
         // Insert url into an <img> tag
         setLayoutUrl(url);
       });
@@ -218,7 +216,7 @@ export const BriefData = ({ useDataHook = useData }) => {
     if (brief.persona) {
       const path = ref(storage, brief.persona.avatar);
 
-      getDownloadURL(path).then((url) => {
+      getDownloadURL(path).then(url => {
         // Insert url into an <img> tag
         setPersonaUrl(url);
       });
