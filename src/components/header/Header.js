@@ -8,7 +8,7 @@ export const Header = () => (
     <ul>
       <li><Link to="/"><img src={logoUrl} alt="logo" /></Link></li>
       <li><Link to="/">How-to</Link></li>
-      <li><Link to="/">Imprint</Link></li>
+      <li><Link to="/imprint">Imprint</Link></li>
     </ul>
   </section>
 );
