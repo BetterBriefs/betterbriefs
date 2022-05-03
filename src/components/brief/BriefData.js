@@ -5,15 +5,78 @@ import { storage, db } from "../../firebase-config";
 import { collection, getDocs } from "firebase/firestore";
 import { Brief } from "./Brief";
 
-export const BriefData = () => {
-  let { seed } = useParams();
-
+const useData = () => {
+  // database
+  const colorsCollectionRef = collection(db, "colors");
+  const fontsCollectionRef = collection(db, "fonts");
+  const ideasCollectionRef = collection(db, "ideas");
+  const layoutsCollectionRef = collection(db, "layouts");
+  const personasCollectionRef = collection(db, "personas");
   // all data for brief creation
   const [colors, setColors] = useState([]);
   const [fonts, setFonts] = useState([]);
   const [ideas, setIdeas] = useState([]);
   const [personas, setPersonas] = useState([]);
   const [layouts, setLayouts] = useState([]);
+
+  const getColors = async () => {
+    const data = await getDocs(colorsCollectionRef);
+    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    setColors(parsedData);
+  };
+
+  const getFonts = async () => {
+    const data = await getDocs(fontsCollectionRef);
+    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    setFonts(parsedData);
+  };
+
+  const getIdeas = async () => {
+    const data = await getDocs(ideasCollectionRef);
+    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    setIdeas(parsedData);
+  };
+
+  const getLayouts = async () => {
+    const data = await getDocs(layoutsCollectionRef);
+    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    setLayouts(parsedData);
+  };
+
+  const getPersonas = async () => {
+    const data = await getDocs(personasCollectionRef);
+    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    setPersonas(parsedData);
+  };
+
+  return {
+    colors,
+    fonts,
+    ideas,
+    personas,
+    layouts,
+    getPersonas,
+    getLayouts,
+    getIdeas,
+    getColors,
+    getFonts,
+  };
+};
+
+export const BriefData = ({ useDataHook = useData }) => {
+  let { seed } = useParams();
+  const {
+    colors,
+    fonts,
+    ideas,
+    personas,
+    layouts,
+    getPersonas,
+    getLayouts,
+    getIdeas,
+    getColors,
+    getFonts,
+  } = useDataHook();
 
   // flag if a brief is generated or not
   const [briefGenerated, setBriefGenerated] = useState([false]);
@@ -32,43 +95,6 @@ export const BriefData = () => {
 
   const navigate = useNavigate();
 
-  // database
-  const colorsCollectionRef = collection(db, "colors");
-  const fontsCollectionRef = collection(db, "fonts");
-  const ideasCollectionRef = collection(db, "ideas");
-  const layoutsCollectionRef = collection(db, "layouts");
-  const personasCollectionRef = collection(db, "personas");
-
-  async function getColors() {
-    const data = await getDocs(colorsCollectionRef);
-    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-    setColors(parsedData);
-  }
-
-  async function getFonts() {
-    const data = await getDocs(fontsCollectionRef);
-    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-    setFonts(parsedData);
-  }
-
-  async function getIdeas() {
-    const data = await getDocs(ideasCollectionRef);
-    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-    setIdeas(parsedData);
-  }
-
-  async function getLayouts() {
-    const data = await getDocs(layoutsCollectionRef);
-    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-    setLayouts(parsedData);
-  }
-
-  async function getPersonas() {
-    const data = await getDocs(personasCollectionRef);
-    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-    setPersonas(parsedData);
-  }
-
   // load data initially
   useEffect(() => {
     getColors();
@@ -76,6 +102,7 @@ export const BriefData = () => {
     getIdeas();
     getLayouts();
     getPersonas();
+    console.log("get data new");
   }, []);
 
   // check if params are in url
