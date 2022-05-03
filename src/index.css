@@ -1,3 +1,69 @@
+
+:root {
+  --yellow: #fabe00;
+  --orange: #ea5504;
+  --cyan: #74c6be;
+  --dark-cyan: #1f7a83;
+  --black: #1a1a1a;
+  --white: #ffffff;
+  --background-gradient: linear-gradient(
+    90deg,
+    var(--dark-cyan) 0%,
+    var(--cyan) 100%
+    );
+  }
+* {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  font-size: 4em;
+  color: var(--white);
+  letter-spacing: 0.5px;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 2em;
+  color: var(--dark-cyan);
+  letter-spacing: 0.5px;
+}
+
+h3 {
+  font-size: 1em;
+  color: var(--black);
+  text-transform: uppercase;
+}
+h4 {
+  color: var(--black);
+}
+a {
+  color: var(--white);
+  text-decoration: none;
+}
+p {
+  font-size: 1.2em;
+  line-height: 1.8rem;
+  color: var(--white);
+  font-family: "Open Sans", sans-serif;
+}
+img {
+  width: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--dark-cyan);
+  background: var(--background-gradient);
+}
+
+code {
+  font-family: "Open Sans", sans-serif;
+}
+
 /* open-sans-300 - latin */
 @font-face {
   font-family: "Open Sans";
@@ -109,6 +175,7 @@
   --dark-cyan: #1f7a83;
   --black: #1a1a1a;
   --white: #ffffff;
+  --light-grey: #ededed;
   --background-gradient: linear-gradient(
     90deg,
     var(--dark-cyan) 0%,
