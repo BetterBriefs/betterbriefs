@@ -10,6 +10,7 @@
 
 .card p {
   color: var(--black);
+  margin-bottom: 1rem;
 }
 
 h2 {
