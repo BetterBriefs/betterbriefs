@@ -1,0 +1,35 @@
+.persona {
+  display: grid;
+  grid-template-areas: "avatar info";
+  gap: 2rem;
+}
+.persona_avatar {
+  grid-area: avatar;
+  width: 150px;
+  border-radius: 50%;
+}
+.persona_description {
+  grid-area: info;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.persona_tags {
+  grid-area: info;
+}
+.persona h3 {
+  font-size: 1.4em;
+  text-transform: none;
+}
+.persona h4 {
+  font-size: 1em;
+  color: var(--black);
+  text-transform: uppercase;
+  display: inline;
+}
+@media screen and (max-width: 920px) {
+  .persona {
+    grid-template-areas: "avatar" "info";
+    gap: 1rem;
+  }
+}
