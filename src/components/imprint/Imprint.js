@@ -10,7 +10,7 @@ import tanjaAvatarUrl from "../../media/Tanja.png";
 export const Imprint = () => {
     document.title = "Imprint | BetterBriefs";
   return (
-    <section className="imprint-container">
+    <section className="main-container">
         <Card>
             <h1>Imprint</h1>
             <p>BetterBriefs is made as a <b>MultiMediaProject2b</b> in our 4th semester at the <a href="https://fh-salzburg.ac.at/">Salzburg University of Applied Sciences</a>.</p>

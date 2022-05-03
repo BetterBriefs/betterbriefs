@@ -4,7 +4,7 @@ import { Card } from "../card/Card";
 export const About = () => {
     document.title = "About | BetterBriefs";
   return (
-    <section className="imprint-container">
+    <section className="main-container">
         <Card>
             <h1>About</h1>
             <h2>The Idea</h2>

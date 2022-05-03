@@ -15,7 +15,7 @@ export const Brief = ({
   personaUrl,
 }) => {
   return (
-    <div className="main-container">
+    <div className="main-container brief-container">
       <section className="hero">
         <h1 className="hero__header-text">
           <span>Project Brief</span>
