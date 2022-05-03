@@ -202,9 +202,9 @@ export const Brief = () => {
   }, [brief.persona]);
 
   return (
-    <div class="main-container">
-      <section class="hero">
-        <h1 class="hero__header-text">
+    <div className="main-container">
+      <section className="hero">
+        <h1 className="hero__header-text">
           <span>Project Brief</span>
           <br />
           <span>Generator</span>
@@ -216,7 +216,7 @@ export const Brief = () => {
             to start coding an awesome project immediately.
           </p>
         )}
-        <div class="hero__buttons-container">
+        <div className="hero__buttons-container">
           <Button onClick={generateBrief}>Generate</Button>
         </div>
       </section>
@@ -224,7 +224,7 @@ export const Brief = () => {
         <>
           <Idea idea={brief.idea}></Idea>
           <Persona personaUrl={personaUrl} persona={brief.persona}></Persona>
-          <div class="brief__colors-and-fonts">
+          <div className="brief__colors-and-fonts">
             <ColorPalette colors={brief.color}></ColorPalette>
             <Fonts fonts={brief.font}></Fonts>
           </div>

@@ -39,8 +39,14 @@
   justify-content: center;
   gap: 1rem;
 }
-.brief__colors-and-fonts{
+.brief__colors-and-fonts {
   width: 100%;
   display: flex;
   gap: 2rem;
+}
+@media screen and (max-width: 920px) {
+  .brief__colors-and-fonts {
+    flex-direction: column;
+    gap: 0;
+  }
 }
