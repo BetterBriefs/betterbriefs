@@ -16,6 +16,7 @@ export const ShareableLink = () => {
 
   function copyURL() {
     navigator.clipboard.writeText(window.location.href);
+    handleClose();
   }
 
   return (
