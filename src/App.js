@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { BriefData } from "./components/brief/BriefData";
 import { Imprint } from "./components/imprint/Imprint";
 import { About } from "./components/about/About";
+import { Privacy } from "./components/privacy/Privacy";
 import { Header } from "./components/header/Header";
 import { Footer } from "./components/footer/Footer";
 import { ThemeProvider } from "@mui/material/styles";
@@ -21,6 +22,7 @@ function App() {
             <Route path="/:seed" element={<BriefData />} />
             <Route path="/imprint" element={<Imprint />} />
             <Route path="/about" element={<About />} />
+            <Route path="/privacy" element={<Privacy />} />
           </Routes>
           <Footer />
         </BrowserRouter>
