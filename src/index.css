@@ -166,7 +166,6 @@ code {
       format("truetype"),
     /* Safari, Android, iOS */
       url("./fonts/open-sans-v28-latin-800.svg#OpenSans") format("svg"); /* Legacy iOS */
-<<<<<<< HEAD
 }
 
 :root {
@@ -234,6 +233,3 @@ body {
 code {
   font-family: "Open Sans", sans-serif;
 }
-=======
-}
->>>>>>> 8287bf40a773ec7701510ebf52bfab5b5b0cf49e
