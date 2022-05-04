@@ -19,6 +19,7 @@ export const Brief = ({
   layoutUrl,
   personaUrl,
   setDifficulty,
+  allColors,
   onFavoritesChange,
 }) => {
   let pageurl = window.location.href;
@@ -54,7 +55,7 @@ export const Brief = ({
           <Idea idea={brief.idea}></Idea>
           <Persona personaUrl={personaUrl} persona={brief.persona}></Persona>
           <div className="brief__colors-and-fonts">
-            <ColorPalette colors={brief.color}></ColorPalette>
+            <ColorPalette colors={brief.color} allColors={allColors}></ColorPalette>
             <Fonts fonts={brief.font}></Fonts>
           </div>
           <Wireframe layoutUrl={layoutUrl}> </Wireframe>
