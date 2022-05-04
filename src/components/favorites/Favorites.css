@@ -1,0 +1,28 @@
+.empty-list-text {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+.favorites-headline {
+    margin-bottom: 2rem;
+}
+.headline-text {
+    position: relative;
+    width: fit-content;
+    margin: 0px auto;
+    text-align: center;
+  }
+  .headline-text span {
+    display: inline;
+    background-image: repeating-linear-gradient(
+      to top,
+      transparent 0,
+      transparent 0.19em,
+      var(--cyan) 0.19em,
+      var(--cyan) 0.6em,
+      transparent 0.6em,
+      transparent 2em
+    );
+    padding: 0 0.5rem;
+  }

@@ -63,7 +63,7 @@ const useData = () => {
   };
 };
 
-export const BriefData = ({ useDataHook = useData }) => {
+export const BriefData = ({ useDataHook = useData, onFavoritesChange }) => {
   let { seed } = useParams();
   const {
     colors,
@@ -240,6 +240,8 @@ export const BriefData = ({ useDataHook = useData }) => {
       layoutUrl={layoutUrl}
       personaUrl={personaUrl}
       setDifficulty={setDifficulty}
+      allColors={colors}
+      onFavoritesChange={onFavoritesChange}
     ></Brief>
   );
 };

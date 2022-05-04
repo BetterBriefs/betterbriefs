@@ -1,26 +1,12 @@
 import React from "react";
 import { Card } from "../card/Card";
-import Chip from "@mui/material/Chip";
+import { Tags } from "../tags/Tags";
 
 export const Idea = ({ idea }) => {
   return (
     <Card>
       <h2>Idea</h2>
-      <Chip
-        label={idea.type}
-        color="info"
-        sx={{
-          textTransform: "capitalize",
-          marginRight: "10px"
-        }}
-      />
-      <Chip
-        label={idea.difficulty}
-        color="info"
-        sx={{
-          textTransform: "capitalize"
-        }}
-      />
+      <Tags difficulty={idea.difficulty} type={idea.type} />
       <h3>Title</h3>
       <p>{idea.title}</p>
       <h3>Description</h3>
