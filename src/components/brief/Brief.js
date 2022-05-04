@@ -17,7 +17,6 @@ export const Brief = ({
   layoutUrl,
   personaUrl,
   setDifficulty,
-  addToFavorites,
 }) => {
   return (
     <div
