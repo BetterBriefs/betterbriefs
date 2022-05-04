@@ -11,7 +11,7 @@ export const Footer = () => (
         <li><Link to="/privacy">Data Privacy</Link></li>
       </ul>
       <ul>
-        <li><a href="https://www.fh-salzburg.ac.at/"><img className="Fhs__logo" src={fhsLogoUrl+""} alt="fh salzburg logo"></img></a></li>
+        <li><a href="https://www.fh-salzburg.ac.at/" target="_blank" rel="noreferrer"><img className="Fhs__logo" src={fhsLogoUrl+""} alt="fh salzburg logo"></img></a></li>
       </ul>
     </div>
   </section>

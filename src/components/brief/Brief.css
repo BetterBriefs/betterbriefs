@@ -1,5 +1,9 @@
 .brief-container {
-  justify-content: center;
+  margin-top: 5rem;
+  min-height: auto;
+}
+.generated-brief{
+  margin-top: 0px;
 }
 .hero {
   display: flex;
