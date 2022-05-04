@@ -5,3 +5,9 @@
   flex-wrap: wrap;
   row-gap: 2em;
 }
+
+.reload__button{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

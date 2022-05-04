@@ -261,6 +261,7 @@ export const BriefData = ({ useDataHook = useData, onFavoritesChange }) => {
       layoutUrl={layoutUrl}
       personaUrl={personaUrl}
       setDifficulty={setDifficulty}
+      allColors={colors}
       onFavoritesChange={onFavoritesChange}
     ></Brief>
   );
