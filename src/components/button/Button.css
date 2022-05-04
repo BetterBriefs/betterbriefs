@@ -14,5 +14,11 @@
 
 .secondary {
   background-color: var(--white);
+  color: var(--dark-cyan);
+  border: 3px solid var(--dark-cyan);
+}
+
+.info {
+  background-color: var(--white);
   color: var(--orange);
 }
