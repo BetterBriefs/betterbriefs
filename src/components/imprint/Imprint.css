@@ -5,7 +5,13 @@
     display: flex;
     justify-content: space-evenly;
     margin: 3rem 0;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
+.imprint-container__Team__member{
+    width: 15rem;
+}
+
 .imprint-container__Team__member__links{
     display: flex;
     gap: 0.5rem;

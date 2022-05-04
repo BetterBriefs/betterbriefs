@@ -68,6 +68,15 @@ body {
   margin: 0 auto;
   flex-direction: column;
 }
+
+@media screen and (max-width: 560px) {
+  h1 {
+    font-size: 3em;
+    letter-spacing: 0.5px;
+  }
+}
+
+
 /* open-sans-300 - latin */
 @font-face {
   font-family: "Open Sans";
