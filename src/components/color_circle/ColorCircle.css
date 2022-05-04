@@ -3,7 +3,7 @@
     display:flex;
 }
 
-.circle {
+.favorite__container .circle {
 width: 3em;
 height: 3em;
 border-radius: 10em;
