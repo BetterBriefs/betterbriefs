@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ref, getDownloadURL } from "firebase/storage";
 import { storage, db } from "../../firebase-config";
@@ -135,6 +135,27 @@ export const BriefData = ({ useDataHook = useData, onFavoritesChange }) => {
       setBriefGenerated(false);
     }
   }, [colors, fonts, ideas, layouts, personas, seed, brief]);
+
+  const appendFontToHead = useCallback((fontFamily) => {
+    let font = null;
+    const id = "dynamic-font";
+
+    if (document.getElementById(id)) {
+      font = document.getElementById(id);
+    } else {
+      font = document.createElement("link");
+      font.rel = "stylesheet";
+      font.id = id;
+      document.head.appendChild(font);
+    }
+    let fontName = fontFamily.slice(fontFamily.lastIndexOf("/") + 1);
+    font.href = "https://fonts.googleapis.com/css2?family=" + fontName; // url to the font;
+  }, []);
+
+  useEffect(() => {
+    appendFontToHead(brief.font.title_font);
+    appendFontToHead(brief.font.paragraph_font);
+  }, [appendFontToHead, brief.font]);
 
   // if brief states are available, set BriefGenerated to true, so brief will be rendered
   useEffect(() => {
