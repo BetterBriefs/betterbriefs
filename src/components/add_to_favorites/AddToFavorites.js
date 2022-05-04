@@ -4,7 +4,7 @@ import StarOutlineRoundedIcon from "@mui/icons-material/StarOutlineRounded";
 import { SidenavElement } from "../sidenav_element/SidenavElement";
 import { Overlay } from "../overlay/Overlay";
 
-export const AddToFavorites = ({ brief }) => {
+export const AddToFavorites = ({ brief, onFavoritesChange }) => {
   const navigate = useNavigate();
   let { seed } = useParams();
   const [open, setOpen] = React.useState(false);
@@ -38,8 +38,9 @@ export const AddToFavorites = ({ brief }) => {
       currentFavorites.push({ ...brief.idea, ...brief.color, seed: seed });
       localStorage.setItem("brief", JSON.stringify(currentFavorites));
       setDialogText("This brief was added to your favorites list.");
+      onFavoritesChange(currentFavorites);
     } else setDialogText("Already in Favorites");
-  }, [brief, seed]);
+  }, [brief.color, brief.idea, onFavoritesChange, seed]);
 
   return (
     <>

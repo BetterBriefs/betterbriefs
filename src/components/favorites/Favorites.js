@@ -1,18 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { FavoritesEntry } from "./FavoritesEntry";
 import "./Favorites.css";
 
-export const Favorites = () => {
-  const [favorites, setFavorites] = useState([]);
-  useEffect(() => {
-    let currentFavorites = JSON.parse(localStorage.getItem("brief")) || [];
-    setFavorites(currentFavorites);
-  }, []);
-
+export const Favorites = ({ favorites, onFavoritesChange }) => {
   function removeFavorite(seed) {
     let data = favorites.filter((entry) => entry.seed !== seed);
     localStorage.setItem("brief", JSON.stringify(data));
-    setFavorites(data);
+    onFavoritesChange(data);
   }
 
   return (

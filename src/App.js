@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { BriefData } from "./components/brief/BriefData";
 import { Imprint } from "./components/imprint/Imprint";
@@ -12,15 +12,30 @@ import { theme } from "./Theme";
 import "./App.css";
 
 function App() {
+  const [favorites, setFavorites] = useState([]);
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
         <BrowserRouter>
-          <Header />
+          <Header favorites={favorites} />
           <Routes>
-            <Route path="/" element={<BriefData />} />
-            <Route path="/:seed" element={<BriefData />} />
-            <Route path="/favorites" element={<Favorites />} />
+            <Route
+              path="/"
+              element={<BriefData onFavoritesChange={setFavorites} />}
+            />
+            <Route
+              path="/:seed"
+              element={<BriefData onFavoritesChange={setFavorites} />}
+            />
+            <Route
+              path="/favorites"
+              element={
+                <Favorites
+                  favorites={favorites}
+                  onFavoritesChange={setFavorites}
+                />
+              }
+            />
             <Route path="/imprint" element={<Imprint />} />
             <Route path="/about" element={<About />} />
             <Route path="/privacy" element={<Privacy />} />

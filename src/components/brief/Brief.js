@@ -17,6 +17,7 @@ export const Brief = ({
   layoutUrl,
   personaUrl,
   setDifficulty,
+  onFavoritesChange,
 }) => {
   return (
     <div
@@ -55,7 +56,10 @@ export const Brief = ({
           <Wireframe layoutUrl={layoutUrl}> </Wireframe>
           <div className="sidenav">
             <ShareableLink />
-            <AddToFavorites brief={brief} />
+            <AddToFavorites
+              brief={brief}
+              onFavoritesChange={onFavoritesChange}
+            />
           </div>
         </>
       )}
