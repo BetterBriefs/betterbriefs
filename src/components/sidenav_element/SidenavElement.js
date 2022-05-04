@@ -3,7 +3,7 @@ import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import Fade from "@mui/material/Fade";
 
-export const SidenavElement = ({ hoverText, handleOpen, children }) => {
+export const SidenavElement = ({ hoverText, handleClickOpen, children }) => {
   return (
     <Tooltip
       title={<p>{hoverText}</p>}
@@ -13,7 +13,7 @@ export const SidenavElement = ({ hoverText, handleOpen, children }) => {
       sx={{ backgroundColor: "#ffffff" }}
     >
       <IconButton
-        onClick={handleOpen}
+        onClick={handleClickOpen}
         sx={{
           backgroundColor: "#fabe00",
           width: "3em",
