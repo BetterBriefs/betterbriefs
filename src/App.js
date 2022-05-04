@@ -12,7 +12,9 @@ import { theme } from "./Theme";
 import "./App.css";
 
 function App() {
-  const [favorites, setFavorites] = useState([]);
+  const [favorites, setFavorites] = useState(
+    JSON.parse(localStorage.getItem("brief")) || []
+  );
   return (
     <div className="App">
       <ThemeProvider theme={theme}>

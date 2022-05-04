@@ -44,7 +44,10 @@ export const AddToFavorites = ({ brief, onFavoritesChange }) => {
 
   return (
     <>
-      <SidenavElement hoverText="Add to Favorites" handleOpen={handleClickOpen}>
+      <SidenavElement
+        hoverText="Add to Favorites"
+        handleClickOpen={handleClickOpen}
+      >
         <StarOutlineRoundedIcon fontSize="large" sx={{ color: "#1f7a83" }} />
       </SidenavElement>
       <Overlay
