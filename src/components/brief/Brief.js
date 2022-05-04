@@ -5,7 +5,7 @@ import { Persona } from "../persona/Persona";
 import { Idea } from "../idea/Idea";
 import { ColorPalette } from "../color_palette/ColorPalette";
 import { Fonts } from "../fonts/Fonts";
-import { Select } from "./Select";
+import { Select } from "../select/Select";
 import "./Brief.css";
 
 export const Brief = ({
@@ -18,7 +18,13 @@ export const Brief = ({
   addToFavorites,
 }) => {
   return (
-    <div className="main-container">
+    <div
+      className={
+        briefGenerated
+          ? "main-container brief-container generated-brief"
+          : "main-container brief-container"
+      }
+    >
       <section className="hero">
         <h1 className="headline-text">
           <span>Project Brief</span>

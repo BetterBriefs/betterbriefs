@@ -1,10 +1,23 @@
 .header {
-  padding: 10px 0;
-  background: #74c6be;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 3rem 1rem 3rem;
+}
+.header ul{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 2rem;
+}
+.header ul li:nth-child(2){
+  margin-left: auto;
+}
+.header li{
+  list-style-type: none;
+}
+.header a{
+  font-size: 1.2rem;
 }
 .header img {
-  height: 40px;
+  height: 55px;
 }
