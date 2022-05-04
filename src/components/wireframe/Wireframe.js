@@ -6,7 +6,11 @@ export const Wireframe = ({ layoutUrl }) => {
   return (
     <Card>
       <h2>Layout</h2>
-      <LazyImage src={layoutUrl} alt="Wireframe" fallback="fallback_rectangle" />
+      <LazyImage
+        src={layoutUrl}
+        alt="Wireframe"
+        fallback="fallback_rectangle"
+      />
     </Card>
   );
 };

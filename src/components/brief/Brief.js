@@ -6,6 +6,7 @@ import { Idea } from "../idea/Idea";
 import { ColorPalette } from "../color_palette/ColorPalette";
 import { Fonts } from "../fonts/Fonts";
 import { Select } from "../select/Select";
+import { ShareableLink } from "../shareable_link/ShareableLink";
 import "./Brief.css";
 
 export const Brief = ({
@@ -45,6 +46,9 @@ export const Brief = ({
             <Fonts fonts={brief.font}></Fonts>
           </div>
           <Wireframe layoutUrl={layoutUrl}> </Wireframe>
+          <div className="sidenav">
+            <ShareableLink />
+          </div>
         </>
       )}
     </div>
