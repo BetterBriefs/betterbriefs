@@ -17,7 +17,7 @@ export const Brief = ({
   setDifficulty
 }) => {
   return (
-    <div className="main-container brief-container">
+    <div className={briefGenerated ? "main-container brief-container generated-brief":"main-container brief-container"}>
       <section className="hero">
         <h1 className="hero__header-text">
           <span>Project Brief</span>
