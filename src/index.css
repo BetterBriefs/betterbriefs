@@ -75,7 +75,10 @@ body {
     letter-spacing: 0.5px;
   }
 }
-
+@media print { 
+  /* All your print styles go here */
+  .header, .footer, .hero__buttons-container { display: none !important; } 
+ }
 
 /* open-sans-300 - latin */
 @font-face {
