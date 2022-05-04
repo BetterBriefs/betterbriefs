@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import StarOutlineRoundedIcon from "@mui/icons-material/StarOutlineRounded";
 import { SidenavElement } from "../sidenav_element/SidenavElement";
 import { Overlay } from "../overlay/Overlay";
+import emptyfolderurl from "../../media/notification.mp3";
 
 export const AddToFavorites = ({ brief, onFavoritesChange }) => {
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ export const AddToFavorites = ({ brief, onFavoritesChange }) => {
 
   const handleClickOpen = () => {
     addToFavorites();
+    new Audio(emptyfolderurl).play();
     setOpen(true);
   };
 
