@@ -7,6 +7,7 @@ import { ColorPalette } from "../color_palette/ColorPalette";
 import { Fonts } from "../fonts/Fonts";
 import { Select } from "../select/Select";
 import { ShareableLink } from "../shareable_link/ShareableLink";
+import { PrintBrief } from "../print_brief/Print_brief"
 import "./Brief.css";
 
 export const Brief = ({
@@ -50,6 +51,7 @@ export const Brief = ({
           <Wireframe layoutUrl={layoutUrl}> </Wireframe>
           <div className="sidenav">
             <ShareableLink />
+            <PrintBrief />
           </div>
         </>
       )}
