@@ -63,6 +63,13 @@ code {
   font-family: "Open Sans", sans-serif;
 }
 
+.main-container{
+  display: flex;
+  width: 80%;
+  max-width: 100rem;
+  margin: 0 auto;
+  flex-direction: column;
+}
 /* open-sans-300 - latin */
 @font-face {
   font-family: "Open Sans";

@@ -81,6 +81,8 @@ export const BriefData = ({ useDataHook = useData }) => {
   // flag if a brief is generated or not
   const [briefGenerated, setBriefGenerated] = useState([false]);
 
+  const [difficulty, setDifficulty] = useState("easy");
+
   // stored generated brief
   const [brief, setBrief] = useState({
     color: undefined,
@@ -102,7 +104,6 @@ export const BriefData = ({ useDataHook = useData }) => {
     getIdeas();
     getLayouts();
     getPersonas();
-    console.log("get data new");
   }, []);
 
   // check if params are in url
@@ -150,7 +151,7 @@ export const BriefData = ({ useDataHook = useData }) => {
     // get length of each dataset to choose a random index that will be used
     let lengthColors = colors.length;
     let lengthFonts = fonts.length;
-    let lengthIdeas = ideas.length;
+    let lengthIdeas;
     let lengthPersonas = personas.length;
     let lengthLayouts;
 
@@ -158,14 +159,20 @@ export const BriefData = ({ useDataHook = useData }) => {
     let randomColorIndex = Math.floor(Math.random() * lengthColors) + 1;
     let randomFontIndex = Math.floor(Math.random() * lengthFonts) + 1;
     let randomPersonaIndex = Math.floor(Math.random() * lengthPersonas) + 1;
-    let randomIdeaIndex = Math.floor(Math.random() * lengthIdeas) + 1;
+    let randomIdeaIndex;
+    let randomLayoutIndex;
+
+    // filter ideas based on selected difficulty
+    let filteredIdeas = ideas.filter((idea) => idea.difficulty === difficulty);
+    lengthIdeas = filteredIdeas.length;
+    randomIdeaIndex = Math.floor(Math.random() * lengthIdeas);
 
     // type of idea and layout must match
-    let idea = ideas.find(idea => idea.id === randomIdeaIndex.toString());
+    let idea = filteredIdeas[randomIdeaIndex];
 
     let filteredLayouts = layouts.filter(layout => layout.type === idea.type);
     lengthLayouts = filteredLayouts.length;
-    let randomLayoutIndex = Math.floor(Math.random() * lengthLayouts) + 1;
+    randomLayoutIndex = Math.floor(Math.random() * lengthLayouts);
 
     setBrief({
       color: colors.find(color => color.id === randomColorIndex.toString()),
@@ -173,12 +180,12 @@ export const BriefData = ({ useDataHook = useData }) => {
       persona: personas.find(
         persona => persona.id === randomPersonaIndex.toString()
       ),
-      idea: ideas.find(idea => idea.id === randomIdeaIndex.toString()),
-      layout: layouts[randomLayoutIndex]
+      idea: idea,
+      layout: filteredLayouts[randomLayoutIndex],
     });
 
     navigate(
-      `/c${randomColorIndex}f${randomFontIndex}i${randomIdeaIndex}l${layouts[randomLayoutIndex].id}p${randomPersonaIndex}`
+      `/c${randomColorIndex}f${randomFontIndex}i${idea.id}l${filteredLayouts[randomLayoutIndex].id}p${randomPersonaIndex}`
     );
   }
 
@@ -230,6 +237,7 @@ export const BriefData = ({ useDataHook = useData }) => {
       briefGenerated={briefGenerated}
       layoutUrl={layoutUrl}
       personaUrl={personaUrl}
+      setDifficulty={setDifficulty}
     ></Brief>
   );
 };

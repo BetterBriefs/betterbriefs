@@ -4,8 +4,9 @@ import { Wireframe } from "../wireframe/Wireframe";
 import { Persona } from "../persona/Persona";
 import { Idea } from "../idea/Idea";
 import { ColorPalette } from "../color_palette/ColorPalette";
-import { ShareableLink } from "../shareable_link/ShareableLink";
 import { Fonts } from "../fonts/Fonts";
+import { Select } from "../select/Select";
+import { ShareableLink } from "../shareable_link/ShareableLink";
 import "./Brief.css";
 
 export const Brief = ({
@@ -13,10 +14,11 @@ export const Brief = ({
   brief,
   briefGenerated,
   layoutUrl,
-  personaUrl
+  personaUrl,
+  setDifficulty
 }) => {
   return (
-    <div className="main-container">
+    <div className={briefGenerated ? "main-container brief-container generated-brief":"main-container brief-container"}>
       <section className="hero">
         <h1 className="hero__header-text">
           <span>Project Brief</span>
@@ -31,6 +33,7 @@ export const Brief = ({
           </p>
         )}
         <div className="hero__buttons-container">
+          <Select setDifficulty={setDifficulty}></Select>
           <Button onClick={onGenerateBrief}>Generate</Button>
         </div>
       </section>
