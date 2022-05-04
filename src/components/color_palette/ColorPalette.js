@@ -21,7 +21,7 @@ export const ColorPalette = ({ colors, allColors }) => {
     <Card>
       <div className="reload__button">
         <h2>Colors</h2>
-        <ReloadButton hoverText="Change colors" handleClickOpen={ getRandomColor }></ReloadButton>
+        <ReloadButton hoverText="Change colors" onClick={ getRandomColor }></ReloadButton>
       </div>
       <div className="flexbox">
         <ColorElement color={colors.color1}></ColorElement>

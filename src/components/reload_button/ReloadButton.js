@@ -3,7 +3,7 @@ import Tooltip from "@mui/material/Tooltip";
 import Fade from "@mui/material/Fade";
 import ReloadIcon from "@mui/icons-material/Cached";
 
-export const ReloadButton = ({ hoverText, handleClickOpen }) => {
+export const ReloadButton = ({ hoverText, onClick }) => {
   return (
     <Tooltip
       title={<p>{hoverText}</p>}
@@ -12,7 +12,7 @@ export const ReloadButton = ({ hoverText, handleClickOpen }) => {
       TransitionComponent={Fade}
     >
       <ReloadIcon
-        onClick={handleClickOpen}
+        onClick={onClick}
         fontSize="large"
         sx={{
           color: "#1f7a83",
