@@ -7,6 +7,9 @@ import { ColorPalette } from "../color_palette/ColorPalette";
 import { Fonts } from "../fonts/Fonts";
 import { Select } from "../select/Select";
 import { ShareableLink } from "../shareable_link/ShareableLink";
+import { PrintBrief } from "../print_brief/Print_brief"
+import { AddToFavorites } from "../add_to_favorites/AddToFavorites";
+
 import "./Brief.css";
 
 export const Brief = ({
@@ -17,15 +20,24 @@ export const Brief = ({
   personaUrl,
   setDifficulty,
   allColors,
+  onFavoritesChange,
 }) => {
+  let pageurl = window.location.href;
   return (
-    <div className={briefGenerated ? "main-container brief-container generated-brief":"main-container brief-container"}>
+    <div
+      className={
+        briefGenerated
+          ? "main-container brief-container generated-brief"
+          : "main-container brief-container"
+      }
+    >
       <section className="hero">
-        <h1 className="hero__header-text">
+        <h1 className="headline-text">
           <span>Project Brief</span>
-          <br />
+          <br/>
           <span>Generator</span>
         </h1>
+        <i className="hidden-page-link">Project link: {pageurl}</i>
         {briefGenerated === false && (
           <p>
             Choose your difficulty level and generate your briefing
@@ -49,6 +61,11 @@ export const Brief = ({
           <Wireframe layoutUrl={layoutUrl}> </Wireframe>
           <div className="sidenav">
             <ShareableLink />
+            <PrintBrief />
+            <AddToFavorites
+              brief={brief}
+              onFavoritesChange={onFavoritesChange}
+            />
           </div>
         </>
       )}

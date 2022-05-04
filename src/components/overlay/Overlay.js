@@ -13,7 +13,7 @@ export const Overlay = ({
   handleClose,
   buttonText,
   buttonFunction,
-  children
+  children,
 }) => {
   return (
     <ThemeProvider theme={theme}>
@@ -33,15 +33,15 @@ export const Overlay = ({
             color: "#ea5504",
             "&:hover": {
               backgroundColor: "#ea5504",
-              cursor: "pointer"
-            }
+              cursor: "pointer",
+            },
           }}
         >
           <CloseIcon sx={{ color: "#ffffff", width: "2em", height: "2em" }} />
         </IconButton>
         <div className="overlay__content-margin">{children}</div>
         <div className="hero__buttons-container">
-          <Button onClick={buttonFunction} usage="secondary">
+          <Button onClick={buttonFunction} usage="info">
             {buttonText}
           </Button>
         </div>

@@ -10,6 +10,7 @@ export const Wireframe = ({ layoutUrl }) => {
         src={layoutUrl}
         alt="Wireframe"
         fallback="fallback_rectangle"
+        className="wireframe-image"
       />
     </Card>
   );
