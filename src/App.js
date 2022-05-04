@@ -9,7 +9,6 @@ import { Footer } from "./components/footer/Footer";
 import { Favorites } from "./components/favorites/Favorites";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "./Theme";
-
 import "./App.css";
 
 function App() {

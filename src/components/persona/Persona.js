@@ -13,7 +13,12 @@ export const Persona = ({ personaUrl, persona }) => {
     <Card>
       <h2>Persona</h2>
       <div className="persona">
-      <LazyImage className="persona_avatar" src={personaUrl} alt="Persona" fallback="fallback_circle shimmer" />
+        <LazyImage
+          className="persona_avatar"
+          src={personaUrl}
+          alt="Persona"
+          fallback="fallback_circle shimmer"
+        />
         <div className="persona_description">
           <h3>{persona.name}</h3>
           <div className="persona_tags">

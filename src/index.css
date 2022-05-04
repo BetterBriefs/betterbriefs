@@ -1,4 +1,3 @@
-
 :root {
   --yellow: #fabe00;
   --orange: #ea5504;
@@ -10,8 +9,8 @@
     90deg,
     var(--dark-cyan) 0%,
     var(--cyan) 100%
-    );
-  }
+  );
+}
 * {
   font-family: "Open Sans", sans-serif;
   margin: 0;
