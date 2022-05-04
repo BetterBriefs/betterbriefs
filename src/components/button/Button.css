@@ -10,9 +10,17 @@
 .primary {
   color: var(--dark-cyan);
   background-color: var(--yellow);
+  border: 3px solid var(--yellow);
 }
 
 .secondary {
   background-color: var(--white);
+  color: var(--dark-cyan);
+  border: 3px solid var(--dark-cyan);
+}
+
+.info {
+  background-color: var(--white);
   color: var(--orange);
+  border: 3px solid var(--white);
 }

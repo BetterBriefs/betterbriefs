@@ -7,6 +7,7 @@ import { ColorPalette } from "../color_palette/ColorPalette";
 import { Fonts } from "../fonts/Fonts";
 import { Select } from "../select/Select";
 import { ShareableLink } from "../shareable_link/ShareableLink";
+import { AddToFavorites } from "../add_to_favorites/AddToFavorites";
 import "./Brief.css";
 
 export const Brief = ({
@@ -15,12 +16,19 @@ export const Brief = ({
   briefGenerated,
   layoutUrl,
   personaUrl,
-  setDifficulty
+  setDifficulty,
+  onFavoritesChange,
 }) => {
   return (
-    <div className={briefGenerated ? "main-container brief-container generated-brief":"main-container brief-container"}>
+    <div
+      className={
+        briefGenerated
+          ? "main-container brief-container generated-brief"
+          : "main-container brief-container"
+      }
+    >
       <section className="hero">
-        <h1 className="hero__header-text">
+        <h1 className="headline-text">
           <span>Project Brief</span>
           <br />
           <span>Generator</span>
@@ -48,6 +56,10 @@ export const Brief = ({
           <Wireframe layoutUrl={layoutUrl}> </Wireframe>
           <div className="sidenav">
             <ShareableLink />
+            <AddToFavorites
+              brief={brief}
+              onFavoritesChange={onFavoritesChange}
+            />
           </div>
         </>
       )}

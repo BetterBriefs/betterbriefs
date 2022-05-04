@@ -48,12 +48,14 @@ p {
   font-size: 1.2em;
   line-height: 1.8rem;
   color: var(--white);
+  font-family: "Open Sans", sans-serif;
 }
 img {
   width: 100%;
 }
 body {
   margin: 0;
+  font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--dark-cyan);
@@ -64,7 +66,7 @@ body {
   display: flex;
   width: 80%;
   max-width: 100rem;
-  margin: 0 auto;
+  margin: 0 auto 3rem auto;
   flex-direction: column;
 }
 
@@ -180,3 +182,26 @@ body {
       url("./fonts/open-sans-v28-latin-800.svg#OpenSans") format("svg"); /* Legacy iOS */
 }
 
+code {
+  font-family: "Open Sans", sans-serif;
+}
+
+.headline-text {
+  position: relative;
+  width: fit-content;
+  margin: 0px auto;
+  text-align: center;
+}
+.headline-text span {
+  display: inline;
+  background-image: repeating-linear-gradient(
+    to top,
+    transparent 0,
+    transparent 0.19em,
+    var(--cyan) 0.19em,
+    var(--cyan) 0.6em,
+    transparent 0.6em,
+    transparent 2em
+  );
+  padding: 0 0.5rem;
+}
