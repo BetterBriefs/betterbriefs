@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   width: 100%;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 .header ul li:nth-child(2){
   margin-left: auto;
