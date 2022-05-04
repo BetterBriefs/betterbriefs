@@ -154,8 +154,8 @@ body {
     flex-direction: unset;
     display:block;
   }
-  .hero::after { 
-    content: 'BetterBriefs a website for programmers who want to improve their programming skills without thinking about an project idea and concept'; 
+  .hidden-page-link{
+    display: block !important;
   }
   .circle{
     width: 50px !important;

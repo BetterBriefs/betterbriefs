@@ -17,14 +17,16 @@ export const Brief = ({
   personaUrl,
   setDifficulty
 }) => {
+  let pageurl = window.location.href;
   return (
     <div className={briefGenerated ? "main-container brief-container generated-brief":"main-container brief-container"}>
       <section className="hero">
         <h1 className="hero__header-text">
           <span>Project Brief</span>
-          <br />
+          <br/>
           <span>Generator</span>
         </h1>
+        <i className="hidden-page-link">Project link: {pageurl}</i>
         {briefGenerated === false && (
           <p>
             Choose your difficulty level and generate your briefing
