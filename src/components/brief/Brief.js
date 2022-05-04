@@ -7,6 +7,7 @@ import { ColorPalette } from "../color_palette/ColorPalette";
 import { Fonts } from "../fonts/Fonts";
 import { Select } from "../select/Select";
 import { ShareableLink } from "../shareable_link/ShareableLink";
+import { AddToFavorites } from "../add_to_favorites/AddToFavorites";
 import "./Brief.css";
 
 export const Brief = ({
@@ -42,7 +43,6 @@ export const Brief = ({
         <div className="hero__buttons-container">
           <Select setDifficulty={setDifficulty}></Select>
           <Button onClick={onGenerateBrief}>Generate</Button>
-          <Button onClick={addToFavorites}>Add to Favorites</Button>
         </div>
       </section>
       {briefGenerated === true && (
@@ -56,6 +56,7 @@ export const Brief = ({
           <Wireframe layoutUrl={layoutUrl}> </Wireframe>
           <div className="sidenav">
             <ShareableLink />
+            <AddToFavorites brief={brief} />
           </div>
         </>
       )}
