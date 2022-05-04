@@ -142,11 +142,12 @@ body {
   }
   .card .persona_description h4{
     font-size: 16px;
+    margin-top: 0px;
   }
   .persona img{
     width: 58px;
   }
-  .persona_tags, .persona_tags .persona_description h4{
+  .persona_tags, .persona_description .persona_tags h4{
     font-size: 9px;
   }
   .main-container{
@@ -160,6 +161,9 @@ body {
   .circle{
     width: 50px !important;
     height: 50px !important;
+  }
+  .MuiTooltip-popper{
+    display: none !important;
   }
   @page {
     size: A4;
