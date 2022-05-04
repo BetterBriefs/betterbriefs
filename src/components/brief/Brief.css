@@ -34,6 +34,10 @@
   gap: 1em;
 }
 
+.hidden-page-link{
+  display: none;
+}
+
 @media screen and (max-width: 920px) {
   .brief__colors-and-fonts {
     flex-direction: column;
