@@ -21,3 +21,9 @@
 .header img {
   height: 55px;
 }
+
+@media screen and (max-width: 560px) {
+  .header {
+    padding: 1rem;
+  }
+}

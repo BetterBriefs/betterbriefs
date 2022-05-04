@@ -28,3 +28,9 @@
 .footer .Fhs__logo{
   height: 3rem;
 }
+@media screen and (max-width: 560px) {
+  .footer ul{
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+}
