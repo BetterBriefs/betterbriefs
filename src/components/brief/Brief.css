@@ -13,24 +13,7 @@
   gap: 1rem;
   text-align: center;
 }
-.hero__header-text {
-  position: relative;
-  width: fit-content;
-  margin: 0px auto;
-}
-.hero__header-text span {
-  display: inline;
-  background-image: repeating-linear-gradient(
-    to top,
-    transparent 0,
-    transparent 0.19em,
-    var(--cyan) 0.19em,
-    var(--cyan) 0.6em,
-    transparent 0.6em,
-    transparent 2em
-  );
-  padding: 0 0.5rem;
-}
+
 .hero__buttons-container {
   display: flex;
   justify-content: center;
@@ -41,6 +24,7 @@
   display: flex;
   gap: 2rem;
 }
+
 .sidenav {
   display: flex;
   position: fixed;
@@ -49,12 +33,15 @@
   flex-direction: column;
   gap: 1em;
 }
+
 .hidden-page-link{
   display: none;
 }
+
 @media screen and (max-width: 920px) {
   .brief__colors-and-fonts {
     flex-direction: column;
     gap: 0;
   }
 }
+

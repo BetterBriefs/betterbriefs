@@ -8,6 +8,8 @@ import { Fonts } from "../fonts/Fonts";
 import { Select } from "../select/Select";
 import { ShareableLink } from "../shareable_link/ShareableLink";
 import { PrintBrief } from "../print_brief/Print_brief"
+import { AddToFavorites } from "../add_to_favorites/AddToFavorites";
+
 import "./Brief.css";
 
 export const Brief = ({
@@ -16,13 +18,20 @@ export const Brief = ({
   briefGenerated,
   layoutUrl,
   personaUrl,
-  setDifficulty
+  setDifficulty,
+  onFavoritesChange,
 }) => {
   let pageurl = window.location.href;
   return (
-    <div className={briefGenerated ? "main-container brief-container generated-brief":"main-container brief-container"}>
+    <div
+      className={
+        briefGenerated
+          ? "main-container brief-container generated-brief"
+          : "main-container brief-container"
+      }
+    >
       <section className="hero">
-        <h1 className="hero__header-text">
+        <h1 className="headline-text">
           <span>Project Brief</span>
           <br/>
           <span>Generator</span>
@@ -52,6 +61,10 @@ export const Brief = ({
           <div className="sidenav">
             <ShareableLink />
             <PrintBrief />
+            <AddToFavorites
+              brief={brief}
+              onFavoritesChange={onFavoritesChange}
+            />
           </div>
         </>
       )}
