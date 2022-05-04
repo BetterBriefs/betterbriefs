@@ -68,7 +68,7 @@ code {
   display: flex;
   width: 80%;
   max-width: 100rem;
-  margin: 0 auto;
+  margin: 0 auto 3rem auto;
   flex-direction: column;
 }
 /* open-sans-300 - latin */
