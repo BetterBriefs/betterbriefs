@@ -118,6 +118,10 @@ body {
     flex-direction: column;
     width: 40% !important;
     float: right;
+    gap: 0px !important;
+  }
+  .brief__colors-and-fonts::after { 
+    content: 'https://BetterBriefs.dev | Copyright © 2022 & Beyond. All rights reserved.'; 
   }
   .brief__colors-and-fonts .card{
     page-break-after: always !important;
@@ -150,6 +154,9 @@ body {
     flex-direction: unset;
     display:block;
   }
+  .hero::after { 
+    content: 'BetterBriefs a website for programmers who want to improve their programming skills without thinking about an project idea and concept'; 
+  }
   .circle{
     width: 50px !important;
     height: 50px !important;
@@ -158,7 +165,6 @@ body {
     size: A4;
   }
 }
-
 /* open-sans-300 - latin */
 @font-face {
   font-family: "Open Sans";
