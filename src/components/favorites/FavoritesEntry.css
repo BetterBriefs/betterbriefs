@@ -1,0 +1,11 @@
+.card p.seed {
+    text-align: right;
+    margin-bottom: 0px;
+    font-size: 1rem;
+}
+
+.favorites__card-headline {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
