@@ -120,7 +120,7 @@ export const BriefData = ({ useDataHook = useData }) => {
         font: fonts.find(font => font.id === fontid.toString()),
         persona: personas.find(persona => persona.id === personaid.toString()),
         idea: ideas.find(idea => idea.id === ideaid.toString()),
-        layout: layouts.find(layout => layout.id === layoutid.toString())
+        layout: layouts.find(layout => layout.id === layoutid.toString()),
       });
     } else {
       setBrief({
@@ -238,6 +238,7 @@ export const BriefData = ({ useDataHook = useData }) => {
       layoutUrl={layoutUrl}
       personaUrl={personaUrl}
       setDifficulty={setDifficulty}
+      allColors={colors}
     ></Brief>
   );
 };

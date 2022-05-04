@@ -15,7 +15,8 @@ export const Brief = ({
   briefGenerated,
   layoutUrl,
   personaUrl,
-  setDifficulty
+  setDifficulty,
+  allColors,
 }) => {
   return (
     <div className={briefGenerated ? "main-container brief-container generated-brief":"main-container brief-container"}>
@@ -42,7 +43,7 @@ export const Brief = ({
           <Idea idea={brief.idea}></Idea>
           <Persona personaUrl={personaUrl} persona={brief.persona}></Persona>
           <div className="brief__colors-and-fonts">
-            <ColorPalette colors={brief.color}></ColorPalette>
+            <ColorPalette colors={brief.color} allColors={allColors}></ColorPalette>
             <Fonts fonts={brief.font}></Fonts>
           </div>
           <Wireframe layoutUrl={layoutUrl}> </Wireframe>
