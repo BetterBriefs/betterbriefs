@@ -21,3 +21,8 @@
 .header img {
   height: 55px;
 }
+
+.favorites {
+  display: flex;
+  align-items: center;
+}
