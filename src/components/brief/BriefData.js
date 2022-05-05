@@ -1,7 +1,5 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { ref, getDownloadURL } from "firebase/storage";
-import { storage } from "../../firebase-config";
 import { Brief } from "./Brief";
 
 export const BriefData = ({
@@ -27,9 +25,6 @@ export const BriefData = ({
     idea: undefined,
     persona: undefined,
   });
-
-  const [layoutUrl, setLayoutUrl] = useState([]);
-  const [personaUrl, setPersonaUrl] = useState([]);
 
   const navigate = useNavigate();
 
@@ -95,7 +90,7 @@ export const BriefData = ({
     }
   }, [brief]);
 
-  function generateBrief() {
+  const generateBrief = useCallback(() => {
     // get length of each dataset to choose a random index that will be used
     let lengthColors = colors.length;
     let lengthFonts = fonts.length;
@@ -135,7 +130,7 @@ export const BriefData = ({
     navigate(
       `/c${randomColorIndex}f${randomFontIndex}i${idea.id}l${filteredLayouts[randomLayoutIndex].id}p${randomPersonaIndex}`
     );
-  }
+  }, [colors, difficulty, fonts, ideas, layouts, navigate, personas]);
 
   return (
     <Brief

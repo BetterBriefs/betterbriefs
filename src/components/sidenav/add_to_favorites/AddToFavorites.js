@@ -14,20 +14,6 @@ export const AddToFavorites = ({ brief, onFavoritesChange }) => {
     "This brief was added to your favorites list."
   );
 
-  const handleClickOpen = () => {
-    addToFavorites();
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  function navToFavorites() {
-    handleClose();
-    navigate("/favorites");
-  }
-
   const addToFavorites = useCallback(() => {
     let currentFavorites = JSON.parse(localStorage.getItem("brief")) || [];
     let isDuplicate = currentFavorites.find(
@@ -47,6 +33,20 @@ export const AddToFavorites = ({ brief, onFavoritesChange }) => {
       new Audio(alreadyInFolderSound).play();
     }
   }, [brief.color, brief.idea, onFavoritesChange, seed]);
+
+  const handleClickOpen = useCallback(() => {
+    addToFavorites();
+    setOpen(true);
+  }, [addToFavorites]);
+
+  const handleClose = useCallback(() => {
+    setOpen(false);
+  }, []);
+
+  const navToFavorites = useCallback(() => {
+    handleClose();
+    navigate("/favorites");
+  }, [handleClose, navigate]);
 
   return (
     <>

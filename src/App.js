@@ -22,7 +22,6 @@ function App({ useDataHook = useData }) {
   // load data initially
   useEffect(() => {
     getData();
-    console.log("data");
   }, []);
   return (
     <div className="App">
