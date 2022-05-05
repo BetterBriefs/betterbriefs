@@ -5,7 +5,7 @@ import logoUrl from "../../logo.svg";
 import StarOutlineRoundedIcon from "@mui/icons-material/StarOutlineRounded";
 import Badge from "@mui/material/Badge";
 
-export const Header = ({ favorites }) => {
+function Header({ favorites }) {
   return (
     <section className="header">
       <ul>
@@ -32,4 +32,6 @@ export const Header = ({ favorites }) => {
       </ul>
     </section>
   );
-};
+}
+
+export default React.memo(Header);

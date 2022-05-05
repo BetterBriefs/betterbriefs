@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Card } from "../../../atoms/card/Card";
-import { ReloadButton } from "../../../functional/reload_button/ReloadButton";
+import ReloadButton from "../../../functional/reload_button/ReloadButton";
 import { Font } from "../../../atoms/font/Font";
 
 export const Fonts = ({ fonts, fontsLength }) => {

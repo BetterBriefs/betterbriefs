@@ -1,7 +1,7 @@
 import React from "react";
 import "./Select.css";
 
-export const Select = ({ setDifficulty }) => {
+function Select({ setDifficulty }) {
   return (
     <select
       name="difficulty"
@@ -14,4 +14,6 @@ export const Select = ({ setDifficulty }) => {
       <option value="advanced">Advanced</option>
     </select>
   );
-};
+}
+
+export default React.memo(Select);

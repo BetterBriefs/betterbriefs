@@ -1,10 +1,9 @@
-
 import React, { useCallback } from "react";
 import { FavoritesEntry } from "./favorites_entry/FavoritesEntry";
 import emptyfolderurl from "../../media/Empty_Folder.svg";
 import "./Favorites.css";
 
-export const Favorites = ({ favorites, onFavoritesChange }) => {
+function Favorites({ favorites, onFavoritesChange }) {
   const removeFavorite = useCallback(
     (seed) => {
       let data = favorites.filter((entry) => entry.seed !== seed);
@@ -37,4 +36,6 @@ export const Favorites = ({ favorites, onFavoritesChange }) => {
       )}
     </div>
   );
-};
+}
+
+export default React.memo(Favorites);

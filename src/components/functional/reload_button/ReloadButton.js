@@ -3,7 +3,7 @@ import Tooltip from "@mui/material/Tooltip";
 import Fade from "@mui/material/Fade";
 import ReloadIcon from "@mui/icons-material/Cached";
 
-export const ReloadButton = ({ hoverText, onClick }) => {
+function ReloadButton({ hoverText, onClick }) {
   return (
     <Tooltip
       title={<p>{hoverText}</p>}
@@ -23,4 +23,6 @@ export const ReloadButton = ({ hoverText, onClick }) => {
       />
     </Tooltip>
   );
-};
+}
+
+export default React.memo(ReloadButton);
