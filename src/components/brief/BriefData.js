@@ -79,7 +79,7 @@ export const BriefData = ({ useDataHook = useData, onFavoritesChange }) => {
   } = useDataHook();
 
   // flag if a brief is generated or not
-  const [briefGenerated, setBriefGenerated] = useState([false]);
+  const [briefGenerated, setBriefGenerated] = useState(false);
 
   const [difficulty, setDifficulty] = useState("easy");
 
@@ -241,6 +241,7 @@ export const BriefData = ({ useDataHook = useData, onFavoritesChange }) => {
       personaUrl={personaUrl}
       setDifficulty={setDifficulty}
       allColors={colors}
+      fontsLength={fonts.length}
       onFavoritesChange={onFavoritesChange}
     ></Brief>
   );

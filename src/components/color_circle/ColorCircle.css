@@ -1,6 +1,7 @@
 
 .color-line {
     display:flex;
+    flex-wrap: wrap;
 }
 
 .favorite__container .circle {

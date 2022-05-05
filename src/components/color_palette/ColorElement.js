@@ -1,7 +1,13 @@
 import React from "react";
 import "./ColorElement.css";
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
 export const ColorElement = ({ color }) => {
+
+  function copyToClipboard(text) {
+    navigator.clipboard.writeText(text);
+  };
+  
   return (
     <>
       <div className="element-box">
@@ -9,9 +15,12 @@ export const ColorElement = ({ color }) => {
           <div
             className="circle"
             style={{ backgroundColor: "#" + color }}
-          ></div>
+            onClick={() => copyToClipboard('#'+color)}
+          >
+          <ContentCopyIcon /></div>
         </div>
-        <p>#{color}</p>
+        <p className="circle-tag">#{color}</p>
+        
       </div>
     </>
   );
