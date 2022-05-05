@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import ShareIcon from "@mui/icons-material/Share";
 import { SidenavElement } from "../sidenav_element/SidenavElement";
 import { Overlay } from "../overlay/Overlay";
@@ -6,18 +6,18 @@ import { Overlay } from "../overlay/Overlay";
 export const ShareableLink = () => {
   const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = () => {
+  const handleClickOpen = useCallback(() => {
     setOpen(true);
-  };
+  }, []);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setOpen(false);
-  };
+  }, []);
 
-  function copyURL() {
+  const copyURL = useCallback(() => {
     navigator.clipboard.writeText(window.location.href);
     handleClose();
-  }
+  }, [handleClose]);
 
   return (
     <>
