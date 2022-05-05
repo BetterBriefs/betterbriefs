@@ -195,16 +195,7 @@ describe("Brief Wireframe", () => {
           layoutUrl={""}
           personaUrl={""}
           setDifficulty={() => console.log("test")}
-          allColors={[
-            {
-              color2: "ea638c",
-              color1: "89023e",
-              color4: "30343f",
-              color5: "ffd9da",
-              color3: "1b2021",
-              id: "1",
-            },
-          ]}
+          colorsLength={1}
           fontsLength={1}
           onFavoritesChange={() => console.log("test")}
         ></Brief>
