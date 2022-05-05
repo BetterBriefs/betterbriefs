@@ -1,20 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { BriefData } from "./components/brief/BriefData";
-import { Imprint } from "./components/imprint/Imprint";
-import { About } from "./components/about/About";
-import { Privacy } from "./components/privacy/Privacy";
-import { Header } from "./components/header/Header";
-import { Footer } from "./components/footer/Footer";
-import { Favorites } from "./components/favorites/Favorites";
+import BriefData from "./components/brief/BriefData";
+import { Imprint } from "./static/imprint/Imprint";
+import { About } from "./static/about/About";
+import { Privacy } from "./static/privacy/Privacy";
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
+import Favorites from "./components/favorites/Favorites";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "./Theme";
+import { useData } from "./helper/useData";
 import "./App.css";
 
-function App() {
+function App({ useDataHook = useData }) {
+  const { colors, fonts, ideas, personas, layouts, getData } = useDataHook();
+
   const [favorites, setFavorites] = useState(
     JSON.parse(localStorage.getItem("brief")) || []
   );
+
+  // load data initially
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
@@ -23,11 +31,29 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={<BriefData onFavoritesChange={setFavorites} />}
+              element={
+                <BriefData
+                  onFavoritesChange={setFavorites}
+                  colors={colors}
+                  fonts={fonts}
+                  ideas={ideas}
+                  personas={personas}
+                  layouts={layouts}
+                />
+              }
             />
             <Route
               path="/:seed"
-              element={<BriefData onFavoritesChange={setFavorites} />}
+              element={
+                <BriefData
+                  onFavoritesChange={setFavorites}
+                  colors={colors}
+                  fonts={fonts}
+                  ideas={ideas}
+                  personas={personas}
+                  layouts={layouts}
+                />
+              }
             />
             <Route
               path="/favorites"

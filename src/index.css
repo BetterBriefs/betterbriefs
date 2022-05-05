@@ -17,7 +17,10 @@
   margin: 0;
   padding: 0;
 }
-
+*::selection {
+  color: var(--white);
+  background: var(--dark-cyan);
+}
 h1 {
   font-size: 4em;
   color: var(--white);
@@ -82,9 +85,9 @@ body {
     print-color-adjust: exact;
   }
 
-  .header, .footer, .hero__buttons-container, .sidenav {
+  .header, .footer, .hero__buttons-container, .sidenav, .MuiSvgIcon-root {
     display: none !important;
-  } 
+  }
   h1{
     font-size: 32px;
     page-break-before: always;

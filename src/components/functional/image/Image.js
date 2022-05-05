@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { ShimmerCircle } from "../functional/shimmer/ShimmerCircle";
-import { ShimmerRectangle } from "../functional/shimmer/ShimmerRectangle";
+import ShimmerCircle from "../shimmer/ShimmerCircle";
+import ShimmerRectangle from "../shimmer/ShimmerRectangle";
 
 export default function Image({ src, alt, className, fallback }) {
   const [loaded, setLoaded] = useState(false);
@@ -11,16 +11,8 @@ export default function Image({ src, alt, className, fallback }) {
 
   return (
     <>
-      <div
-        style={{ display: !loaded ? "block" : "none" }}
-      >
-        { fallback === "circle" 
-        ? 
-        <ShimmerCircle /> 
-        :
-        <ShimmerRectangle /> 
-        }
-        
+      <div style={{ display: !loaded ? "block" : "none" }}>
+        {fallback === "circle" ? <ShimmerCircle /> : <ShimmerRectangle />}
       </div>
       <img
         src={src}
