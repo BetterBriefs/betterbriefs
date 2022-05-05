@@ -22,14 +22,14 @@ export const Imprint = () => {
           .
         </p>
         <p>
-          The Technologies used in this project are mainly <b>ReactJs</b> and
+          The technologies used in this project are mainly <b>ReactJs</b> and
           for icons and components, we used some help from{" "}
           <a
             href="https://mui.com/material-ui"
             target="_blank"
             rel="noreferrer"
           >
-            Material UI
+            Material UI.
           </a>
         </p>
         <h2 className="imprint-container__TeamHeader">Team</h2>
