@@ -3,7 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import StarOutlineRoundedIcon from "@mui/icons-material/StarOutlineRounded";
 import { SidenavElement } from "../sidenav_element/SidenavElement";
 import { Overlay } from "../overlay/Overlay";
-import emptyfolderurl from "../../media/notification.mp3";
+import addToFolderSound from "../../media/notification.mp3";
+import alreadyInFolderSound from "../../media/stop.mp3";
 
 export const AddToFavorites = ({ brief, onFavoritesChange }) => {
   const navigate = useNavigate();
@@ -15,7 +16,6 @@ export const AddToFavorites = ({ brief, onFavoritesChange }) => {
 
   const handleClickOpen = () => {
     addToFavorites();
-    new Audio(emptyfolderurl).play();
     setOpen(true);
   };
 
@@ -33,15 +33,19 @@ export const AddToFavorites = ({ brief, onFavoritesChange }) => {
     let isDuplicate = currentFavorites.find(
       (uniqueBrief) => uniqueBrief.seed === seed
     )
-      ? false
-      : true;
+      ? true
+      : false;
 
-    if (isDuplicate) {
+    if (!(isDuplicate)) {
       currentFavorites.push({ ...brief.idea, ...brief.color, seed: seed });
       localStorage.setItem("brief", JSON.stringify(currentFavorites));
       setDialogText("This brief was added to your favorites list.");
       onFavoritesChange(currentFavorites);
-    } else setDialogText("Already in Favorites");
+      new Audio(addToFolderSound).play();
+    } else {
+      setDialogText("Already in Favorites");
+      new Audio(alreadyInFolderSound).play();
+    }
   }, [brief.color, brief.idea, onFavoritesChange, seed]);
 
   return (
