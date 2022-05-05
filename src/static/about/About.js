@@ -10,28 +10,28 @@ export const About = () => {
         <h2>The Idea</h2>
         <p>
           BetterBriefs a website for programmers who want to improve their
-          programming skills without thinking about an project idea and concept.
+          programming skills without thinking about a project idea and concept.
           The main goal for the user is to build a website with the given
-          criterias and needs of the persona. The user will get a random
-          generated brief including how the website should look like and who
-          wants it. The user should be able to start programming after reading
+          criteria and needs of the persona. The user will get a random
+          generated brief including the idea, persona, colors, fonts and a
+          wireframe. The user should be able to start programming after reading
           the generated proposal without thinking about a concept.
         </p>
         <p>
           The main part is to get a realistic random generated brief, which is
-          easy to understand. Features like "add to favorites" etc. are also
+          easy to understand. Features like "add to favorites", "print pdf" etc. are also
           available.
         </p>
 
         <h2>The Problem</h2>
         <p>
-          The existing online brief/idea generators like goodbiref.io consitrate
+          The existing online brief/idea generators like goodbiref.io concentrate
           soly on short briefs which include a project idea but not a complete
           concept which is needed to start building a website.
         </p>
         <p>
           Programmers who want to practise and improve their skills in
-          programming have to think about a concept (layout, colors, fonts....)
+          programming have to think about a concept (layout, colors, fonts, ...)
           on their own before they can start with the implementation. The
           existing Online generator tools are focussed too much on ideation
           phase instead of the coding one.
