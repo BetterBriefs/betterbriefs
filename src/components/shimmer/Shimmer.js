@@ -2,7 +2,7 @@ import React from "react";
 import Skeleton from "@mui/material/Skeleton";
 import "./Shimmer.css";
 
-export const Shimmer = ({ variant = "rectangular", height, width }) => {
+export const Shimmer = ({ variant = "rechtangle", height = 400, width="100%" }) => {
   return (
     <>
     <div className="shimmer">

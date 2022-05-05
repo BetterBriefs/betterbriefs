@@ -1,16 +1,17 @@
-import React, { Suspense } from "react";
+import React from "react";
 import { Button } from "../button/Button";
 import { Wireframe } from "../wireframe/Wireframe";
 import { Persona } from "../persona/Persona";
+import Idea from "../idea/Idea";
 import { ColorPalette } from "../color_palette/ColorPalette";
 import { Fonts } from "../fonts/Fonts";
 import { Select } from "../select/Select";
 import { ShareableLink } from "../shareable_link/ShareableLink";
 import { PrintBrief } from "../print_brief/Print_brief"
 import { AddToFavorites } from "../add_to_favorites/AddToFavorites";
+import { Shimmer } from "../shimmer/Shimmer";
 
 import "./Brief.css";
-const Idea = React.lazy(() => import ("../idea/Idea"));
 
 export const Brief = ({
   onGenerateBrief,
@@ -50,30 +51,38 @@ export const Brief = ({
           <Button onClick={onGenerateBrief}>Generate</Button>
         </div>
       </section>
-      {briefGenerated === true && (
+      { briefGenerated === true
+        ?
         <>
-          <Suspense fallback={
-            <>
-            </>
-          }>
-          <Idea idea={brief.idea}></Idea>
-          </Suspense>
-          <Persona personaUrl={personaUrl} persona={brief.persona}></Persona>
-          <div className="brief__colors-and-fonts">
+        <Idea idea={brief.idea}></Idea>
+        <Persona personaUrl={personaUrl} persona={brief.persona}></Persona>
+        <div className="brief__colors-and-fonts">
             <ColorPalette colors={brief.color} allColors={allColors}></ColorPalette>
             <Fonts fonts={brief.font}></Fonts>
-          </div>
-          <Wireframe layoutUrl={layoutUrl}> </Wireframe>
-          <div className="sidenav">
-            <ShareableLink />
-            <PrintBrief />
-            <AddToFavorites
+        </div>
+        <Wireframe layoutUrl={layoutUrl}> </Wireframe>
+        <div className="sidenav">
+          <ShareableLink />
+          <PrintBrief />
+          <AddToFavorites
               brief={brief}
               onFavoritesChange={onFavoritesChange}
-            />
-          </div>
+          />
+        </div>
         </>
-      )}
+        :
+        (
+        <>
+          {window.location.pathname !== "/" && (
+            <>
+            <Shimmer />
+            <Shimmer />
+            <Shimmer />
+            </>
+            )} 
+        </>
+        )
+      }
     </div>
   );
 };
