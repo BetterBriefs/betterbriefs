@@ -82,9 +82,9 @@ body {
     print-color-adjust: exact;
   }
 
-  .header, .footer, .hero__buttons-container, .sidenav {
+  .header, .footer, .hero__buttons-container, .sidenav, .MuiSvgIcon-root {
     display: none !important;
-  } 
+  }
   h1{
     font-size: 32px;
     page-break-before: always;
