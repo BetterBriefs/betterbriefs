@@ -6,7 +6,12 @@
                         "description description description";
     gap: 5px;
 }
-
+.seed span{
+    cursor: pointer;
+}
+.seed span svg:active{
+    transform: translateY(4px);
+}
 .card p.seed {
     text-align: right;
     margin-bottom: 0px;

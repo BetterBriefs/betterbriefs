@@ -4,11 +4,15 @@ import { Card } from "../../atoms/card/Card";
 import { Tags } from "../../atoms/tags/Tags";
 import { ColorCircle } from "../../atoms/color_circle/ColorCircle";
 import { Button } from "../../atoms/button/Button";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import "./FavoritesEntry.css";
 
 export const FavoritesEntry = ({ entry, onRemove }) => {
   const navigate = useNavigate();
 
+  function copyToClipboard(text) {
+    navigator.clipboard.writeText(text);
+  }
   const navToBrief = useCallback(() => navigate(`/${entry.seed}`), [
     entry,
     navigate,
@@ -40,7 +44,7 @@ export const FavoritesEntry = ({ entry, onRemove }) => {
         <div className="description">
           <h3>Description</h3>
           <p className="favorites__short-description">{entry.description}</p>
-          <p className="seed">ID: {entry.seed}</p>
+          <p className="seed">ID: {entry.seed} <span onClick={() => copyToClipboard(entry.seed)}><ContentCopyIcon /></span></p>
         </div>
       </div>
     </Card>
