@@ -1,82 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ref, getDownloadURL } from "firebase/storage";
-import { storage, db } from "../../firebase-config";
-import { collection, getDocs } from "firebase/firestore";
+import { storage } from "../../firebase-config";
 import { Brief } from "./Brief";
-
-const useData = () => {
-  // database
-  const colorsCollectionRef = collection(db, "colors");
-  const fontsCollectionRef = collection(db, "fonts");
-  const ideasCollectionRef = collection(db, "ideas");
-  const layoutsCollectionRef = collection(db, "layouts");
-  const personasCollectionRef = collection(db, "personas");
-  // all data for brief creation
-  const [colors, setColors] = useState([]);
-  const [fonts, setFonts] = useState([]);
-  const [ideas, setIdeas] = useState([]);
-  const [personas, setPersonas] = useState([]);
-  const [layouts, setLayouts] = useState([]);
-
-  const getColors = async () => {
-    const data = await getDocs(colorsCollectionRef);
-    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-    setColors(parsedData);
-  };
-
-  const getFonts = async () => {
-    const data = await getDocs(fontsCollectionRef);
-    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-    setFonts(parsedData);
-  };
-
-  const getIdeas = async () => {
-    const data = await getDocs(ideasCollectionRef);
-    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-    setIdeas(parsedData);
-  };
-
-  const getLayouts = async () => {
-    const data = await getDocs(layoutsCollectionRef);
-    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-    setLayouts(parsedData);
-  };
-
-  const getPersonas = async () => {
-    const data = await getDocs(personasCollectionRef);
-    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-    setPersonas(parsedData);
-  };
-
-  return {
-    colors,
-    fonts,
-    ideas,
-    personas,
-    layouts,
-    getPersonas,
-    getLayouts,
-    getIdeas,
-    getColors,
-    getFonts,
-  };
-};
+import { useData } from "../../helper/useData";
 
 export const BriefData = ({ useDataHook = useData, onFavoritesChange }) => {
   let { seed } = useParams();
-  const {
-    colors,
-    fonts,
-    ideas,
-    personas,
-    layouts,
-    getPersonas,
-    getLayouts,
-    getIdeas,
-    getColors,
-    getFonts,
-  } = useDataHook();
+  const { colors, fonts, ideas, personas, layouts, getData } = useDataHook();
 
   // flag if a brief is generated or not
   const [briefGenerated, setBriefGenerated] = useState(false);
@@ -99,11 +30,8 @@ export const BriefData = ({ useDataHook = useData, onFavoritesChange }) => {
 
   // load data initially
   useEffect(() => {
-    getColors();
-    getFonts();
-    getIdeas();
-    getLayouts();
-    getPersonas();
+    getData();
+    console.log("data");
   }, []);
 
   // check if params are in url
@@ -153,8 +81,8 @@ export const BriefData = ({ useDataHook = useData, onFavoritesChange }) => {
     // get length of each dataset to choose a random index that will be used
     let lengthColors = colors.length;
     let lengthFonts = fonts.length;
-    let lengthIdeas;
     let lengthPersonas = personas.length;
+    let lengthIdeas;
     let lengthLayouts;
 
     // get random indices for each dataset and set data
