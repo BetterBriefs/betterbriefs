@@ -28,3 +28,6 @@
 .card h4 {
   margin-top: 1em;
 }
+.card a {
+  color: var(--dark-cyan)
+}

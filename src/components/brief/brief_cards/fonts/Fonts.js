@@ -24,7 +24,7 @@ export const Fonts = ({ fonts, fontsLength }) => {
         ></ReloadButton>
       </div>
 
-      <Font fontFamily={fonts.title_font} fontLink={fonts.title_link}></Font>
+      <Font fontFamily={fonts.title_font} fontLink={fonts.title_link} paragraph={false}></Font>
       <Font
         fontFamily={fonts.paragraph_font}
         fontLink={fonts.paragraph_link}
