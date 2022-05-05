@@ -21,12 +21,12 @@ export const Brief = ({
   layoutUrl,
   personaUrl,
   setDifficulty,
-  allColors,
+  colorsLength,
   fontsLength,
   onFavoritesChange,
 }) => {
   let titleFont, paragraphFont;
-  if (briefGenerated === true) {
+  if (briefGenerated) {
     titleFont =
       "https://fonts.googleapis.com/css2?family=" +
       brief.font.title_font.slice(brief.font.title_font.lastIndexOf("/") + 1);
@@ -53,7 +53,7 @@ export const Brief = ({
           <span>Generator</span>
         </h1>
         <i className="hidden-page-link">Project link: {pageurl}</i>
-        {briefGenerated === false && (
+        {!briefGenerated && (
           <p>
             Choose your difficulty level and generate your briefing
             <br />
@@ -65,8 +65,8 @@ export const Brief = ({
           <Button onClick={onGenerateBrief}>Generate</Button>
         </div>
       </section>
-      { briefGenerated === true
-        ?
+
+      {briefGenerated ? (
         <>
           <HelmetProvider>
             <Helmet>
@@ -79,7 +79,7 @@ export const Brief = ({
           <div className="brief__colors-and-fonts">
             <ColorPalette
               colors={brief.color}
-              allColors={allColors}
+              colorsLength={colorsLength}
             ></ColorPalette>
             <Fonts fonts={brief.font} fontsLength={fontsLength}></Fonts>
           </div>
@@ -90,22 +90,20 @@ export const Brief = ({
             <AddToFavorites
               brief={brief}
               onFavoritesChange={onFavoritesChange}
-          />
-        </div>
+            />
+          </div>
         </>
-        :
-        (
+      ) : (
         <>
           {window.location.pathname !== "/" && (
             <>
-            <ShimmerRectangle />
-            <ShimmerRectangle />
-            <ShimmerRectangle />
+              <ShimmerRectangle />
+              <ShimmerRectangle />
+              <ShimmerRectangle />
             </>
-            )} 
+          )}
         </>
-        )
-      }
+      )}
     </div>
   );
 };

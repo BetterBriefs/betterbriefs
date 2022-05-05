@@ -16,7 +16,7 @@ export const FavoritesEntry = ({ entry, onRemove }) => {
 
   return (
     <Card>
-      <div className="favorite__container" key={entry.seed}>
+      <div className="favorite__container">
         <h2 className="title">{entry.title}</h2>
         <div className="actions">
           <Button usage="primary" onClick={navToBrief}>
@@ -39,7 +39,7 @@ export const FavoritesEntry = ({ entry, onRemove }) => {
         </div>
         <div className="description">
           <h3>Description</h3>
-          <p class="favorites__short-description">{entry.description}</p>
+          <p className="favorites__short-description">{entry.description}</p>
           <p className="seed">ID: {entry.seed}</p>
         </div>
       </div>
