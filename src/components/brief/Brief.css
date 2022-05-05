@@ -52,6 +52,7 @@
     height: 50px;
   }
   .sidenav button:nth-child(2){
+    /* print button not supported on mobile*/
     display: none;
   }
 }
