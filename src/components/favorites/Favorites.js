@@ -1,5 +1,6 @@
+
 import React, { useCallback } from "react";
-import { FavoritesEntry } from "./FavoritesEntry";
+import { FavoritesEntry } from "./favorites_entry/FavoritesEntry";
 import emptyfolderurl from "../../media/Empty_Folder.svg";
 import "./Favorites.css";
 
