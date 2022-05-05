@@ -136,27 +136,6 @@ export const BriefData = ({ useDataHook = useData, onFavoritesChange }) => {
     }
   }, [colors, fonts, ideas, layouts, personas, seed, brief]);
 
-  const appendFontToHead = useCallback((fontFamily) => {
-    let font = null;
-    const id = "dynamic-font";
-
-    if (document.getElementById(id)) {
-      font = document.getElementById(id);
-    } else {
-      font = document.createElement("link");
-      font.rel = "stylesheet";
-      font.id = id;
-      document.head.appendChild(font);
-    }
-    let fontName = fontFamily.slice(fontFamily.lastIndexOf("/") + 1);
-    font.href = "https://fonts.googleapis.com/css2?family=" + fontName; // url to the font;
-  }, []);
-
-  useEffect(() => {
-    appendFontToHead(brief.font.title_font);
-    appendFontToHead(brief.font.paragraph_font);
-  }, [appendFontToHead, brief.font]);
-
   // if brief states are available, set BriefGenerated to true, so brief will be rendered
   useEffect(() => {
     if (

@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Button } from "../button/Button";
 import { Wireframe } from "../wireframe/Wireframe";
 import { Persona } from "../persona/Persona";
@@ -7,7 +8,7 @@ import { ColorPalette } from "../color_palette/ColorPalette";
 import { Fonts } from "../fonts/Fonts";
 import { Select } from "../select/Select";
 import { ShareableLink } from "../shareable_link/ShareableLink";
-import { PrintBrief } from "../print_brief/Print_brief"
+import { PrintBrief } from "../print_brief/Print_brief";
 import { AddToFavorites } from "../add_to_favorites/AddToFavorites";
 
 import "./Brief.css";
@@ -22,7 +23,19 @@ export const Brief = ({
   allColors,
   onFavoritesChange,
 }) => {
+  let titleFont, paragraphFont;
+  if (briefGenerated === true) {
+    titleFont =
+      "https://fonts.googleapis.com/css2?family=" +
+      brief.font.title_font.slice(brief.font.title_font.lastIndexOf("/") + 1);
+    paragraphFont =
+      "https://fonts.googleapis.com/css2?family=" +
+      brief.font.paragraph_font.slice(
+        brief.font.paragraph_font.lastIndexOf("/") + 1
+      );
+  }
   let pageurl = window.location.href;
+
   return (
     <div
       className={
@@ -34,7 +47,7 @@ export const Brief = ({
       <section className="hero">
         <h1 className="headline-text">
           <span>Project Brief</span>
-          <br/>
+          <br />
           <span>Generator</span>
         </h1>
         <i className="hidden-page-link">Project link: {pageurl}</i>
@@ -52,10 +65,19 @@ export const Brief = ({
       </section>
       {briefGenerated === true && (
         <>
+          <HelmetProvider>
+            <Helmet>
+              <link href={titleFont} rel="stylesheet" />
+              <link href={paragraphFont} rel="stylesheet" />
+            </Helmet>
+          </HelmetProvider>
           <Idea idea={brief.idea}></Idea>
           <Persona personaUrl={personaUrl} persona={brief.persona}></Persona>
           <div className="brief__colors-and-fonts">
-            <ColorPalette colors={brief.color} allColors={allColors}></ColorPalette>
+            <ColorPalette
+              colors={brief.color}
+              allColors={allColors}
+            ></ColorPalette>
             <Fonts fonts={brief.font}></Fonts>
           </div>
           <Wireframe layoutUrl={layoutUrl}> </Wireframe>
