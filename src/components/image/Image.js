@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { ShimmerCircle } from "../shimmer/ShimmerCircle";
+import { ShimmerRectangle } from "../shimmer/ShimmerRectangle";
 import "./Image.css";
 
 export default function Image({ src, alt, className, fallback }) {
@@ -11,9 +13,16 @@ export default function Image({ src, alt, className, fallback }) {
   return (
     <>
       <div
-        className={fallback}
         style={{ display: !loaded ? "block" : "none" }}
-      ></div>
+      >
+        { fallback === "circle" 
+        ? 
+        <ShimmerCircle /> 
+        :
+        <ShimmerRectangle /> 
+        }
+        
+      </div>
       <img
         src={src}
         alt={alt}

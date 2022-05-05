@@ -9,7 +9,7 @@ import { Select } from "../select/Select";
 import { ShareableLink } from "../shareable_link/ShareableLink";
 import { PrintBrief } from "../print_brief/Print_brief"
 import { AddToFavorites } from "../add_to_favorites/AddToFavorites";
-import { Shimmer } from "../shimmer/Shimmer";
+import { ShimmerRectangle } from "../shimmer/ShimmerRectangle";
 
 import "./Brief.css";
 
@@ -75,9 +75,9 @@ export const Brief = ({
         <>
           {window.location.pathname !== "/" && (
             <>
-            <Shimmer />
-            <Shimmer />
-            <Shimmer />
+            <ShimmerRectangle />
+            <ShimmerRectangle />
+            <ShimmerRectangle />
             </>
             )} 
         </>

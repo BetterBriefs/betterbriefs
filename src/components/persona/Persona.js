@@ -17,7 +17,7 @@ export const Persona = ({ personaUrl, persona }) => {
           className="persona_avatar"
           src={personaUrl}
           alt="Persona"
-          fallback="fallback_circle shimmer"
+          fallback="circle"
         />
         <div className="persona_description">
           <h3>{persona.name}</h3>

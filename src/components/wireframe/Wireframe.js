@@ -9,7 +9,7 @@ export const Wireframe = ({ layoutUrl }) => {
       <LazyImage
         src={layoutUrl}
         alt="Wireframe"
-        fallback="fallback_rectangle"
+        fallback="rectangle"
         className="wireframe-image"
       />
     </Card>
