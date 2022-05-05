@@ -1,8 +1,7 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Button } from "../button/Button";
 import { Wireframe } from "../wireframe/Wireframe";
 import { Persona } from "../persona/Persona";
-import { Idea } from "../idea/Idea";
 import { ColorPalette } from "../color_palette/ColorPalette";
 import { Fonts } from "../fonts/Fonts";
 import { Select } from "../select/Select";
@@ -11,6 +10,7 @@ import { PrintBrief } from "../print_brief/Print_brief"
 import { AddToFavorites } from "../add_to_favorites/AddToFavorites";
 
 import "./Brief.css";
+const Idea = React.lazy(() => import ("../idea/Idea"));
 
 export const Brief = ({
   onGenerateBrief,
@@ -52,7 +52,12 @@ export const Brief = ({
       </section>
       {briefGenerated === true && (
         <>
+          <Suspense fallback={
+            <>
+            </>
+          }>
           <Idea idea={brief.idea}></Idea>
+          </Suspense>
           <Persona personaUrl={personaUrl} persona={brief.persona}></Persona>
           <div className="brief__colors-and-fonts">
             <ColorPalette colors={brief.color} allColors={allColors}></ColorPalette>

@@ -2,7 +2,7 @@ import React from "react";
 import { Card } from "../card/Card";
 import { Tags } from "../tags/Tags";
 
-export const Idea = ({ idea }) => {
+export default function Idea ({ idea }) {
   return (
     <Card>
       <h2>Idea</h2>
