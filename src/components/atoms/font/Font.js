@@ -2,7 +2,7 @@ import React from "react";
 import LinkIcon from "@mui/icons-material/Link";
 import "./Font.css";
 
-export const Font = ({ fontFamily, fontLink }) => {
+export const Font = ({ fontFamily, fontLink, paragraph = true}) => {
   const style = {
     fontFamily: fontFamily,
     fontSize: "3.5rem",
@@ -11,7 +11,7 @@ export const Font = ({ fontFamily, fontLink }) => {
   return (
     <>
       <div className="fonts__headline">
-        <h3>Paragraph Font</h3>
+        <h3>{ paragraph ? "Paragraph Font" : "Title Font"}</h3>
         <a href={fontLink} target="_blank" rel="noreferrer">
           <LinkIcon sx={{ marginTop: "1.5rem" }} />
         </a>
