@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ShimmerCircle } from "../shimmer/ShimmerCircle";
 import { ShimmerRectangle } from "../shimmer/ShimmerRectangle";
-import "./Image.css";
 
 export default function Image({ src, alt, className, fallback }) {
   const [loaded, setLoaded] = useState(false);
