@@ -137,37 +137,11 @@ export const BriefData = ({
     );
   }
 
-  //load layout image from firebase storage and render
-  useEffect(() => {
-    if (brief.layout) {
-      const path = ref(storage, brief.layout.link);
-
-      getDownloadURL(path).then((url) => {
-        // Insert url into an <img> tag
-        setLayoutUrl(url);
-      });
-    }
-  }, [brief.layout]);
-
-  //load persona image from firebase storage and render
-  useEffect(() => {
-    if (brief.persona) {
-      const path = ref(storage, brief.persona.avatar);
-
-      getDownloadURL(path).then((url) => {
-        // Insert url into an <img> tag
-        setPersonaUrl(url);
-      });
-    }
-  }, [brief.persona]);
-
   return (
     <Brief
       onGenerateBrief={generateBrief}
       brief={brief}
       briefGenerated={briefGenerated}
-      layoutUrl={layoutUrl}
-      personaUrl={personaUrl}
       setDifficulty={setDifficulty}
       colorsLength={colors.length}
       fontsLength={fonts.length}

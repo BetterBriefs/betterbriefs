@@ -3,7 +3,7 @@ import { Card } from "../../../atoms/card/Card";
 import "./Persona.css";
 import LazyImage from "../../../functional/image/Image";
 
-export const Persona = ({ personaUrl, persona }) => {
+export const Persona = ({ persona }) => {
   let personaSex = persona.sex ? "female" : "male";
 
   return (
@@ -12,7 +12,7 @@ export const Persona = ({ personaUrl, persona }) => {
       <div className="persona">
         <LazyImage
           className="persona_avatar"
-          src={personaUrl}
+          src={persona.avatar}
           alt="Persona"
           fallback="circle"
         />

@@ -1,14 +1,5 @@
 import React from "react";
-<<<<<<< Updated upstream:src/components/overlay/Overlay.js
-import { Button } from "../button/Button";
-<<<<<<< HEAD:src/components/functional/overlay/Overlay.js
-import { ThemeProvider } from "@mui/material/styles";
-import { theme } from "../../Theme";
-=======
 import { Button } from "../../atoms/button/Button";
->>>>>>> Stashed changes:src/components/functional/overlay/Overlay.js
-=======
->>>>>>> 769dc6a7f758b53ce221aafcd732103365913d1a:src/components/overlay/Overlay.js
 import IconButton from "@mui/material/IconButton";
 import Dialog from "@mui/material/Dialog";
 import CloseIcon from "@mui/icons-material/CancelOutlined";

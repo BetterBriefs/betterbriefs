@@ -18,8 +18,6 @@ export const Brief = ({
   onGenerateBrief,
   brief,
   briefGenerated,
-  layoutUrl,
-  personaUrl,
   setDifficulty,
   colorsLength,
   fontsLength,
@@ -75,7 +73,7 @@ export const Brief = ({
             </Helmet>
           </HelmetProvider>
           <Idea idea={brief.idea}></Idea>
-          <Persona personaUrl={personaUrl} persona={brief.persona}></Persona>
+          <Persona persona={brief.persona}></Persona>
           <div className="brief__colors-and-fonts">
             <ColorPalette
               colors={brief.color}
@@ -83,7 +81,7 @@ export const Brief = ({
             ></ColorPalette>
             <Fonts fonts={brief.font} fontsLength={fontsLength}></Fonts>
           </div>
-          <Wireframe layoutUrl={layoutUrl}> </Wireframe>
+          <Wireframe layoutUrl={brief.layout.link}> </Wireframe>
           <div className="sidenav">
             <ShareableLink />
             <PrintBrief />
