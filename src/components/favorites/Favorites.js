@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { FavoritesEntry } from "./FavoritesEntry";
 import emptyfolderurl from "../../media/Empty_Folder.svg";
 import "./Favorites.css";
 
 export const Favorites = ({ favorites, onFavoritesChange }) => {
-  function removeFavorite(seed) {
-    let data = favorites.filter((entry) => entry.seed !== seed);
-    localStorage.setItem("brief", JSON.stringify(data));
-    onFavoritesChange(data);
-  }
+  const removeFavorite = useCallback(
+    (seed) => {
+      let data = favorites.filter((entry) => entry.seed !== seed);
+      localStorage.setItem("brief", JSON.stringify(data));
+      onFavoritesChange(data);
+    },
+    [favorites, onFavoritesChange]
+  );
 
   return (
     <div className="main-container">
@@ -17,12 +20,18 @@ export const Favorites = ({ favorites, onFavoritesChange }) => {
       </h1>
       {favorites.length > 0 ? (
         favorites.map((brief) => (
-          <FavoritesEntry entry={brief} onRemove={removeFavorite} />
+          <React.Fragment key={brief.seed}>
+            <FavoritesEntry entry={brief} onRemove={removeFavorite} />
+          </React.Fragment>
         ))
       ) : (
         <>
-        <p className="empty-list-text">No entries here yet.</p>
-        <img className="imprint-container__Team__member__img" src={emptyfolderurl+""} alt="no items found here"></img>
+          <p className="empty-list-text">No entries here yet.</p>
+          <img
+            className="imprint-container__Team__member__img"
+            src={emptyfolderurl + ""}
+            alt="no items found here"
+          ></img>
         </>
       )}
     </div>
