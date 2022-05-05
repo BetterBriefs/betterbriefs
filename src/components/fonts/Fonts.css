@@ -1,4 +1,8 @@
-.card a {
-  color: var(--black);
-  text-decoration: underline;
+.fonts__headline {
+  display: flex;
+  gap:0.5rem;
+}
+
+.fonts__headline svg {
+  color: var(--dark-cyan);
 }
