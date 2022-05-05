@@ -3,13 +3,14 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Button } from "../button/Button";
 import { Wireframe } from "../wireframe/Wireframe";
 import { Persona } from "../persona/Persona";
-import { Idea } from "../idea/Idea";
+import Idea from "../idea/Idea";
 import { ColorPalette } from "../color_palette/ColorPalette";
 import { Fonts } from "../fonts/Fonts";
 import { Select } from "../select/Select";
 import { ShareableLink } from "../shareable_link/ShareableLink";
 import { PrintBrief } from "../print_brief/Print_brief";
 import { AddToFavorites } from "../add_to_favorites/AddToFavorites";
+import { ShimmerRectangle } from "../shimmer/ShimmerRectangle";
 
 import "./Brief.css";
 
@@ -64,7 +65,8 @@ export const Brief = ({
           <Button onClick={onGenerateBrief}>Generate</Button>
         </div>
       </section>
-      {briefGenerated === true && (
+      { briefGenerated === true
+        ?
         <>
           <HelmetProvider>
             <Helmet>
@@ -88,10 +90,22 @@ export const Brief = ({
             <AddToFavorites
               brief={brief}
               onFavoritesChange={onFavoritesChange}
-            />
-          </div>
+          />
+        </div>
         </>
-      )}
+        :
+        (
+        <>
+          {window.location.pathname !== "/" && (
+            <>
+            <ShimmerRectangle />
+            <ShimmerRectangle />
+            <ShimmerRectangle />
+            </>
+            )} 
+        </>
+        )
+      }
     </div>
   );
 };
