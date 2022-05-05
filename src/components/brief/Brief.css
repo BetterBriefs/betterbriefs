@@ -43,5 +43,16 @@
     flex-direction: column;
     gap: 0;
   }
+  .sidenav{
+    right: 0.5em;
+    bottom: 0.5em;
+  }
+  .sidenav button{
+    width: 50px;
+    height: 50px;
+  }
+  .sidenav button:nth-child(2){
+    display: none;
+  }
 }
 
