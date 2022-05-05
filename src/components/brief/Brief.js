@@ -21,6 +21,7 @@ export const Brief = ({
   personaUrl,
   setDifficulty,
   allColors,
+  fontsLength,
   onFavoritesChange,
 }) => {
   let titleFont, paragraphFont;
@@ -78,7 +79,7 @@ export const Brief = ({
               colors={brief.color}
               allColors={allColors}
             ></ColorPalette>
-            <Fonts fonts={brief.font}></Fonts>
+            <Fonts fonts={brief.font} fontsLength={fontsLength}></Fonts>
           </div>
           <Wireframe layoutUrl={layoutUrl}> </Wireframe>
           <div className="sidenav">

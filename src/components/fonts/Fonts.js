@@ -1,20 +1,40 @@
 import React from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { Card } from "../card/Card";
 import LinkIcon from "@mui/icons-material/Link";
+import { ReloadButton } from "../reload_button/ReloadButton";
 import "./Fonts.css";
 
-export const Fonts = ({ fonts }) => {
+export const Fonts = ({ fonts, fontsLength }) => {
+  let { seed } = useParams();
+  const navigate = useNavigate();
+
   const titleFont = {
     fontFamily: fonts.title_font,
-    fontSize: "2.5rem",
+    fontSize: "3.5rem",
+    lineHeight: "4rem",
   };
   const paragraphFont = {
     fontFamily: fonts.paragraph_font,
-    fontSize: "2rem",
+    fontSize: "3.5rem",
+    lineHeight: "4rem",
   };
+
+  const getRandomFontPair = () => {
+    let randomFontIndex = Math.floor(Math.random() * fontsLength) + 1;
+    seed = seed.replace(/f.*i/, "f" + randomFontIndex + "i");
+    navigate(`/${seed}`);
+  };
+
   return (
     <Card>
-      <h2>Fonts</h2>
+      <div className="reload__button">
+        <h2>Fonts</h2>
+        <ReloadButton
+          hoverText="Change fonts"
+          onClick={getRandomFontPair}
+        ></ReloadButton>
+      </div>
       <div className="fonts__headline">
         <h3>Title Font</h3>
         <a href={fonts.title_link} target="_blank" rel="noreferrer">
