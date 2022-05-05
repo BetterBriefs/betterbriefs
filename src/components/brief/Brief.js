@@ -20,7 +20,7 @@ export const Brief = ({
   layoutUrl,
   personaUrl,
   setDifficulty,
-  allColors,
+  colorsLength,
   fontsLength,
   onFavoritesChange,
 }) => {
@@ -77,7 +77,7 @@ export const Brief = ({
           <div className="brief__colors-and-fonts">
             <ColorPalette
               colors={brief.color}
-              allColors={allColors}
+              colorsLength={colorsLength}
             ></ColorPalette>
             <Fonts fonts={brief.font} fontsLength={fontsLength}></Fonts>
           </div>
