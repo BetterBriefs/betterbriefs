@@ -28,7 +28,7 @@
 .sidenav {
   display: flex;
   position: fixed;
-  bottom: 2em;
+  bottom: 6em;
   right: 2em;
   flex-direction: column;
   gap: 1em;
@@ -45,7 +45,6 @@
   }
   .sidenav{
     right: 0.5em;
-    bottom: 0.5em;
   }
   .sidenav button{
     width: 50px;
