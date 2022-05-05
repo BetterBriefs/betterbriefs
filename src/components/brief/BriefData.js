@@ -1,15 +1,15 @@
-import React, { useState, useEffect, useCallback, useMemo } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Brief } from "./Brief";
 
-export const BriefData = ({
+function BriefData({
   colors,
   fonts,
   ideas,
   personas,
   layouts,
   onFavoritesChange,
-}) => {
+}) {
   let { seed } = useParams();
 
   // flag if a brief is generated or not
@@ -143,4 +143,6 @@ export const BriefData = ({
       onFavoritesChange={onFavoritesChange}
     ></Brief>
   );
-};
+}
+
+export default React.memo(BriefData);

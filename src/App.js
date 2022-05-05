@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { BriefData } from "./components/brief/BriefData";
+import BriefData from "./components/brief/BriefData";
 import { Imprint } from "./static/imprint/Imprint";
 import { About } from "./static/about/About";
 import { Privacy } from "./static/privacy/Privacy";
-import { Header } from "./components/header/Header";
-import { Footer } from "./components/footer/Footer";
-import { Favorites } from "./components/favorites/Favorites";
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
+import Favorites from "./components/favorites/Favorites";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "./Theme";
 import { useData } from "./helper/useData";

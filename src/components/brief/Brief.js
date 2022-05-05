@@ -6,11 +6,11 @@ import { Persona } from "./brief_cards/persona/Persona";
 import { Idea } from "./brief_cards/idea/Idea";
 import { ColorPalette } from "./brief_cards/color_palette/ColorPalette";
 import { Fonts } from "./brief_cards/fonts/Fonts";
-import { Select } from "../atoms/select/Select";
+import Select from "../atoms/select/Select";
 import { ShareableLink } from "../sidenav/shareable_link/ShareableLink";
 import { PrintBrief } from "../sidenav/print_brief/Print_brief";
 import { AddToFavorites } from "../sidenav/add_to_favorites/AddToFavorites";
-import { ShimmerRectangle } from "../functional/shimmer/ShimmerRectangle";
+import ShimmerRectangle from "../functional/shimmer/ShimmerRectangle";
 
 import "./Brief.css";
 

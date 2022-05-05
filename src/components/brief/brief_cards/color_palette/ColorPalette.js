@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ColorElement } from "../../../atoms/color_element/ColorElement";
 import { Card } from "../../../atoms/card/Card";
-import { ReloadButton } from "../../../functional/reload_button/ReloadButton";
+import ReloadButton from "../../../functional/reload_button/ReloadButton";
 import "./ColorPalette.css";
 
 export const ColorPalette = ({ colors, colorsLength }) => {

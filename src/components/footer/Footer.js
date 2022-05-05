@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./Footer.css";
 import fhsLogoUrl from "../../fhs-logo-icon.svg";
 
-export const Footer = () => {
+function Footer() {
   return (
     <section className="footer">
       <div className="footer__items-container">
@@ -33,4 +33,6 @@ export const Footer = () => {
       </div>
     </section>
   );
-};
+}
+
+export default React.memo(Footer);
