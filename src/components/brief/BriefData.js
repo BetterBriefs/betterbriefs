@@ -1,13 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ref, getDownloadURL } from "firebase/storage";
 import { storage } from "../../firebase-config";
 import { Brief } from "./Brief";
-import { useData } from "../../helper/useData";
 
-export const BriefData = ({ useDataHook = useData, onFavoritesChange }) => {
+export const BriefData = ({
+  colors,
+  fonts,
+  ideas,
+  personas,
+  layouts,
+  onFavoritesChange,
+}) => {
   let { seed } = useParams();
-  const { colors, fonts, ideas, personas, layouts, getData } = useDataHook();
 
   // flag if a brief is generated or not
   const [briefGenerated, setBriefGenerated] = useState(false);
@@ -28,12 +33,25 @@ export const BriefData = ({ useDataHook = useData, onFavoritesChange }) => {
 
   const navigate = useNavigate();
 
-  // load data initially
-  useEffect(() => {
-    getData();
-    console.log("data");
-  }, []);
-
+  const getIdOfParam = useCallback(
+    (type) => {
+      switch (type) {
+        case "c":
+          return seed.substring(seed.indexOf("c") + 1, seed.lastIndexOf("f"));
+        case "f":
+          return seed.substring(seed.indexOf("f") + 1, seed.lastIndexOf("i"));
+        case "i":
+          return seed.substring(seed.indexOf("i") + 1, seed.lastIndexOf("l"));
+        case "l":
+          return seed.substring(seed.indexOf("l") + 1, seed.lastIndexOf("p"));
+        case "p":
+          return seed.substring(seed.indexOf("p") + 1);
+        default:
+          return 0;
+      }
+    },
+    [seed]
+  );
   // check if params are in url
   // if yes set states to generated brief from url
   useEffect(() => {
@@ -62,7 +80,7 @@ export const BriefData = ({ useDataHook = useData, onFavoritesChange }) => {
       });
       setBriefGenerated(false);
     }
-  }, [colors, fonts, ideas, layouts, personas, seed, brief]);
+  }, [colors, fonts, ideas, layouts, personas, seed, brief, getIdOfParam]);
 
   // if brief states are available, set BriefGenerated to true, so brief will be rendered
   useEffect(() => {
@@ -117,23 +135,6 @@ export const BriefData = ({ useDataHook = useData, onFavoritesChange }) => {
     navigate(
       `/c${randomColorIndex}f${randomFontIndex}i${idea.id}l${filteredLayouts[randomLayoutIndex].id}p${randomPersonaIndex}`
     );
-  }
-
-  function getIdOfParam(type) {
-    switch (type) {
-      case "c":
-        return seed.substring(seed.indexOf("c") + 1, seed.lastIndexOf("f"));
-      case "f":
-        return seed.substring(seed.indexOf("f") + 1, seed.lastIndexOf("i"));
-      case "i":
-        return seed.substring(seed.indexOf("i") + 1, seed.lastIndexOf("l"));
-      case "l":
-        return seed.substring(seed.indexOf("l") + 1, seed.lastIndexOf("p"));
-      case "p":
-        return seed.substring(seed.indexOf("p") + 1);
-      default:
-        return 0;
-    }
   }
 
   //load layout image from firebase storage and render
