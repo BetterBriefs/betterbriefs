@@ -36,7 +36,7 @@ export const theme = createTheme({
     MuiPaper: {
       styleOverrides: {
         root: {
-          backgroundColor: "#ea5504",
+          backgroundColor: "#1f7a83",
           padding: "3em",
           fontWeight: "800",
           textAlign: "center",

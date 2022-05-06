@@ -17,8 +17,8 @@ export const Overlay = ({
     <Dialog
       open={handleOpen}
       onClose={handleClose}
-      PaperProps={{ sx: "#ea5504" }}
-      sx={{ color: "#ea5504" }}
+      PaperProps={{ sx: "#1f7a83" }}
+      sx={{ color: "#1f7a83" }}
     >
       <IconButton
         aria-label="close"
@@ -27,9 +27,9 @@ export const Overlay = ({
           position: "absolute",
           right: 8,
           top: 8,
-          color: "#ea5504",
+          color: "#1f7a83",
           "&:hover": {
-            backgroundColor: "#ea5504",
+            backgroundColor: "#1f7a83",
             cursor: "pointer"
           }
         }}

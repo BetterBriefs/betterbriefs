@@ -23,6 +23,6 @@
 
 .info {
   background-color: var(--white);
-  color: var(--orange);
+  color: var(--dark-cyan);
   border: 3px solid var(--white);
 }
