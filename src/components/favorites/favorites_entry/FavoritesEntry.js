@@ -46,7 +46,7 @@ export const FavoritesEntry = ({ entry, onRemove }) => {
           <p className="favorites__short-description">{entry.description}</p>
           <p className="seed">
             ID: {entry.seed}{" "}
-            <span onClick={() => copyToClipboard(entry.seed)}>
+            <span onClick={() => copyToClipboard(window.location.origin + "/" + entry.seed)}>
               <ContentCopyIcon />
             </span>
           </p>
