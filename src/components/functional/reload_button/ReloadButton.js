@@ -8,7 +8,6 @@ function ReloadButton({ hoverText, onClick }) {
     <Tooltip
       title={<p>{hoverText}</p>}
       placement="left"
-      arrow
       TransitionComponent={Fade}
     >
       <ReloadIcon
