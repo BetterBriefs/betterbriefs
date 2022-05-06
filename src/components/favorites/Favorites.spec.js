@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Favorites } from "./Favorites";
+import Favorites from "./Favorites";
 import { cleanup, fireEvent, queryByText } from "@testing-library/react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 //initial setup before each test

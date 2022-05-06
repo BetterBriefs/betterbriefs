@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Select } from "./Select";
+import Select from "./Select";
 import { cleanup, fireEvent } from "@testing-library/react";
 
 //initial setup before each test
