@@ -18,7 +18,7 @@ afterEach(() => {
   cleanup();
 });
 describe("Brief Wireframe", () => {
-  it("When a user clicks the Generate Button, a random brief will be rendered", () => {
+  it("When a Brief is generated, a brief will be rendered", () => {
     //Act
     ReactDOM.render(
       <BrowserRouter>
