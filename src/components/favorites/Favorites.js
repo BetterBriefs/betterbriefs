@@ -5,8 +5,8 @@ import "./Favorites.css";
 
 function Favorites({ favorites, onFavoritesChange }) {
   const removeFavorite = useCallback(
-    (seed) => {
-      let data = favorites.filter((entry) => entry.seed !== seed);
+    seed => {
+      let data = favorites.filter(entry => entry.seed !== seed);
       localStorage.setItem("brief", JSON.stringify(data));
       onFavoritesChange(data);
     },
@@ -19,7 +19,7 @@ function Favorites({ favorites, onFavoritesChange }) {
         <span>Favorites List</span>
       </h1>
       {favorites.length > 0 ? (
-        favorites.map((brief) => (
+        favorites.map(brief => (
           <React.Fragment key={brief.seed}>
             <FavoritesEntry entry={brief} onRemove={removeFavorite} />
           </React.Fragment>

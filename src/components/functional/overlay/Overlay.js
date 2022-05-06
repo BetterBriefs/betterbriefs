@@ -11,7 +11,7 @@ export const Overlay = ({
   handleClose,
   buttonText,
   buttonFunction,
-  children,
+  children
 }) => {
   return (
     <Dialog
@@ -30,8 +30,8 @@ export const Overlay = ({
           color: "#ea5504",
           "&:hover": {
             backgroundColor: "#ea5504",
-            cursor: "pointer",
-          },
+            cursor: "pointer"
+          }
         }}
       >
         <CloseIcon sx={{ color: "#ffffff", width: "2em", height: "2em" }} />

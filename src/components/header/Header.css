@@ -3,19 +3,19 @@
   align-items: center;
   padding: 2rem 3rem 1rem 3rem;
 }
-.header ul{
+.header ul {
   display: flex;
   align-items: center;
   width: 100%;
   gap: 2.5rem;
 }
-.header ul li:nth-child(2){
+.header ul li:nth-child(2) {
   margin-left: auto;
 }
-.header li{
+.header li {
   list-style-type: none;
 }
-.header a{
+.header a {
   font-size: 1.2rem;
 }
 .header img {
@@ -30,7 +30,7 @@
 .header span {
   color: var(--dark-cyan);
   font-size: 0.9rem;
-  font-weight:bold;
+  font-weight: bold;
 }
 
 .header span.favorites__text {

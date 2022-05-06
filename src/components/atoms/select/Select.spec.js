@@ -22,7 +22,7 @@ describe("Brief Select Difficulty", () => {
     //Act
     ReactDOM.render(<Select setDifficulty={onChange}></Select>, container);
     fireEvent.change(container.querySelector("select"), {
-      target: { value: "medium" },
+      target: { value: "medium" }
     });
     expect(onChange).toHaveBeenCalledTimes(1);
   });

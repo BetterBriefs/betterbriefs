@@ -11,16 +11,8 @@ export default function Image({ src, alt, className, fallback }) {
 
   return (
     <>
-      <div
-        style={{ display: !loaded ? "block" : "none" }}
-      >
-        { fallback === "circle" 
-        ? 
-        <ShimmerCircle /> 
-        :
-        <ShimmerRectangle /> 
-        }
-        
+      <div style={{ display: !loaded ? "block" : "none" }}>
+        {fallback === "circle" ? <ShimmerCircle /> : <ShimmerRectangle />}
       </div>
       <img
         src={src}

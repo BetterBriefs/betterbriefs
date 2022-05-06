@@ -1,20 +1,18 @@
-
 .color-line {
-    display:flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .favorite__container .circle {
-width: 3em;
-height: 3em;
-border-radius: 10em;
-box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
-margin-right: 1em;
-} 
+  width: 3em;
+  height: 3em;
+  border-radius: 10em;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
+  margin-right: 1em;
+}
 
 @media screen and (max-width: 920px) {
-    .color-line {
-        row-gap: 1em;
-    }
+  .color-line {
+    row-gap: 1em;
   }
-  
+}

@@ -22,16 +22,18 @@ describe("Reload Icon", () => {
   it("when the reload icon is clicked, onClick method is called", () => {
     const onClick = jest.fn();
     ReactDOM.render(
-        <ReloadIcon
+      <ReloadIcon
         onClick={onClick}
         fontSize="large"
         sx={{
           color: "#1f7a83",
           "&:hover": {
-            cursor: "pointer",
-          },
+            cursor: "pointer"
+          }
         }}
-      />, container);
+      />,
+      container
+    );
     fireEvent.click(container.querySelector("svg"));
     expect(onClick).toHaveBeenCalledTimes(1);
   });

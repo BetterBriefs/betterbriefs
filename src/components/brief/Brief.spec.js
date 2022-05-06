@@ -35,7 +35,7 @@ describe("Brief Wireframe", () => {
                     color4: "30343f",
                     color5: "ffd9da",
                     color3: "1b2021",
-                    id: "1",
+                    id: "1"
                   },
                   font: {
                     paragraph_font: "Source Sans Pro",
@@ -44,13 +44,13 @@ describe("Brief Wireframe", () => {
                     title_font: "Playfair Display",
                     title_link:
                       "https://fonts.google.com/specimen/Playfair+Display",
-                    id: "1",
+                    id: "1"
                   },
                   layout: {
                     link:
                       "gs://betterbriefs-8b032.appspot.com/layouts/Portfolio - Template 5.png",
                     type: "portfolio",
-                    id: "5",
+                    id: "5"
                   },
                   idea: {
                     title: "Hi, I’m a webdesigner!",
@@ -58,7 +58,7 @@ describe("Brief Wireframe", () => {
                     difficulty: "easy",
                     description:
                       "I’m a freelancer earn money with web design. I need a website that shows all my projects and skills, where people can get impressions of my work. The main target group are companies or persons who need any design for web purposes. There should be following sections: about me, my projects, my skills and my timeline/education. ",
-                    id: "1",
+                    id: "1"
                   },
                   persona: {
                     sex: false,
@@ -68,8 +68,8 @@ describe("Brief Wireframe", () => {
                       "gs://betterbriefs-8b032.appspot.com/avatars/person10.jpg",
                     age: 36,
                     name: "Elias Lamb",
-                    id: "1",
-                  },
+                    id: "1"
+                  }
                 }}
                 briefGenerated={true}
                 layoutUrl={""}
@@ -91,7 +91,7 @@ describe("Brief Wireframe", () => {
                     color4: "30343f",
                     color5: "ffd9da",
                     color3: "1b2021",
-                    id: "1",
+                    id: "1"
                   },
                   font: {
                     paragraph_font: "Source Sans Pro",
@@ -100,13 +100,13 @@ describe("Brief Wireframe", () => {
                     title_font: "Playfair Display",
                     title_link:
                       "https://fonts.google.com/specimen/Playfair+Display",
-                    id: "1",
+                    id: "1"
                   },
                   layout: {
                     link:
                       "gs://betterbriefs-8b032.appspot.com/layouts/Portfolio - Template 5.png",
                     type: "portfolio",
-                    id: "5",
+                    id: "5"
                   },
                   idea: {
                     title: "Hi, I’m a webdesigner!",
@@ -114,7 +114,7 @@ describe("Brief Wireframe", () => {
                     difficulty: "easy",
                     description:
                       "I’m a freelancer earn money with web design. I need a website that shows all my projects and skills, where people can get impressions of my work. The main target group are companies or persons who need any design for web purposes. There should be following sections: about me, my projects, my skills and my timeline/education. ",
-                    id: "1",
+                    id: "1"
                   },
                   persona: {
                     sex: false,
@@ -124,8 +124,8 @@ describe("Brief Wireframe", () => {
                       "gs://betterbriefs-8b032.appspot.com/avatars/person10.jpg",
                     age: 36,
                     name: "Elias Lamb",
-                    id: "1",
-                  },
+                    id: "1"
+                  }
                 }}
                 briefGenerated={true}
                 layoutUrl={""}
@@ -138,8 +138,8 @@ describe("Brief Wireframe", () => {
                     color4: "30343f",
                     color5: "ffd9da",
                     color3: "1b2021",
-                    id: "1",
-                  },
+                    id: "1"
+                  }
                 ]}
                 fontsLength={1}
                 onFavoritesChange={() => console.log("test")}
@@ -156,7 +156,7 @@ describe("Brief Wireframe", () => {
               color4: "30343f",
               color5: "ffd9da",
               color3: "1b2021",
-              id: "1",
+              id: "1"
             },
             font: {
               paragraph_font: "Source Sans Pro",
@@ -164,13 +164,13 @@ describe("Brief Wireframe", () => {
                 "https://fonts.google.com/specimen/Source+Sans+Pro",
               title_font: "Playfair Display",
               title_link: "https://fonts.google.com/specimen/Playfair+Display",
-              id: "1",
+              id: "1"
             },
             layout: {
               link:
                 "gs://betterbriefs-8b032.appspot.com/layouts/Portfolio - Template 5.png",
               type: "portfolio",
-              id: "5",
+              id: "5"
             },
             idea: {
               title: "Hi, I’m a webdesigner!",
@@ -178,7 +178,7 @@ describe("Brief Wireframe", () => {
               difficulty: "easy",
               description:
                 "I’m a freelancer earn money with web design. I need a website that shows all my projects and skills, where people can get impressions of my work. The main target group are companies or persons who need any design for web purposes. There should be following sections: about me, my projects, my skills and my timeline/education. ",
-              id: "1",
+              id: "1"
             },
             persona: {
               sex: false,
@@ -188,8 +188,8 @@ describe("Brief Wireframe", () => {
                 "gs://betterbriefs-8b032.appspot.com/avatars/person10.jpg",
               age: 36,
               name: "Elias Lamb",
-              id: "1",
-            },
+              id: "1"
+            }
           }}
           briefGenerated={true}
           layoutUrl={""}

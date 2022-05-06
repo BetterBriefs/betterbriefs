@@ -5,31 +5,31 @@
   width: 100%;
   margin-top: auto;
 }
-.footer__items-container{
+.footer__items-container {
   display: flex;
   width: 100%;
   justify-content: space-between;
 }
-.footer a{
+.footer a {
   color: var(--black);
 }
-.footer ul{
+.footer ul {
   display: flex;
   gap: 3rem;
   align-items: center;
   padding: 0 3rem;
 }
-.footer li{
+.footer li {
   list-style-type: none;
 }
-.footer li:last-child{
+.footer li:last-child {
   margin-left: auto;
 }
-.footer .Fhs__logo{
+.footer .Fhs__logo {
   height: 3rem;
 }
 @media screen and (max-width: 560px) {
-  .footer ul{
+  .footer ul {
     gap: 2rem;
     padding: 0 1rem;
   }

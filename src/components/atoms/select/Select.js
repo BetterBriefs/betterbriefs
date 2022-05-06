@@ -7,7 +7,7 @@ function Select({ setDifficulty }) {
       name="difficulty"
       id="difficulty"
       defaultValue="simple"
-      onChange={(e) => setDifficulty(e.target.value)}
+      onChange={e => setDifficulty(e.target.value)}
     >
       <option value="easy">Easy</option>
       <option value="normal">Normal</option>

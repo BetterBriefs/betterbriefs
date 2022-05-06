@@ -20,19 +20,22 @@ afterEach(() => {
 });
 
 describe("Color Circle", () => {
-    it("When component tags is implemented, two tag elements are rendered.", () => {
-        //Act
-        ReactDOM.render(<Tags difficulty={difficulty} type={type} />, container);
-        expect(container.querySelectorAll(".MuiChip-root")).toHaveProperty("length", 2);
-      });
-    it("When component tags is rendered, text of difficulty is displayed.", () => {
-        //Act
-        ReactDOM.render(<Tags difficulty={difficulty} type={type} />, container);
-        expect(queryByText(container, "normal")).toBeTruthy();
-      });
-    it("When component tags is rendered, text of shop is displayed.", () => {
-        //Act
-        ReactDOM.render(<Tags difficulty={difficulty} type={type} />, container);
-        expect(queryByText(container, "shop")).toBeTruthy();
-    });
+  it("When component tags is implemented, two tag elements are rendered.", () => {
+    //Act
+    ReactDOM.render(<Tags difficulty={difficulty} type={type} />, container);
+    expect(container.querySelectorAll(".MuiChip-root")).toHaveProperty(
+      "length",
+      2
+    );
+  });
+  it("When component tags is rendered, text of difficulty is displayed.", () => {
+    //Act
+    ReactDOM.render(<Tags difficulty={difficulty} type={type} />, container);
+    expect(queryByText(container, "normal")).toBeTruthy();
+  });
+  it("When component tags is rendered, text of shop is displayed.", () => {
+    //Act
+    ReactDOM.render(<Tags difficulty={difficulty} type={type} />, container);
+    expect(queryByText(container, "shop")).toBeTruthy();
+  });
 });

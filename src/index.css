@@ -63,7 +63,7 @@ body {
   background: var(--background-gradient);
 }
 
-.main-container{
+.main-container {
   display: flex;
   width: 80%;
   max-width: 100rem;
@@ -77,95 +77,102 @@ body {
     letter-spacing: 0.5px;
   }
 }
-@media print { 
+@media print {
   /* All your print styles go here */
-  *{
+  * {
     color-adjust: exact;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
 
-  .header, .footer, .hero__buttons-container, .sidenav, .MuiSvgIcon-root {
+  .header,
+  .footer,
+  .hero__buttons-container,
+  .sidenav,
+  .MuiSvgIcon-root {
     display: none !important;
   }
-  h1{
+  h1 {
     font-size: 32px;
     page-break-before: always;
-    color: var(--dark-cyan)
+    color: var(--dark-cyan);
   }
-  h2, .card h2{
+  h2,
+  .card h2 {
     font-size: 24px;
   }
   /*.card h2:nth-child(1) {
     float: left !important;
     margin-right: 10px;
   }*/
-  h3, .card h3{
+  h3,
+  .card h3 {
     font-size: 18px;
     margin-top: 5px !important;
   }
-  h4, .card h4{
+  h4,
+  .card h4 {
     font-size: 16px;
   }
-  p{
-    font-size:12px;
-    line-height:14px;
+  p {
+    font-size: 12px;
+    line-height: 14px;
     margin-bottom: 5px !important;
   }
-  .card{
+  .card {
     border: 2px solid rgb(69, 69, 69);
     padding: 10px !important;
     margin-top: 25px !important;
   }
-  .brief__colors-and-fonts{
+  .brief__colors-and-fonts {
     flex-direction: column;
     width: 40% !important;
     float: right;
     gap: 0px !important;
   }
-  .brief__colors-and-fonts::after { 
-    content: 'https://BetterBriefs.dev | Copyright © 2022 & Beyond. All rights reserved.'; 
+  .brief__colors-and-fonts::after {
+    content: "https://BetterBriefs.dev | Copyright © 2022 & Beyond. All rights reserved.";
   }
-  .brief__colors-and-fonts .card{
+  .brief__colors-and-fonts .card {
     page-break-after: always !important;
-    
   }
-  .card:nth-child(3){
+  .card:nth-child(3) {
     page-break-after: always !important;
   }
 
-  .card:nth-child(5){
+  .card:nth-child(5) {
     width: 50% !important;
   }
   .wireframe-image {
     max-height: 920px !important;
   }
-  .card .persona_description h3{
+  .card .persona_description h3 {
     font-size: 18px;
   }
-  .card .persona_description h4{
+  .card .persona_description h4 {
     font-size: 16px;
     margin-top: 0px;
   }
-  .persona img{
+  .persona img {
     width: 58px;
   }
-  .persona_tags, .persona_description .persona_tags h4{
+  .persona_tags,
+  .persona_description .persona_tags h4 {
     font-size: 9px;
   }
-  .main-container{
+  .main-container {
     width: 100%;
     flex-direction: unset;
-    display:block;
+    display: block;
   }
-  .hidden-page-link{
+  .hidden-page-link {
     display: block !important;
   }
-  .circle{
+  .circle {
     width: 50px !important;
     height: 50px !important;
   }
-  .MuiTooltip-popper{
+  .MuiTooltip-popper {
     display: none !important;
   }
   @page {

@@ -16,8 +16,8 @@ function ReloadButton({ hoverText, onClick }) {
         sx={{
           color: "#1f7a83",
           "&:hover": {
-            cursor: "pointer",
-          },
+            cursor: "pointer"
+          }
         }}
       />
     </Tooltip>

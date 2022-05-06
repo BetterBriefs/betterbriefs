@@ -17,7 +17,7 @@ export const AddToFavorites = ({ brief, onFavoritesChange }) => {
   const addToFavorites = useCallback(() => {
     let currentFavorites = JSON.parse(localStorage.getItem("brief")) || [];
     let isDuplicate = currentFavorites.find(
-      (uniqueBrief) => uniqueBrief.seed === seed
+      uniqueBrief => uniqueBrief.seed === seed
     )
       ? true
       : false;

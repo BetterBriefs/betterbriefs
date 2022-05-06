@@ -18,14 +18,16 @@ afterEach(() => {
   cleanup();
 });
 describe("Color Circle", () => {
-    it("When component color circle is implemented, color circle is rendered.", () => {
-        //Act
-        ReactDOM.render(<ColorCircle color={color}></ColorCircle>, container);
-        expect(container.querySelectorAll(".circle")).toHaveProperty("length", 1);
-      });
-    it("When component color circle is implemented, given color is rendered.", () => {
-        //Act
-        ReactDOM.render(<ColorCircle color={color}></ColorCircle>, container);
-        expect(container.querySelector(".circle")).toHaveStyle(`background-color: #${color}`);
-    });
+  it("When component color circle is implemented, color circle is rendered.", () => {
+    //Act
+    ReactDOM.render(<ColorCircle color={color}></ColorCircle>, container);
+    expect(container.querySelectorAll(".circle")).toHaveProperty("length", 1);
+  });
+  it("When component color circle is implemented, given color is rendered.", () => {
+    //Act
+    ReactDOM.render(<ColorCircle color={color}></ColorCircle>, container);
+    expect(container.querySelector(".circle")).toHaveStyle(
+      `background-color: #${color}`
+    );
+  });
 });

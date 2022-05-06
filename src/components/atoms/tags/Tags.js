@@ -9,14 +9,14 @@ export const Tags = ({ difficulty, type }) => {
         color="info"
         sx={{
           textTransform: "capitalize",
-          marginRight: "10px",
+          marginRight: "10px"
         }}
       />
       <Chip
         label={difficulty}
         color="info"
         sx={{
-          textTransform: "capitalize",
+          textTransform: "capitalize"
         }}
       />
     </>

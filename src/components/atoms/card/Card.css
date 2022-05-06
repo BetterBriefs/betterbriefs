@@ -7,7 +7,7 @@
   background-color: var(--white);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
 }
-.card h1{
+.card h1 {
   color: var(--dark-cyan);
 }
 .card p {
@@ -29,5 +29,5 @@
   margin-top: 1em;
 }
 .card a {
-  color: var(--dark-cyan)
+  color: var(--dark-cyan);
 }
