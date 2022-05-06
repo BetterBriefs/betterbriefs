@@ -22,10 +22,22 @@ describe("Sidenav Button", () => {
   it("when the sidenav button is clicked, onClick method is called", () => {
     const onClick = jest.fn();
     ReactDOM.render(
-    <SidenavElement hoverText="Share" handleClickOpen={onClick}>
+      <SidenavElement hoverText="Share" handleClickOpen={onClick}>
         <ShareIcon fontSize="large" sx={{ color: "#1f7a83" }} />
-    </SidenavElement>, container);
+      </SidenavElement>,
+      container
+    );
     fireEvent.click(container.querySelector("button"));
     expect(onClick).toHaveBeenCalledTimes(1);
+  });
+  it("when a sidenav button is given with a children, the children is rendered", () => {
+    const onClick = jest.fn();
+    ReactDOM.render(
+      <SidenavElement hoverText="Share" handleClickOpen={onClick}>
+        <ShareIcon fontSize="large" sx={{ color: "#1f7a83" }} />
+      </SidenavElement>,
+      container
+    );
+    expect(container.querySelector("svg")).toBeTruthy();
   });
 });
