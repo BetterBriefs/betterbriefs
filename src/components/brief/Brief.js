@@ -21,7 +21,7 @@ export const Brief = ({
   setDifficulty,
   colorsLength,
   fontsLength,
-  onFavoritesChange,
+  onFavoritesChange
 }) => {
   let titleFont, paragraphFont;
   if (briefGenerated) {

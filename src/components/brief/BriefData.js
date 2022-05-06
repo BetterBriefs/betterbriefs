@@ -8,7 +8,7 @@ function BriefData({
   ideas,
   personas,
   layouts,
-  onFavoritesChange,
+  onFavoritesChange
 }) {
   let { seed } = useParams();
 
@@ -23,13 +23,13 @@ function BriefData({
     font: undefined,
     layout: undefined,
     idea: undefined,
-    persona: undefined,
+    persona: undefined
   });
 
   const navigate = useNavigate();
 
   const getIdOfParam = useCallback(
-    (type) => {
+    type => {
       switch (type) {
         case "c":
           return seed.substring(seed.indexOf("c") + 1, seed.lastIndexOf("f"));
@@ -57,13 +57,11 @@ function BriefData({
       let layoutid = getIdOfParam("l");
       let personaid = getIdOfParam("p");
       setBrief({
-        color: colors.find((color) => color.id === colorid),
-        font: fonts.find((font) => font.id === fontid.toString()),
-        persona: personas.find(
-          (persona) => persona.id === personaid.toString()
-        ),
-        idea: ideas.find((idea) => idea.id === ideaid.toString()),
-        layout: layouts.find((layout) => layout.id === layoutid.toString()),
+        color: colors.find(color => color.id === colorid),
+        font: fonts.find(font => font.id === fontid.toString()),
+        persona: personas.find(persona => persona.id === personaid.toString()),
+        idea: ideas.find(idea => idea.id === ideaid.toString()),
+        layout: layouts.find(layout => layout.id === layoutid.toString())
       });
     } else {
       setBrief({
@@ -71,7 +69,7 @@ function BriefData({
         font: undefined,
         layout: undefined,
         idea: undefined,
-        persona: undefined,
+        persona: undefined
       });
       setBriefGenerated(false);
     }
@@ -106,25 +104,25 @@ function BriefData({
     let randomLayoutIndex;
 
     // filter ideas based on selected difficulty
-    let filteredIdeas = ideas.filter((idea) => idea.difficulty === difficulty);
+    let filteredIdeas = ideas.filter(idea => idea.difficulty === difficulty);
     lengthIdeas = filteredIdeas.length;
     randomIdeaIndex = Math.floor(Math.random() * lengthIdeas);
 
     // type of idea and layout must match
     let idea = filteredIdeas[randomIdeaIndex];
 
-    let filteredLayouts = layouts.filter((layout) => layout.type === idea.type);
+    let filteredLayouts = layouts.filter(layout => layout.type === idea.type);
     lengthLayouts = filteredLayouts.length;
     randomLayoutIndex = Math.floor(Math.random() * lengthLayouts);
 
     setBrief({
-      color: colors.find((color) => color.id === randomColorIndex.toString()),
-      font: fonts.find((font) => font.id === randomFontIndex.toString()),
+      color: colors.find(color => color.id === randomColorIndex.toString()),
+      font: fonts.find(font => font.id === randomFontIndex.toString()),
       persona: personas.find(
-        (persona) => persona.id === randomPersonaIndex.toString()
+        persona => persona.id === randomPersonaIndex.toString()
       ),
       idea: idea,
-      layout: filteredLayouts[randomLayoutIndex],
+      layout: filteredLayouts[randomLayoutIndex]
     });
 
     navigate(

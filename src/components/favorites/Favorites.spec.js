@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Favorites } from "./Favorites";
+import Favorites from "./Favorites";
 import { cleanup, fireEvent, queryByText } from "@testing-library/react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 //initial setup before each test
@@ -18,7 +18,7 @@ let favorites = [
     color5: "ffffff",
     color4: "f0f0f0",
     color2: "707070",
-    seed: "c16f26i25l5p5",
+    seed: "c16f26i25l5p5"
   },
   {
     description:
@@ -32,7 +32,7 @@ let favorites = [
     color2: "2b2d42",
     color1: "d90429",
     color3: "ef233c",
-    seed: "c3f4i34l1p15",
+    seed: "c3f4i34l1p15"
   },
   {
     difficulty: "easy",
@@ -46,8 +46,8 @@ let favorites = [
     color4: "d5d5d3",
     color5: "ffffff",
     color2: "252525",
-    seed: "c17f21i19l9p12",
-  },
+    seed: "c17f21i19l9p12"
+  }
 ];
 
 beforeEach(() => {

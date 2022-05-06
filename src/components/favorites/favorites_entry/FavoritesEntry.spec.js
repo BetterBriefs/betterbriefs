@@ -18,7 +18,7 @@ let favorite = {
   color5: "ffffff",
   color4: "f0f0f0",
   color2: "707070",
-  seed: "c16f26i25l5p5",
+  seed: "c16f26i25l5p5"
 };
 beforeEach(() => {
   container = document.createElement("div");

@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Select } from "./Select";
+import Select from "./Select";
 import { cleanup, fireEvent } from "@testing-library/react";
 
 //initial setup before each test
@@ -22,7 +22,7 @@ describe("Brief Select Difficulty", () => {
     //Act
     ReactDOM.render(<Select setDifficulty={onChange}></Select>, container);
     fireEvent.change(container.querySelector("select"), {
-      target: { value: "medium" },
+      target: { value: "medium" }
     });
     expect(onChange).toHaveBeenCalledTimes(1);
   });

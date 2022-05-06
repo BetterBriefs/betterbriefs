@@ -17,31 +17,31 @@ export const useData = () => {
 
   const getColors = async () => {
     const data = await getDocs(colorsCollectionRef);
-    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    const parsedData = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
     setColors(parsedData);
   };
 
   const getFonts = async () => {
     const data = await getDocs(fontsCollectionRef);
-    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    const parsedData = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
     setFonts(parsedData);
   };
 
   const getIdeas = async () => {
     const data = await getDocs(ideasCollectionRef);
-    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    const parsedData = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
     setIdeas(parsedData);
   };
 
   const getLayouts = async () => {
     const data = await getDocs(layoutsCollectionRef);
-    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    const parsedData = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
     setLayouts(parsedData);
   };
 
   const getPersonas = async () => {
     const data = await getDocs(personasCollectionRef);
-    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    const parsedData = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
     setPersonas(parsedData);
   };
 
@@ -59,6 +59,6 @@ export const useData = () => {
     ideas,
     personas,
     layouts,
-    getData,
+    getData
   };
 };

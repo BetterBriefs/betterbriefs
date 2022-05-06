@@ -15,7 +15,7 @@ export const FavoritesEntry = ({ entry, onRemove }) => {
   }
   const navToBrief = useCallback(() => navigate(`/${entry.seed}`), [
     entry,
-    navigate,
+    navigate
   ]);
 
   return (
@@ -44,7 +44,12 @@ export const FavoritesEntry = ({ entry, onRemove }) => {
         <div className="description">
           <h3>Description</h3>
           <p className="favorites__short-description">{entry.description}</p>
-          <p className="seed">ID: {entry.seed} <span onClick={() => copyToClipboard(entry.seed)}><ContentCopyIcon /></span></p>
+          <p className="seed">
+            ID: {entry.seed}{" "}
+            <span onClick={() => copyToClipboard(window.location.origin + "/" + entry.seed)}>
+              <ContentCopyIcon />
+            </span>
+          </p>
         </div>
       </div>
     </Card>

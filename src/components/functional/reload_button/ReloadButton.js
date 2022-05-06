@@ -8,7 +8,6 @@ function ReloadButton({ hoverText, onClick }) {
     <Tooltip
       title={<p>{hoverText}</p>}
       placement="left"
-      arrow
       TransitionComponent={Fade}
     >
       <ReloadIcon
@@ -17,8 +16,8 @@ function ReloadButton({ hoverText, onClick }) {
         sx={{
           color: "#1f7a83",
           "&:hover": {
-            cursor: "pointer",
-          },
+            cursor: "pointer"
+          }
         }}
       />
     </Tooltip>

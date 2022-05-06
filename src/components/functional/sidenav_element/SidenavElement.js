@@ -8,7 +8,6 @@ export const SidenavElement = ({ hoverText, handleClickOpen, children }) => {
     <Tooltip
       title={<p>{hoverText}</p>}
       placement="left"
-      arrow
       TransitionComponent={Fade}
       sx={{ backgroundColor: "#ffffff" }}
     >

@@ -19,15 +19,15 @@ export const About = () => {
         </p>
         <p>
           The main part is to get a realistic random generated brief, which is
-          easy to understand. Features like "add to favorites", "print pdf" etc. are also
-          available.
+          easy to understand. Features like "add to favorites", "print pdf" etc.
+          are also available.
         </p>
 
         <h2>The Problem</h2>
         <p>
-          The existing online brief/idea generators like goodbiref.io concentrate
-          soly on short briefs which include a project idea but not a complete
-          concept which is needed to start building a website.
+          The existing online brief/idea generators like goodbiref.io
+          concentrate soly on short briefs which include a project idea but not
+          a complete concept which is needed to start building a website.
         </p>
         <p>
           Programmers who want to practise and improve their skills in

@@ -1,62 +1,72 @@
 .favorite__container {
-    display: grid;
-    grid-template-areas: "title title actions"
-                        "tags . actions"
-                        "colors colors ."
-                        "description description description";
-    gap: 5px;
+  display: grid;
+  grid-template-areas:
+    "title title actions"
+    "tags . actions"
+    "colors colors ."
+    "description description description";
+  gap: 5px;
 }
-.seed span{
-    cursor: pointer;
+.seed span {
+  cursor: pointer;
 }
-.seed span svg:active{
-    transform: translateY(4px);
+.seed span svg:active {
+  transform: translateY(4px);
 }
 .card p.seed {
-    text-align: right;
-    margin-bottom: 0px;
-    font-size: 1rem;
+  text-align: right;
+  margin-bottom: 0px;
+  font-size: 1rem;
 }
 
 .favorites__short-description {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3; /* number of lines to show */
-    -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  -webkit-box-orient: vertical;
 }
 
 .favorite__container .actions * {
-    width: 160px;
+  width: 160px;
 }
 
-.favorite__container .title { grid-area: title; }
-.favorite__container .actions { 
-    grid-area: actions;     
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: self-end; }
-.favorite__container .tags { grid-area: tags; }
-.favorite__container .colors { grid-area: colors; }
-.favorite__container .description { grid-area: description; }
+.favorite__container .title {
+  grid-area: title;
+}
+.favorite__container .actions {
+  grid-area: actions;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: self-end;
+}
+.favorite__container .tags {
+  grid-area: tags;
+}
+.favorite__container .colors {
+  grid-area: colors;
+}
+.favorite__container .description {
+  grid-area: description;
+}
 
 @media screen and (max-width: 920px) {
-    .favorite__container {
-        gap: 10px;
-        grid-template-areas: "title title title"
-                            "tags tags tags"
-                            "actions actions actions"
-                            "colors colors colors"
-                            "description description description";
-    }
-    .favorite__container .actions {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-    .favorite__container .actions button{
-        padding: 10px;
-    }
+  .favorite__container {
+    gap: 10px;
+    grid-template-areas:
+      "title title title"
+      "tags tags tags"
+      "actions actions actions"
+      "colors colors colors"
+      "description description description";
+  }
+  .favorite__container .actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .favorite__container .actions button {
+    padding: 10px;
+  }
 }
-  

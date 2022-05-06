@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Wireframe } from "./Wireframe";
-import logoUrl from "../../logo.svg";
+import logoUrl from "../../../../logo.svg";
 import { cleanup } from "@testing-library/react";
 
 //initial setup before each test
