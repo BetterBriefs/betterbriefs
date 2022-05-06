@@ -6,7 +6,7 @@ export const Privacy = () => {
   return (
     <section className="main-container">
       <Card>
-        <h1>Privacy Policy for BetterBriefs</h1>
+        <h1>Privacy Policy</h1>
         <p>
           At BetterBriefs, accessible from https://BetterBriefs.dev/, one of our
           main priorities is the privacy of our visitors. This Privacy Policy

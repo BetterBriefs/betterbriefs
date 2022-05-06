@@ -27,10 +27,10 @@ export const ShareableLink = () => {
       <Overlay
         handleOpen={open}
         handleClose={handleClose}
-        buttonText="Copy it!"
+        buttonText="Copy Link!"
         buttonFunction={copyURL}
       >
-        <p>Copy the following link: {window.location.href}</p>
+        <p>Copy link to your clipboard</p>
       </Overlay>
     </>
   );
