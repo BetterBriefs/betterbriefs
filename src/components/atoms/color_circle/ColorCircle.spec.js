@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { ColorCircle } from "./ColorCircle";
-import { cleanup } from "@testing-library/react";
+import { cleanup, fireEvent } from "@testing-library/react";
 
 //initial setup before each test
 let container;
@@ -23,4 +23,10 @@ describe("Color Circle", () => {
         ReactDOM.render(<ColorCircle color={color}></ColorCircle>, container);
         expect(container.querySelectorAll(".circle")).toHaveProperty("length", 1);
       });
+    it("When component color circle is implemented, given color is rendered.", () => {
+        //Act
+        ReactDOM.render(<ColorCircle color={color}></ColorCircle>, container);
+        expect(container.querySelector(".circle")).toHaveStyle(`background-color: #${color}`);
+        //expect(container.querySelectorAll(".circle")).toHaveProperty("length", 1);
+    });
 });
