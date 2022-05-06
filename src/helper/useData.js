@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../firebase-config";
 export const useData = () => {
   // database
@@ -15,9 +15,18 @@ export const useData = () => {
   const [personas, setPersonas] = useState([]);
   const [layouts, setLayouts] = useState([]);
 
+  const getIdeas = async () => {
+    //const data = await getDocs(query(collection(db, "ideas"), where("difficulty", "==", "easy")));
+    const data = await getDocs(ideasCollectionRef);
+    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    setIdeas(parsedData);
+  };
+  
   const getColors = async () => {
+    //const data = await getDocs(db, "colors", 1);
     const data = await getDocs(colorsCollectionRef);
     const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    console.log(parsedData);
     setColors(parsedData);
   };
 
@@ -25,12 +34,6 @@ export const useData = () => {
     const data = await getDocs(fontsCollectionRef);
     const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
     setFonts(parsedData);
-  };
-
-  const getIdeas = async () => {
-    const data = await getDocs(ideasCollectionRef);
-    const parsedData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-    setIdeas(parsedData);
   };
 
   const getLayouts = async () => {
