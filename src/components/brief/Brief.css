@@ -35,7 +35,7 @@
 }
 
 .sidenav svg {
-  color: var(--dark-cyan)
+  color: var(--dark-cyan);
 }
 
 .hidden-page-link {
