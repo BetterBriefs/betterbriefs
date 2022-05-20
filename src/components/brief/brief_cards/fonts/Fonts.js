@@ -9,8 +9,8 @@ export const Fonts = ({ fonts, fontsLength }) => {
   const navigate = useNavigate();
 
   const getRandomFontPair = useCallback(() => {
-    let randomFontIndex = Math.floor(Math.random() * fontsLength) + 1;
-    let newSeed = seed.replace(/f.*i/, "f" + randomFontIndex + "i");
+    const randomFontIndex = Math.floor(Math.random() * fontsLength) + 1;
+    const newSeed = seed.replace(/f.*i/, "f" + randomFontIndex + "i");
     navigate(`/${newSeed}`);
   }, [navigate, fontsLength, seed]);
 

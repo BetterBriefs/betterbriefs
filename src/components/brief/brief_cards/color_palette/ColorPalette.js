@@ -10,8 +10,8 @@ export const ColorPalette = ({ colors, colorsLength }) => {
   let { seed } = useParams();
 
   const getRandomColor = useCallback(() => {
-    let randomColorIndex = Math.floor(Math.random() * colorsLength) + 1;
-    let newSeed = seed.replace(/c.*f/, "c" + randomColorIndex + "f");
+    const randomColorIndex = Math.floor(Math.random() * colorsLength) + 1;
+    const newSeed = seed.replace(/c.*f/, "c" + randomColorIndex + "f");
     navigate(`/${newSeed}`);
   }, [colorsLength, seed, navigate]);
 
