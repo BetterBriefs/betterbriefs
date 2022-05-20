@@ -5,8 +5,8 @@ import { cleanup, queryByText } from "@testing-library/react";
 
 //initial setup before each test
 let container;
-let link = "https://www.google.at";
-let fontFamily = "Calibri";
+const link = "https://www.google.at";
+const fontFamily = "Calibri";
 
 beforeEach(() => {
   container = document.createElement("div");

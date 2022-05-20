@@ -5,7 +5,7 @@ import { cleanup, queryByText } from "@testing-library/react";
 
 //initial setup before each test
 let container;
-let idea = {
+const idea = {
   type: "Portfolio",
   difficulty: "easy",
   title: "title of idea",

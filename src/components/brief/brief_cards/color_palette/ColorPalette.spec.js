@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 //initial setup before each test
 let container;
-let color = {
+const color = {
   color1: "ffffff",
   color2: "ffffff",
   color3: "ffffff",

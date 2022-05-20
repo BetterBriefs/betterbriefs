@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Favorites from "./Favorites";
-import { cleanup, fireEvent, queryByText } from "@testing-library/react";
+import { cleanup, queryByText } from "@testing-library/react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 //initial setup before each test
 let container;
-let favorites = [
+const favorites = [
   {
     description:
       "Please create a website that mainly shows an overview of my recent photo shoots. I am focusing on landscape photography. The goal is to impress people with my work and get more requests for photo shoots. It is important that there is also an 'About me' section.",

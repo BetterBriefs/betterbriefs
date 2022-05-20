@@ -5,8 +5,8 @@ import { cleanup, queryByText } from "@testing-library/react";
 
 //initial setup before each test
 let container;
-let difficulty = "normal";
-let type = "shop";
+const difficulty = "normal";
+const type = "shop";
 
 beforeEach(() => {
   container = document.createElement("div");

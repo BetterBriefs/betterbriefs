@@ -5,7 +5,7 @@ import { cleanup, fireEvent } from "@testing-library/react";
 
 //initial setup before each test
 let container;
-let color = "ffffff";
+const color = "ffffff";
 
 beforeEach(() => {
   container = document.createElement("div");
