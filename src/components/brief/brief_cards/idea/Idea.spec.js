@@ -5,13 +5,13 @@ import { cleanup, queryByText } from "@testing-library/react";
 
 //initial setup before each test
 let container;
-let idea = {};
-idea.type = "Portfolio";
-idea.difficulty = "easy";
-idea.title = "title of idea";
-idea.description =
-  "Lorem Ipsum Generator. Generate Lorem Ipsum placeholder text. Select the number of characters, words, sentences or paragraphs, and hit generate! Generated Lorem Ipsum.";
-
+let idea = {
+  type: "Portfolio",
+  difficulty: "easy",
+  title: "title of idea",
+  description:
+  "Lorem Ipsum Generator. Generate Lorem Ipsum placeholder text. Select the number of characters, words, sentences or paragraphs, and hit generate! Generated Lorem Ipsum."
+};
 beforeEach(() => {
   container = document.createElement("div");
   document.body.appendChild(container);
