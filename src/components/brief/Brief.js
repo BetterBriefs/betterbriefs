@@ -34,7 +34,7 @@ export const Brief = ({
         brief.font.paragraph_font.lastIndexOf("/") + 1
       );
   }
-  let pageurl = window.location.href;
+  const pageurl = window.location.href;
 
   return (
     <div

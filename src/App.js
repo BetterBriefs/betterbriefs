@@ -9,7 +9,7 @@ import Footer from "./components/footer/Footer";
 import Favorites from "./components/favorites/Favorites";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "./Theme";
-import { useData } from "./helper/useData";
+import { useData } from "./helper/briefData";
 import "./App.css";
 
 function App({ useDataHook = useData }) {
