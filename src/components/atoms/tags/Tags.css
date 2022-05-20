@@ -1,0 +1,8 @@
+.MuiChip-root{
+    text-transform: capitalize;
+}
+
+.tags{
+    display: flex;
+    gap: 15px;
+}

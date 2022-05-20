@@ -34,6 +34,10 @@
   gap: 1em;
 }
 
+.sidenav svg {
+  color: var(--dark-cyan)
+}
+
 .hidden-page-link {
   display: none;
 }
