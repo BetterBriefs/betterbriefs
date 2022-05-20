@@ -6,7 +6,7 @@ import { cleanup, queryByText } from "@testing-library/react";
 
 //initial setup before each test
 let container;
-let fonts = {};
+const fonts = {};
 fonts.title_link = "www.exampletitlefont.com";
 fonts.title_font = "title_font";
 fonts.paragraph_link = "www.exampleparagraphfont.com";

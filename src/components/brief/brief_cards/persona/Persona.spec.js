@@ -5,14 +5,14 @@ import { cleanup, queryByText } from "@testing-library/react";
 
 //initial setup before each test
 let container;
-let person = {};
+const person = {};
 person.name = "Helen Harveys";
 person.sex = true;
 person.age = 53;
 person.about =
   "Helen is one of the craziest persons in her friendzone. Since she's been 16, every year she visits at least three heavy metal festivals. She travels around the world to watch all her favourite musicians at concerts. When she's at home, she spends her time on gardening and listening to loud music.";
 
-let personAvatarUrl = "";
+const personAvatarUrl = "";
 
 beforeEach(() => {
   container = document.createElement("div");
