@@ -22,7 +22,7 @@ export const ShareableLink = () => {
   return (
     <>
       <SidenavElement hoverText="Share" handleClickOpen={handleClickOpen}>
-        <ShareIcon fontSize="large" sx={{ color: "#1f7a83" }} />
+        <ShareIcon fontSize="large" />
       </SidenavElement>
       <Overlay
         handleOpen={open}

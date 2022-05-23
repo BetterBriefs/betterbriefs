@@ -6,7 +6,7 @@ import "./Favorites.css";
 function Favorites({ favorites, onFavoritesChange }) {
   const removeFavorite = useCallback(
     seed => {
-      let data = favorites.filter(entry => entry.seed !== seed);
+      const data = favorites.filter(entry => entry.seed !== seed);
       localStorage.setItem("brief", JSON.stringify(data));
       onFavoritesChange(data);
     },

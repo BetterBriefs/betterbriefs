@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Brief } from "./Brief";
+import { getBrief } from "../../helper/briefData";
 
 function BriefData({
   colors,
@@ -51,11 +52,11 @@ function BriefData({
   // if yes set states to generated brief from url
   useEffect(() => {
     if (seed) {
-      let colorid = getIdOfParam("c");
-      let fontid = getIdOfParam("f");
-      let ideaid = getIdOfParam("i");
-      let layoutid = getIdOfParam("l");
-      let personaid = getIdOfParam("p");
+      const colorid = getIdOfParam("c");
+      const fontid = getIdOfParam("f");
+      const ideaid = getIdOfParam("i");
+      const layoutid = getIdOfParam("l");
+      const personaid = getIdOfParam("p");
       setBrief({
         color: colors.find(color => color.id === colorid),
         font: fonts.find(font => font.id === fontid.toString()),
@@ -88,45 +89,20 @@ function BriefData({
     }
   }, [brief]);
 
+
+  
   const generateBrief = useCallback(() => {
-    // get length of each dataset to choose a random index that will be used
-    let lengthColors = colors.length;
-    let lengthFonts = fonts.length;
-    let lengthPersonas = personas.length;
-    let lengthIdeas;
-    let lengthLayouts;
-
-    // get random indices for each dataset and set data
-    let randomColorIndex = Math.floor(Math.random() * lengthColors) + 1;
-    let randomFontIndex = Math.floor(Math.random() * lengthFonts) + 1;
-    let randomPersonaIndex = Math.floor(Math.random() * lengthPersonas) + 1;
-    let randomIdeaIndex;
-    let randomLayoutIndex;
-
-    // filter ideas based on selected difficulty
-    let filteredIdeas = ideas.filter(idea => idea.difficulty === difficulty);
-    lengthIdeas = filteredIdeas.length;
-    randomIdeaIndex = Math.floor(Math.random() * lengthIdeas);
-
-    // type of idea and layout must match
-    let idea = filteredIdeas[randomIdeaIndex];
-
-    let filteredLayouts = layouts.filter(layout => layout.type === idea.type);
-    lengthLayouts = filteredLayouts.length;
-    randomLayoutIndex = Math.floor(Math.random() * lengthLayouts);
-
+    const brief = getBrief(colors, fonts, personas, ideas, layouts, difficulty);
     setBrief({
-      color: colors.find(color => color.id === randomColorIndex.toString()),
-      font: fonts.find(font => font.id === randomFontIndex.toString()),
-      persona: personas.find(
-        persona => persona.id === randomPersonaIndex.toString()
-      ),
-      idea: idea,
-      layout: filteredLayouts[randomLayoutIndex]
+      color: brief.color,
+      font: brief.font,
+      persona: brief.persona,
+      idea: brief.idea,
+      layout: brief.layout
     });
 
     navigate(
-      `/c${randomColorIndex}f${randomFontIndex}i${idea.id}l${filteredLayouts[randomLayoutIndex].id}p${randomPersonaIndex}`
+      `/${brief.seed}`
     );
   }, [colors, difficulty, fonts, ideas, layouts, navigate, personas]);
 

@@ -13,7 +13,7 @@ export const Font = ({ fontFamily, fontLink, paragraph = true }) => {
       <div className="fonts__headline">
         <h3>{paragraph ? "Paragraph Font" : "Title Font"}</h3>
         <a href={fontLink} target="_blank" rel="noreferrer">
-          <LinkIcon sx={{ marginTop: "1.5rem" }} />
+          <LinkIcon />
         </a>
       </div>
       <p style={style}>{fontFamily}</p>

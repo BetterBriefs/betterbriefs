@@ -9,7 +9,7 @@ export const PrintBrief = () => {
 
   return (
     <SidenavElement hoverText="Print as PDF" handleClickOpen={printBrief}>
-      <PrintIcon fontSize="large" sx={{ color: "#1f7a83" }} />
+      <PrintIcon fontSize="large"/>
     </SidenavElement>
   );
 };

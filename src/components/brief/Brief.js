@@ -23,18 +23,16 @@ export const Brief = ({
   fontsLength,
   onFavoritesChange
 }) => {
-  let titleFont, paragraphFont;
-  if (briefGenerated) {
-    titleFont =
-      "https://fonts.googleapis.com/css2?family=" +
-      brief.font.title_font.slice(brief.font.title_font.lastIndexOf("/") + 1);
-    paragraphFont =
-      "https://fonts.googleapis.com/css2?family=" +
-      brief.font.paragraph_font.slice(
-        brief.font.paragraph_font.lastIndexOf("/") + 1
-      );
-  }
-  let pageurl = window.location.href;
+
+  const titleFont = briefGenerated 
+  ? "https://fonts.googleapis.com/css2?family=" + brief.font.title_font.slice(brief.font.title_font.lastIndexOf("/") + 1)
+  : undefined;
+
+  const paragraphFont = briefGenerated
+  ? "https://fonts.googleapis.com/css2?family=" + brief.font.paragraph_font.slice(brief.font.paragraph_font.lastIndexOf("/") + 1)
+  : undefined;
+  
+  const pageurl = window.location.href;
 
   return (
     <div

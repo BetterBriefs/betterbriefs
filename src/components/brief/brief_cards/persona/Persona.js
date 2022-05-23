@@ -4,7 +4,7 @@ import "./Persona.css";
 import LazyImage from "../../../functional/image/Image";
 
 export const Persona = ({ persona }) => {
-  let personaSex = persona.sex ? "female" : "male";
+  const personaSex = persona.sex ? "female" : "male";
 
   return (
     <Card>

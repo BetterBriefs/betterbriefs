@@ -11,3 +11,12 @@
   flex-direction: row;
   justify-content: space-between;
 }
+
+.reload__button svg{
+  font-size: 2.5em;
+  color: var(--dark-cyan)
+}
+
+.reload__button svg:hover{
+  cursor: pointer;
+}
