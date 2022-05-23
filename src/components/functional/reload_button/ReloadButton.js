@@ -10,16 +10,7 @@ function ReloadButton({ hoverText, onClick }) {
       placement="left"
       TransitionComponent={Fade}
     >
-      <ReloadIcon
-        onClick={onClick}
-        fontSize="large"
-        sx={{
-          color: "#1f7a83",
-          "&:hover": {
-            cursor: "pointer"
-          }
-        }}
-      />
+      <ReloadIcon onClick={onClick}/>
     </Tooltip>
   );
 }
