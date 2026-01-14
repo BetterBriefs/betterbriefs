@@ -8,6 +8,7 @@ import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import "./FavoritesEntry.css";
 
 export const FavoritesEntry = ({ entry, onRemove }) => {
+
   const navigate = useNavigate();
 
   function copyToClipboard(text) {
@@ -35,11 +36,11 @@ export const FavoritesEntry = ({ entry, onRemove }) => {
         </div>
 
         <div className="colors color-line">
-          <ColorCircle color={entry.color1} showCode={false} />
-          <ColorCircle color={entry.color2} showCode={false} />
-          <ColorCircle color={entry.color3} showCode={false} />
-          <ColorCircle color={entry.color4} showCode={false} />
-          <ColorCircle color={entry.color5} showCode={false} />
+          <ColorCircle color={entry.color1} />
+          <ColorCircle color={entry.color2} />
+          <ColorCircle color={entry.color3} />
+          <ColorCircle color={entry.color4} />
+          <ColorCircle color={entry.color5} />
         </div>
         <div className="description">
           <h3>Description</h3>

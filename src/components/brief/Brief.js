@@ -24,13 +24,8 @@ export const Brief = ({
   onFavoritesChange
 }) => {
 
-  const titleFont = briefGenerated 
-  ? "https://fonts.googleapis.com/css2?family=" + brief.font.title_font.slice(brief.font.title_font.lastIndexOf("/") + 1)
-  : undefined;
-
-  const paragraphFont = briefGenerated
-  ? "https://fonts.googleapis.com/css2?family=" + brief.font.paragraph_font.slice(brief.font.paragraph_font.lastIndexOf("/") + 1)
-  : undefined;
+  const titleFont = briefGenerated ? brief.font.title_link : undefined;
+  const paragraphFont = briefGenerated ? brief.font.paragraph_link : undefined;
   
   const pageurl = window.location.href;
 

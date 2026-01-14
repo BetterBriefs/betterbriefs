@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../firebase-config";
+import {
+  mockColors,
+  mockFonts,
+  mockIdeas,
+  mockLayouts,
+  mockPersonas,
+} from "../mockData";
+
 export const useData = () => {
-  // database
-  const colorsCollectionRef = collection(db, "colors");
-  const fontsCollectionRef = collection(db, "fonts");
-  const ideasCollectionRef = collection(db, "ideas");
-  const layoutsCollectionRef = collection(db, "layouts");
-  const personasCollectionRef = collection(db, "personas");
   // all data for brief creation
   const [colors, setColors] = useState([]);
   const [fonts, setFonts] = useState([]);
@@ -16,33 +16,23 @@ export const useData = () => {
   const [layouts, setLayouts] = useState([]);
 
   const getColors = async () => {
-    const data = await getDocs(colorsCollectionRef);
-    const parsedData = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
-    setColors(parsedData);
+    setColors(mockColors);
   };
 
   const getFonts = async () => {
-    const data = await getDocs(fontsCollectionRef);
-    const parsedData = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
-    setFonts(parsedData);
+    setFonts(mockFonts);
   };
 
   const getIdeas = async () => {
-    const data = await getDocs(ideasCollectionRef);
-    const parsedData = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
-    setIdeas(parsedData);
+    setIdeas(mockIdeas);
   };
 
   const getLayouts = async () => {
-    const data = await getDocs(layoutsCollectionRef);
-    const parsedData = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
-    setLayouts(parsedData);
+    setLayouts(mockLayouts);
   };
 
   const getPersonas = async () => {
-    const data = await getDocs(personasCollectionRef);
-    const parsedData = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
-    setPersonas(parsedData);
+    setPersonas(mockPersonas);
   };
 
   const getData = () => {
@@ -59,14 +49,20 @@ export const useData = () => {
     ideas,
     personas,
     layouts,
-    getData
+    getData,
   };
 };
 
-export function getBrief(colors, fonts, personas, ideas, layouts, difficulty){
+export function getBrief(colors, fonts, personas, ideas, layouts, difficulty) {
   let lengthColors = colors.length;
   let lengthFonts = fonts.length;
   let lengthPersonas = personas.length;
+
+  // Validate we have data
+  if (lengthColors === 0 || lengthFonts === 0 || lengthPersonas === 0) {
+    console.error("Missing required data: colors, fonts, or personas");
+    return null;
+  }
 
   // get random indices for each dataset and set data
   let randomColorIndex = Math.floor(Math.random() * lengthColors) + 1;
@@ -74,26 +70,37 @@ export function getBrief(colors, fonts, personas, ideas, layouts, difficulty){
   let randomPersonaIndex = Math.floor(Math.random() * lengthPersonas) + 1;
 
   // filter ideas based on selected difficulty
-  let filteredIdeas = ideas.filter(idea => idea.difficulty === difficulty);
+  let filteredIdeas = ideas.filter((idea) => idea.difficulty === difficulty);
   let lengthIdeas = filteredIdeas.length;
-  let randomIdeaIndex = Math.floor(Math.random() * lengthIdeas);
 
-  // type of idea and layout must match
+  if (lengthIdeas === 0) {
+    console.error(`No ideas found for difficulty: ${difficulty}`);
+    return null;
+  }
+
+  let randomIdeaIndex = Math.floor(Math.random() * lengthIdeas);
   let idea = filteredIdeas[randomIdeaIndex];
 
-  let filteredLayouts = layouts.filter(layout => layout.type === idea.type);
+  // type of idea and layout must match
+  let filteredLayouts = layouts.filter((layout) => layout.type === idea.type);
   let lengthLayouts = filteredLayouts.length;
+
+  if (lengthLayouts === 0) {
+    console.error(`No layouts found for type: ${idea.type}`);
+    return null;
+  }
+
   let randomLayoutIndex = Math.floor(Math.random() * lengthLayouts);
 
   const brief = {
-    color: colors.find(color => color.id === randomColorIndex.toString()),
-    font: fonts.find(font => font.id === randomFontIndex.toString()),
+    color: colors.find((color) => color.id === randomColorIndex.toString()),
+    font: fonts.find((font) => font.id === randomFontIndex.toString()),
     persona: personas.find(
-      persona => persona.id === randomPersonaIndex.toString()
+      (persona) => persona.id === randomPersonaIndex.toString()
     ),
     idea: idea,
     layout: filteredLayouts[randomLayoutIndex],
-    seed: `c${randomColorIndex}f${randomFontIndex}i${idea.id}l${filteredLayouts[randomLayoutIndex].id}p${randomPersonaIndex}`
-  }
+    seed: `c${randomColorIndex}f${randomFontIndex}i${idea.id}l${filteredLayouts[randomLayoutIndex].id}p${randomPersonaIndex}`,
+  };
   return brief;
 }

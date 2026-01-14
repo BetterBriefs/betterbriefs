@@ -74,7 +74,7 @@ function BriefData({
       });
       setBriefGenerated(false);
     }
-  }, [colors, fonts, ideas, layouts, personas, seed, brief, getIdOfParam]);
+  }, [colors, fonts, ideas, layouts, personas, seed, getIdOfParam]);
 
   // if brief states are available, set BriefGenerated to true, so brief will be rendered
   useEffect(() => {
@@ -93,6 +93,13 @@ function BriefData({
   
   const generateBrief = useCallback(() => {
     const brief = getBrief(colors, fonts, personas, ideas, layouts, difficulty);
+    
+    if (!brief) {
+      console.error("Failed to generate brief");
+      alert("Unable to generate a brief. Please ensure all data is loaded.");
+      return;
+    }
+
     setBrief({
       color: brief.color,
       font: brief.font,
